@@ -220,7 +220,7 @@
                     </div>
                     <div class="form-group">
                         <label for="PB01AQ03">PB01AQ03 (户籍地地址)</label>
-                        <input type="text" id="PBO1AQ03">
+                        <input type="text" id="PB01AQ03">
                     </div>
                 </details>
                 <details id="pb01b">
@@ -229,18 +229,20 @@
                         <label for="PB01BS01">PB01BS01 (手机号码个数)</label>
                         <input type="text" id="PB01BS01">
                     </div>
-                    <div class="form-group">
-                        <label for="PB01BH">PB01BH (手机号码信息)</label>
-                        <input type="text" id="PB01BH">
-                    </div>
-                    <div class="form-group">
-                        <label for="PB01BQ01">PB01BQ01 (手机号码)</label>
-                        <input type="text" id="PB01BQ01">
-                    </div>
-                    <div class="form-group">
-                        <label for="PB01BR01">PB01BR01 (信息更新日期)</label>
-                        <input type="text" id="PB01BR01">
-                    </div>
+                    <details id="pb01bh" class="pb01bh">
+                        <summary>PB01BH (手机号码信息)
+                            <button onclick="getParentIdcopy(this)">+</button>
+                            <button onclick="getParentIddel(this)">-</button>
+                        </summary>
+                        <div class="form-group">
+                            <label for="PB01BQ01">PB01BQ01 (手机号码)</label>
+                            <input type="text" id="PB01BQ01">
+                        </div>
+                        <div class="form-group">
+                            <label for="PB01BR01">PB01BR01 (信息更新日期)</label>
+                            <input type="text" id="PB01BR01">
+                        </div>
+                    </details>
                 </details>
             </details>
         </details>
@@ -494,8 +496,8 @@
                 <details id="pc02e">
                     <summary>PC02E (非循环贷账户汇总信息段)</summary>
                     <div class="form-group">
-                        <label for="PC02ESO1">PC02ESO1 (管理机构数)</label>
-                        <input type="text" id="PC02ESO1">
+                        <label for="PC02ES01">PC02ES01 (管理机构数)</label>
+                        <input type="text" id="PC02ES01">
                     </div>
                     <div class="form-group">
                         <label for="PC02ES02">PC02ES02 (账户数)</label>
@@ -517,8 +519,8 @@
                 <details id="pc02f">
                     <summary>PC02F (循环额度下分账户汇总信息段)</summary>
                     <div class="form-group">
-                        <label for="PC02FSO1">PC02FSO1 (管理机构数)</label>
-                        <input type="text" id="PC02FSO1">
+                        <label for="PC02FS01">PC02FS01 (管理机构数)</label>
+                        <input type="text" id="PC02FS01">
                     </div>
                     <div class="form-group">
                         <label for="PC02FS02">PC02FS02 (账户数)</label>
@@ -575,8 +577,8 @@
                         <input type="text" id="PC02HJ01">
                     </div>
                     <div class="form-group">
-                        <label for="PC02HJO2">PC02HJO2 (单家行最高授信额 )</label>
-                        <input type="text" id="PC02HJO2">
+                        <label for="PC02HJ02">PC02HJ02 (单家行最高授信额 )</label>
+                        <input type="text" id="PC02HJ02">
                     </div>
                     <div class="form-group">
                         <label for="PC02HJ03">PC02HJ03 (单家行最低授信额)</label>
@@ -598,8 +600,8 @@
                         <input type="text" id="PC02IS01">
                     </div>
                     <div class="form-group">
-                        <label for="PC02ISO2">PC02ISO2 (账户数)</label>
-                        <input type="text" id="PC02ISO2">
+                        <label for="PC02IS02">PC02IS02 (账户数)</label>
+                        <input type="text" id="PC02IS02">
                     </div>
                     <div class="form-group">
                         <label for="PC02IJ01">PC02IJ01 (授信总额)</label>
@@ -1252,8 +1254,8 @@
                         <div class="form-group"> <label for="PD02ZD01">PD02ZD01(标注及声明类型)</label>
                             <input type="text" id="PD02ZD01">
                         </div>
-                        <div class="form-group"> <label for="PD0ZQ01">PD0ZQ01(标注或声明内容)</label>
-                            <input type="text" id="PD0ZQ01">
+                        <div class="form-group"> <label for="PD02ZQ01">PD02ZQ01(标注或声明内容)</label>
+                            <input type="text" id="PD02ZQ01">
                         </div>
                         <div class="form-group"> <label for="PD02ZR01">PD02ZR01(添加日期)</label>
                             <input type="text" id="PD02ZR01">
@@ -1988,59 +1990,1127 @@
         var PA01BD02 = document.getElementById('PA01BD02').value;
         var PA01CS01 = document.getElementById('PA01CS01').value;
         var PA01CH = document.getElementById('PA01CH').value;
-
         var xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
         xml += '<Document>\n';
         xml += '<PRH>\n';
-        xml += '<REP_IDE>\n';
-        xml += '  <REPORT_NO>' + PA01AI01 + '</REPORT_NO>\n';
-        xml += '  <REPORT_TIME_GROP>' + PA01AR01 + '</REPORT_TIME_GROP>\n';
-        xml += '</REP_IDE>\n';
-        xml += '<THT_INQ_REQ>\n';
-        xml += '  <BE_INQUIRE_PERSON_NM>' + PA01BQ01 + '</BE_INQUIRE_PERSON_NM>\n';
-        xml += '  <BE_INQ_PER_CER_TYP_ENCD>' + PA01BD01 + '</BE_INQ_PER_CER_TYP_ENCD>\n';
-        xml += '  <BE_INQUIRE_PERSON_CERTFCT_NO>' + PA01BI01 + '</BE_INQUIRE_PERSON_CERTFCT_NO>\n';
-        xml += '  <INQUIRE_INSTITUTION_CD>' + PA01BI02 + '</INQUIRE_INSTITUTION_CD>\n';
-        xml += '  <INQUIRE_REASON_CD>' + PA01BD02 + '</INQUIRE_REASON_CD>\n';
-        xml += '</THT_INQ_REQ>\n';
-        xml += '<OTR_IDE_MAIN>\n';
-        xml += '  <IDENTITY_LABEL_NUM>' + PA01CS01 + '</IDENTITY_LABEL_NUM>\n';
-        xml += '  <OTR_IDE_ATT>' + PA01CH + '</OTR_IDE_ATT>\n';
-        xml += '  <CERTIFICATE_TYPE_ENCD>' + PA01CD01 + '</CERTIFICATE_TYPE_ENCD>\n';
-        xml += '  <CERTFCT_NO>' + PA01CI01 + '</CERTFCT_NO>\n';
-        xml += '</OTR_IDE_MAIN>\n';
-        xml += '<PRE_FAKE_WARM>\n';
-        xml += '  <PRE_CHE_CAU_WAR_FLA_CD>' + PA01DQ01 + '</PRE_CHE_CAU_WAR_FLA_CD>\n';
-        xml += '  <PRE_CHE_CAU_TEL_INFO>' + PA01DQ02 + '</PRE_CHE_CAU_TEL_INFO>\n';
-        xml += '  <PRE_CHE_CAU_TAK_EFF_DDA_GROP>' + PA01DR01 + '</PRE_CHE_CAU_TAK_EFF_DDA_GROP>\n';
-        xml += '  <PRE_CHE_CAU_CUT_OFF_DDA_GROP>' + PA01DR02 + '</PRE_CHE_CAU_CUT_OFF_DDA_GROP>\n';
-        xml += '</PRE_FAKE_WARM>\n';
-        xml += '<DISS_PMT>\n';
-        xml += '  <DISSENT_LABEL_NUM>' + PA01ES01 + '</DISSENT_LABEL_NUM>\n';
-        xml += '</DISS_PMT>\n';
+        xml += '  <REP_IDE>\n';
+        xml += '    <REPORT_NO>' + PA01AI01 + '</REPORT_NO>\n';
+        xml += '    <REPORT_TIME_GROP>' + PA01AR01 + '</REPORT_TIME_GROP>\n';
+        xml += '  </REP_IDE>\n';
+        xml += '  <THT_INQ_REQ>\n';
+        xml += '    <BE_INQUIRE_PERSON_NM>' + PA01BQ01 + '</BE_INQUIRE_PERSON_NM>\n';
+        xml += '    <BE_INQ_PER_CER_TYP_ENCD>' + PA01BD01 + '</BE_INQ_PER_CER_TYP_ENCD>\n';
+        xml += '    <BE_INQUIRE_PERSON_CERTFCT_NO>' + PA01BI01 + '</BE_INQUIRE_PERSON_CERTFCT_NO>\n';
+        xml += '    <INQUIRE_INSTITUTION_CD>' + PA01BI02 + '</INQUIRE_INSTITUTION_CD>\n';
+        xml += '    <INQUIRE_REASON_CD>' + PA01BD02 + '</INQUIRE_REASON_CD>\n';
+        xml += '  </THT_INQ_REQ>\n';
+        xml += '  <OTR_IDE_MAIN>\n';
+        xml += '    <IDENTITY_LABEL_NUM>' + PA01CS01 + '</IDENTITY_LABEL_NUM>\n';
+        xml += '    <OTR_IDE_ATT>' + PA01CH + '</OTR_IDE_ATT>\n';
+        xml += '    <CERTIFICATE_TYPE_ENCD>' + PA01CD01 + '</CERTIFICATE_TYPE_ENCD>\n';
+        xml += '    <CERTFCT_NO>' + PA01CI01 + '</CERTFCT_NO>\n';
+        xml += '  </OTR_IDE_MAIN>\n';
+        xml += '  <PRE_FAKE_WARM>\n';
+        xml += '    <PRE_CHE_CAU_WAR_FLA_CD>' + PA01DQ01 + '</PRE_CHE_CAU_WAR_FLA_CD>\n';
+        xml += '    <PRE_CHE_CAU_TEL_INFO>' + PA01DQ02 + '</PRE_CHE_CAU_TEL_INFO>\n';
+        xml += '    <PRE_CHE_CAU_TAK_EFF_DDA_GROP>' + PA01DR01 + '</PRE_CHE_CAU_TAK_EFF_DDA_GROP>\n';
+        xml += '    <PRE_CHE_CAU_CUT_OFF_DDA_GROP>' + PA01DR02 + '</PRE_CHE_CAU_CUT_OFF_DDA_GROP>\n';
+        xml += '  </PRE_FAKE_WARM>\n';
+        xml += '  <DISS_PMT>\n';
+        xml += '    <DISSENT_LABEL_NUM>' + PA01ES01 + '</DISSENT_LABEL_NUM>\n';
+        xml += '  </DISS_PMT>\n';
         xml += '</PRH>\n';
 
-        const detailsElements = document.getElementsByClassName('pdo1d');
-        for (var i = 0; i < detailsElements.length; i++) {
-            var bookAuthor3 = detailsElements[i].querySelector('#bookPublisher3').value;
-            var bookPublisher3 = detailsElements[i].querySelector('#bookPublisher3').value;
-            xml += '<pdo1d>\n';
-            xml += '<bookAuthor3>' + bookAuthor3 + '</bookAuthor3>\n';
-            xml += '<bookPublisher3>' + bookPublisher3 + '</bookPublisher3>\n';
-            const detailsElement = detailsElements[i].querySelectorAll('details');
-            for (var k = 0; k < detailsElement.length; k++) {
-                var bookAuthor4 = detailsElement[k].querySelector('#bookPublisher4').value;
-                var bookPublisher4 = detailsElement[k].querySelector('#bookPublisher4').value;
-                xml += '<pdo1df>\n';
-                xml += '<bookAuthor4>' + bookAuthor4 + '</bookAuthor4>\n';
-                xml += '<bookPublisher4>' + bookPublisher4 + '</bookPublisher4>\n';
-                xml += '</pdo1df>\n';
+        var PB01AD01 = document.getElementById('PB01AD01').value;
+        var PB01AR01 = document.getElementById('PB01AR01').value;
+        var PB01AD02 = document.getElementById('PB01AD02').value;
+        var PB01AD03 = document.getElementById('PB01AD03').value;
+        var PB01AD04 = document.getElementById('PB01AD04').value;
+        var PB01AQ01 = document.getElementById('PB01AQ01').value;
+        var PB01AQ02 = document.getElementById('PB01AQ02').value;
+        var PB01AD05 = document.getElementById('PB01AD05').value;
+        var PB01AQ03 = document.getElementById('PB01AQ03').value;
+        var PB01BS01 = document.getElementById('PB01BS01').value;
+        xml += '<PIM>\n';
+        xml += '  <PB01>\n';
+        xml += '    <BAS_SRY>\n';
+        xml += '      <GENDER_ENCD>' + PB01AD01 + '</GENDER_ENCD>\n';
+        xml += '      <BORN_DDATE_GROP>' + PB01AR01 + '</BORN_DDATE_GROP>\n';
+        xml += '      <ACADEMIC_DEGREE_ENCD>' + PB01AD02 + '</ACADEMIC_DEGREE_ENCD>\n';
+        xml += '      <SCHOLAR_ENCD>' + PB01AD03 + '</SCHOLAR_ENCD>\n';
+        xml += '      <GET_A_JOB_SITUATION_INSTRUCTNS>' + PB01AD04 + '</GET_A_JOB_SITUATION_INSTRUCTNS>\n';
+        xml += '      <ELECTRONIC_EMAIL_ADDR>' + PB01AQ01 + '</ELECTRONIC_EMAIL_ADDR>\n';
+        xml += '      <COMMUNICATION_ADDR>' + PB01AQ02 + '</COMMUNICATION_ADDR>\n';
+        xml += '      <NATIONALITY_ENCD>' + PB01AD05 + '</NATIONALITY_ENCD>\n';
+        xml += '      <HOUSEHOLD_REGISTER_ADDR>' + PB01AQ03 + '</HOUSEHOLD_REGISTER_ADDR>\n';
+        xml += '    </BAS_SRY>\n';
+        xml += '    <TEL_NO_MAIN>\n';
+        xml += '      <MOBILE_PHONE_NO_NUM>' + PB01BS01 + '</MOBILE_PHONE_NO_NUM>\n';
+        const pb01bh = document.getElementsByClassName('pb01bh');
+        for (var i = 0; i < pb01bh.length; i++) {
+            var PB01BQ01 = pb01bh[i].querySelector('#PB01BQ01').value;
+            var PB01BR01 = pb01bh[i].querySelector('#PB01BR01').value;
+            xml += '      <TEL_NO_ATT>\n';
+            xml += '        <MOBILE_PHONE_NO>' + PB01BQ01 + '</MOBILE_PHONE_NO>\n';
+            xml += '        <INFO_UPDATE_DDATE_GROP>' + PB01BR01 + '</INFO_UPDATE_DDATE_GROP>\n';
+            xml += '      </TEL_NO_ATT>\n';
+        }
+        xml += '    </TEL_NO_MAIN>\n';
+        xml += '  </PB01>\n';
+        xml += '</PIM>\n';
+
+        var PB020D01 = document.getElementById('PB020D01').value;
+        var PB020Q01 = document.getElementById('PB020Q01').value;
+        var PB020D02 = document.getElementById('PB020D02').value;
+        var PB020I01 = document.getElementById('PB020I01').value;
+        var PB020Q02 = document.getElementById('PB020Q02').value;
+        var PB020Q03 = document.getElementById('PB020Q03').value;
+        xml += '<PMM>\n';
+        xml += '  <MARRIAGE>\n';
+        xml += '    <WEDDING_SITUATION_INSTRUCTNS>' + PB020D01 + '</WEDDING_SITUATION_INSTRUCTNS>\n';
+        xml += '    <SPOUSE_NM>' + PB020Q01 + '</SPOUSE_NM>\n';
+        xml += '    <SPOUSE_CERTIFICATE_TYPE_NO>' + PB020D02 + '</SPOUSE_CERTIFICATE_TYPE_NO>\n';
+        xml += '    <SPOUSE_CERTIFICATE_NO>' + PB020I01 + '</SPOUSE_CERTIFICATE_NO>\n';
+        xml += '    <SPOUSE_WORK_UNIT_NM>' + PB020Q02 + '</SPOUSE_WORK_UNIT_NM>\n';
+        xml += '    <SPOUSE_CONTACT_TELEPHONE_DESCR>' + PB020Q03 + '</SPOUSE_CONTACT_TELEPHONE_DESCR>\n';
+        xml += '  </MARRIAGE>\n';
+        xml += '</PMM>\n';
+
+        var PB030D01 = document.getElementById('PB030D01').value;
+        var PB030Q01 = document.getElementById('PB030Q01').value;
+        var PB030Q02 = document.getElementById('PB030Q02').value;
+        var PB030R01 = document.getElementById('PB030R01').value;
+        xml += '<PRM>\n';
+        xml += '  <LIVE>\n';
+        xml += '    <LIVE_SITUATION_INSTRUCTNS>' + PB030D01 + '</LIVE_SITUATION_INSTRUCTNS>\n';
+        xml += '    <LIVE_ADDR>' + PB030Q01 + '</LIVE_ADDR>\n';
+        xml += '    <FAMILY_TELEPHONE_DESCR>' + PB030Q02 + '</FAMILY_TELEPHONE_DESCR>\n';
+        xml += '    <INFO_UPDATE_DDATE_GROP>' + PB030R01 + '</INFO_UPDATE_DDATE_GROP>\n';
+        xml += '  </LIVE>\n';
+        xml += '</PRM>\n';
+
+        var PB040D01 = document.getElementById('PB040D01').value;
+        var PB040Q01 = document.getElementById('PB040Q01').value;
+        var PB040D02 = document.getElementById('PB040D02').value;
+        var PB040D03 = document.getElementById('PB040D03').value;
+        var PB040Q02 = document.getElementById('PB040Q02').value;
+        var PB040Q03 = document.getElementById('PB040Q03').value;
+        var PB040D04 = document.getElementById('PB040D04').value;
+        var PB040D05 = document.getElementById('PB040D05').value;
+        var PB040D06 = document.getElementById('PB040D06').value;
+        var PB040R01 = document.getElementById('PB040R01').value;
+        var PB040R02 = document.getElementById('PB040R02').value;
+        xml += '<POM>\n';
+        xml += '  <PROFESSION>\n';
+        xml += '    <GET_A_JOB_SITUATION_INSTRUCTNS>' + PB040D01 + '</GET_A_JOB_SITUATION_INSTRUCTNS>\n';
+        xml += '    <WORK_UNIT_NM>' + PB040Q01 + '</WORK_UNIT_NM>\n';
+        xml += '    <UNIT_ATTRIBUTE_DESCR>' + PB040D02 + '</UNIT_ATTRIBUTE_DESCR>\n';
+        xml += '    <INDUSTRY_CD>' + PB040D03 + '</INDUSTRY_CD>\n';
+        xml += '    <UNIT_ADDR>' + PB040Q02 + '</UNIT_ADDR>\n';
+        xml += '    <UNIT_TELEPHONE_INFO>' + PB040Q03 + '</UNIT_TELEPHONE_INFO>\n';
+        xml += '    <CAREER_NM>' + PB040D04 + '</CAREER_NM>\n';
+        xml += '    <POSITION_CD>' + PB040D05 + '</POSITION_CD>\n';
+        xml += '    <PROFESSIONAL_CD>' + PB040D06 + '</PROFESSIONAL_CD>\n';
+        xml += '    <ENTER_UNIT_YEAR_MONTH_GROP>' + PB040R01 + '</ENTER_UNIT_YEAR_MONTH_GROP>\n';
+        xml += '    <INFO_UPDATE_DDATE_GROP>' + PB040R02 + '</INFO_UPDATE_DDATE_GROP>\n';
+        xml += '  </PROFESSION>\n';
+        xml += '</POM>\n';
+
+        var PC010Q01 = document.getElementById('PC010Q01').value;
+        var PC010Q02 = document.getElementById('PC010Q02').value;
+        var PC010S01 = document.getElementById('PC010S01').value;
+        var PC010D01 = document.getElementById('PC010D01').value;
+        var PC010D02 = document.getElementById('PC010D02').value;
+        xml += '<PSM>\n';
+        xml += '  <SCORE>\n';
+        xml += '    <DIGITAL_UNSCRAMBLE_CD>' + PC010Q01 + '</DIGITAL_UNSCRAMBLE_CD>\n';
+        xml += '    <0PPOSITE_LOCTN>' + PC010Q02 + '</0PPOSITE_LOCTN>\n';
+        xml += '    <FRECTION_INSTRUCTNS_PIC_NUM>' + PC010S01 + '</FRECTION_INSTRUCTNS_PIC_NUM>\n';
+        xml += '    <FRECTION_INSTRUCTNS>' + PC010D01 + '</FRECTION_INSTRUCTNS>\n';
+        xml += '    <RESERVE_FRECTION_INSTRUCTNS>' + PC010D02 + '</RESERVE_FRECTION_INSTRUCTNS>\n';
+        xml += '  </SCORE>\n';
+        xml += '</PSM>\n';
+
+        xml += '<PCO>\n';
+        xml += '  <PC02>\n';
+
+        //PC02A	
+        xml += '    <CRE_BUS_WARM_MN>\n';
+        var PC02AS01 = document.getElementById('PC02AS01').value;
+        var PC02AS02 = document.getElementById('PC02AS02').value;
+        xml += '      <ACCOUNT_TOTAL_NUM>' + PC02AS01 + '</ACCOUNT_TOTAL_NUM>\n';
+        xml += '      <BUSINESS_TYPE_NUM>' + PC02AS02 + '</BUSINESS_TYPE_NUM>\n';
+        const pc02ah = document.getElementsByClassName('pc02ah');
+        for (var i = 0; i < pc02ah.length; i++) {
+            var PC02AD01 = pc02ah[i].querySelector('#PC02AD01').value;
+            var PC02AD02 = pc02ah[i].querySelector('#PC02AD02').value;
+            var PC02AS03 = pc02ah[i].querySelector('#PC02AS03').value;
+            var PC02AR01 = pc02ah[i].querySelector('#PC02AR01').value;
+            xml += '      <CRE_BUS_WARM_ATT>\n';
+            xml += '        <BUSINESS_TYPE_CD>' + PC02AD01 + '</BUSINESS_TYPE_CD>\n';
+            xml += '        <BUSINESS_BROAD_HEADING_CD>' + PC02AD02 + '</BUSINESS_BROAD_HEADING_CD>\n';
+            xml += '        <ACCOUNT_NUM>' + PC02AS03 + '</ACCOUNT_NUM>\n';
+            xml += '        <FIR_TIM_BUS_ISS_MON_GROP>' + PC02AR01 + '</FIR_TIM_BUS_ISS_MON_GROP>\n';
+            xml += '      </CRE_BUS_WARM_ATT>\n';
+        }
+        xml += '    </CRE_BUS_WARM_MN>\n';
+
+        //PC02B
+        xml += '    <QUIT_RCY_TTL_MN>\n';
+        var PC02BS01 = document.getElementById('PC02BS01').value;
+        var PC02BJ01 = document.getElementById('PC02BJ01').value;
+        var PC02BS02 = document.getElementById('PC02BS02').value;
+        xml += '      <ACCOUNT_TOTAL_NUM>' + PC02BS01 + '</ACCOUNT_TOTAL_NUM>\n';
+        xml += '      <TOTAL_BALNC>' + PC02BJ01 + '</TOTAL_BALNC>\n';
+        xml += '      <BUSINESS_TYPE_NUM>' + PC02BS02 + '</BUSINESS_TYPE_NUM>\n';
+        const pc02bh = document.getElementsByClassName('pc02bh');
+        for (var i = 0; i < pc02bh.length; i++) {
+            var PC02BD01 = pc02bh[i].querySelector('#PC02BD01').value;
+            var PC02BS03 = pc02bh[i].querySelector('#PC02BS03').value;
+            var PC02BJ02 = pc02bh[i].querySelector('#PC02BJ02').value;
+            xml += '      <QUIT_RCY_TTL_ATT>\n';
+            xml += '        <BUSINESS_TYPE_CD>' + PC02BD01 + '</BUSINESS_TYPE_CD>\n';
+            xml += '        <ACCOUNT_NUM>' + PC02BS03 + '</ACCOUNT_NUM>\n';
+            xml += '        <BALNC>' + PC02BJ02 + '</BALNC>\n';
+            xml += '      </QUIT_RCY_TTL_ATT>\n';
+        }
+        xml += '    </QUIT_RCY_TTL_MN>\n';
+
+        //PC02C
+        var PC02CS01 = document.getElementById('PC02CS01').value;
+        var PC02CJ01 = document.getElementById('PC02CJ01').value;
+        xml += '    <DULLDEBT_TTL>\n';
+        xml += '      <ACCOUNT_NUM>' + PC02CS01 + '</ACCOUNT_NUM>\n';
+        xml += '      <BALNC>' + PC02CJ01 + '</BALNC>\n';
+        xml += '    </DULLDEBT_TTL>\n';
+
+        //PC02D
+        var PC02DS01 = document.getElementById('PC02DS01').value;
+        xml += '    <OVETIME_TTL_MN>\n';
+        xml += '      <ACCOUNT_NUM>' + PC02CS01 + '</ACCOUNT_NUM>\n';
+        const pc02dh = document.getElementsByClassName('pc02dh');
+        for (var i = 0; i < pc02dh.length; i++) {
+            var PC02DD01 = pc02dh[i].querySelector('#PC02DD01').value;
+            var PC02DS02 = pc02dh[i].querySelector('#PC02DS02').value;
+            var PC02DS03 = pc02dh[i].querySelector('#PC02DS03').value;
+            var PC02DJ01 = pc02dh[i].querySelector('#PC02DJ01').value;
+            var PC02DS04 = pc02dh[i].querySelector('#PC02DS04').value;
+            xml += '      <OVETIME_TTL_ATT>\n';
+            xml += '        <ACCOUNT_TYPE_CD>' + PC02DD01 + '</ACCOUNT_TYPE_CD>\n';
+            xml += '        <ACCOUNT_NUM>' + PC02DS02 + '</ACCOUNT_NUM>\n';
+            xml += '        <MONTH_GROP>' + PC02DS03 + '</MONTH_GROP>\n';
+            xml += '        <ODD_MON_HIG_OVE_LIMT>' + PC02DJ01 + '</ODD_MON_HIG_OVE_LIMT>\n';
+            xml += '        <LONGEST_OVERDUE_MONTH>' + PC02DS04 + '</LONGEST_OVERDUE_MONTH>\n';
+            xml += '      </OVETIME_TTL_ATT>\n';
+        }
+        xml += '    </OVETIME_TTL_MN>\n';
+
+        //PC02E
+        xml += '    <UNCYC_ACC_TTL>\n';
+        var PC02ES01 = document.getElementById('PC02ES01').value;
+        xml += '      <MANAGEMENT_INSTITUTION_NUM>' + PC02ES01 + '</MANAGEMENT_INSTITUTION_NUM>\n';
+        var PC02ES02 = document.getElementById('PC02ES02').value;
+        xml += '      <ACCOUNT_NUM>' + PC02ES02 + '</ACCOUNT_NUM>\n';
+        var PC02EJ01 = document.getElementById('PC02EJ01').value;
+        xml += '      <CRE_EXT_TOT_AMO_AMONT>' + PC02EJ01 + '</CRE_EXT_TOT_AMO_AMONT>\n';
+        var PC02EJ02 = document.getElementById('PC02EJ02').value;
+        xml += '      <BALNC>' + PC02EJ02 + '</BALNC>\n';
+        var PC02EJ03 = document.getElementById('PC02EJ03').value;
+        xml += '      <NEA_HAL_YEA_AVE_SHO_REP_AMONT>' + PC02EJ03 + '</NEA_HAL_YEA_AVE_SHO_REP_AMONT>\n';
+        xml += '    </UNCYC_ACC_TTL>\n';
+
+        //PC02F
+        xml += '    <CYCLIM_ACC_TTL>\n';
+        var PC02FS01 = document.getElementById('PC02FS01').value;
+        xml += '      <MANAGEMENT_INSTITUTION_NUM>' + PC02FS01 + '</MANAGEMENT_INSTITUTION_NUM>\n';
+        var PC02FS02 = document.getElementById('PC02FS02').value;
+        xml += '      <ACCOUNT_NUM>' + PC02FS02 + '</ACCOUNT_NUM>\n';
+        var PC02FJ01 = document.getElementById('PC02FJ01').value;
+        xml += '      <CRE_EXT_TOT_AMO_AMONT>' + PC02FJ01 + '</CRE_EXT_TOT_AMO_AMONT>\n';
+        var PC02FJ02 = document.getElementById('PC02FJ02').value;
+        xml += '      <BALNC>' + PC02FJ02 + '</BALNC>\n';
+        var PC02FJ03 = document.getElementById('PC02FJ03').value;
+        xml += '      <NEA_HAL_YEA_AVE_SHO_REP_AMONT>' + PC02FJ03 + '</NEA_HAL_YEA_AVE_SHO_REP_AMONT>\n';
+        xml += '    </CYCLIM_ACC_TTL>\n';
+
+        //PC02G
+        xml += '    <CYCPL_ACC_TTL>\n';
+        var PC02GS01 = document.getElementById('PC02GS01').value;
+        xml += '      <MANAGEMENT_INSTITUTION_NUM>' + PC02GS01 + '</MANAGEMENT_INSTITUTION_NUM>\n';
+        var PC02GS02 = document.getElementById('PC02GS02').value;
+        xml += '      <ACCOUNT_NUM>' + PC02GS02 + '</ACCOUNT_NUM>\n';
+        var PC02GJ01 = document.getElementById('PC02GJ01').value;
+        xml += '      <CRE_EXT_TOT_AMO_AMONT>' + PC02GJ01 + '</CRE_EXT_TOT_AMO_AMONT>\n';
+        var PC02GJ02 = document.getElementById('PC02GJ02').value;
+        xml += '      <BALNC>' + PC02GJ02 + '</BALNC>\n';
+        var PC02GJ03 = document.getElementById('PC02GJ03').value;
+        xml += '      <NEA_HAL_YEA_AVE_SHO_REP_AMONT>' + PC02GJ03 + '</NEA_HAL_YEA_AVE_SHO_REP_AMONT>\n';
+        xml += '    </CYCPL_ACC_TTL>\n';
+
+        //PC02H
+        xml += '    <DEBCARD_ACC_TTL>\n';
+        var PC02HS01 = document.getElementById('PC02HS01').value;
+        xml += '      <ISSUE_CARD_INSTITUTION_NUM>' + PC02HS01 + '</ISSUE_CARD_INSTITUTION_NUM>\n';
+        var PC02HS02 = document.getElementById('PC02HS02').value;
+        xml += '  <ACCOUNT_NUM>' + PC02HS02 + '</ACCOUNT_NUM>\n';
+        var PC02HJ01 = document.getElementById('PC02HJ01').value;
+        xml += '      <CRE_EXT_TOT_AMO_AMONT>' + PC02HJ01 + '</CRE_EXT_TOT_AMO_AMONT>\n';
+        var PC02HJ02 = document.getElementById('PC02HJ02').value;
+        xml += '      <SIN_FAM_LIN_HIG_CRE_EXT_AMONT>' + PC02HJ02 + '</SIN_FAM_LIN_HIG_CRE_EXT_AMONT>\n';
+        var PC02HJ03 = document.getElementById('PC02HJ03').value;
+        xml += '      <SIN_FAM_LIN_MIN_CRE_EXT_AMONT>' + PC02HJ03 + '</SIN_FAM_LIN_MIN_CRE_EXT_AMONT>\n';
+        var PC02HJ04 = document.getElementById('PC02HJ04').value;
+        xml += '      <USED_LIMT>' + PC02HJ04 + '</USED_LIMT>\n';
+        var PC02HJ05 = document.getElementById('PC02HJ05').value;
+        xml += '      <NEA_HAL_YEA_AVE_USE_LIMT>' + PC02HJ05 + '</NEA_HAL_YEA_AVE_USE_LIMT>\n';
+        xml += '    </DEBCARD_ACC_TTL>\n';
+
+        //PC02I
+        xml += '    <SECRECD_ACC_TTL>\n';
+        var PC02IS01 = document.getElementById('PC02IS01').value;
+        xml += '      <ISSUE_CARD_INSTITUTION_NUM>' + PC02IS01 + '</ISSUE_CARD_INSTITUTION_NUM>\n';
+        var PC02IS02 = document.getElementById('PC02IS02').value;
+        xml += '      <ACCOUNT_NUM>' + PC02IS02 + '</ACCOUNT_NUM>\n';
+        var PC02IJ01 = document.getElementById('PC02IJ01').value;
+        xml += '      <CRE_EXT_TOT_AMO_AMONT>' + PC02IJ01 + '</CRE_EXT_TOT_AMO_AMONT>\n';
+        var PC02IJ02 = document.getElementById('PC02IJ02').value;
+        xml += '      <SIN_FAM_LIN_HIG_CRE_EXT_AMONT>' + PC02IJ02 + '</SIN_FAM_LIN_HIG_CRE_EXT_AMONT>\n';
+        var PC02IJ03 = document.getElementById('PC02IJ03').value;
+        xml += '      <SIN_FAM_LIN_MIN_CRE_EXT_AMONT>' + PC02IJ03 + '</SIN_FAM_LIN_MIN_CRE_EXT_AMONT>\n';
+        var PC02IJ04 = document.getElementById('PC02IJ04').value;
+        xml += '      <OVERDRAFT_BALNC>' + PC02IJ04 + '</OVERDRAFT_BALNC>\n';
+        var PC02IJ05 = document.getElementById('PC02IJ05').value;
+        xml += '      <NEA_HAL_YEA_AVE_USE_LIMT>' + PC02IJ05 + '</NEA_HAL_YEA_AVE_USE_LIMT>\n';
+        xml += '    </SECRECD_ACC_TTL>\n';
+
+        
+        xml += '    <RELREPAY_DTTLM>\n';
+        var PC02KS01 = document.getElementById('PC02KS01').value;
+        xml += '     <REL_REP_RES_NUM>' + PC02KS01 + '</REL_REP_RES_NUM>\n';
+        const pc02kh = document.getElementsByClassName('pc02kh');
+        for (var i = 0; i < pc02kh.length; i++) {
+            var PC02KD01 = pc02kh[i].querySelector('#PC02KD01').value;
+            var PC02KD02 = pc02kh[i].querySelector('#PC02KD02').value;
+            var PC02KS02 = pc02kh[i].querySelector('#PC02KS02').value;
+            var PC02KJ01 = pc02kh[i].querySelector('#PC02KJ01').value;
+            var PC02KJ02 = pc02kh[i].querySelector('#PC02KJ02').value;
+            xml += '     <RELREPAY_DTTLA>\n';
+            xml += '        <LENDER_IDENTITY_CATEGORY_CD>' + PC02KD01 + '</LENDER_IDENTITY_CATEGORY_CD>\n';
+            xml += '        <REL_REP_RES_TYP_CD>' + PC02KD02 + '</REL_REP_RES_TYP_CD>\n';
+            xml += '        <ACCOUNT_NUM>' + PC02KS02 + '</ACCOUNT_NUM>\n';
+            xml += '        <REPAYMENT_RESPONSIBILITY_AMONT>' + PC02KJ01 + '</REPAYMENT_RESPONSIBILITY_AMONT>\n';
+            xml += '        <BALNC>' + PC02KJ02 + '</BALNC>\n';
+            xml += '     </RELREPAY_DTTLA>\n';
+        }
+        xml += '    </RELREPAY_DTTLM>\n';
+        xml += '  </PC02>\n';
+        xml += '</PCO>\n';
+
+        xml += '<PNO>\n';
+        xml += '  <APBA_INF_TTLM>\n';
+        var PC030S01 = document.getElementById('PC030S01').value;
+        xml += '    <AFT_PAY_FEE_BUS_TYP_NUM>' + PC030S01 + '</AFT_PAY_FEE_BUS_TYP_NUM>\n';
+        const pc030h = document.getElementsByClassName('pc030h');
+        for (var i = 0; i < pc030h.length; i++) {
+            var PC030D01 = pc030h[i].querySelector('#PC030D01').value;
+            var PC030S02 = pc030h[i].querySelector('#PC030S02').value;
+            var PC030J01 = pc030h[i].querySelector('#PC030J01').value;
+            xml += '    <APBA_INF_TTLA>\n';
+            xml += '      <AFTER_PAY_FEE_BUSINESS_TYPE_CD>' + PC030D01 + '</AFTER_PAY_FEE_BUSINESS_TYPE_CD>\n';
+            xml += '      <DEBT_ACCOUNT_NUM>' + PC030S02 + '</DEBT_ACCOUNT_NUM>\n';
+            xml += '      <DEBT_AMONT>' + PC030J01 + '</DEBT_AMONT>\n';
+            xml += '    </APBA_INF_TTLA>\n';
+        }
+        xml += '  </APBA_INF_TTLM>\n';
+        xml += '</PNO>\n';
+
+        xml += '<PPO>\n';
+        xml += '  <COMMINFO_MAIN>\n';
+        var PC040S01 = document.getElementById('PC040S01').value;
+        xml += '    <PUBLIC_INFO_TYPE_NUM>' + PC040S01 + '</PUBLIC_INFO_TYPE_NUM>\n';
+        const pc040h = document.getElementsByClassName('pc040h');
+        for (var i = 0; i < pc040h.length; i++) {
+            var PC040D01 = pc040h[i].querySelector('#PC040D01').value;
+            var PC040S02 = pc040h[i].querySelector('#PC040S02').value;
+            var PC040J01 = pc040h[i].querySelector('#PC040J01').value;
+            xml += '    <COMM_INFO_ATT>\n';
+            xml += '      <PUBLIC_INFO_TYPE_CD>' + PC040D01 + '</PUBLIC_INFO_TYPE_CD>\n';
+            xml += '      <NOTES_NUM>' + PC040S02 + '</NOTES_NUM>\n';
+            xml += '      <ESTABLISHMENT_AMONT>' + PC040J01 + '</ESTABLISHMENT_AMONT>\n';
+            xml += '    </COMM_INFO_ATT>\n';
+        }
+        xml += '  </COMMINFO_MAIN>\n';
+        xml += '</PPO>\n';
+
+        xml += '<PQO>\n';
+        xml += '  <PC05>\n';
+        xml += '    <LST_INQ_RCD>\n';
+        var PC05AR01 = document.getElementById('PC05AR01').value;
+        xml += '    <PER_SEC_INQ_DDA_GROP>' + PC05AR01 + '</PER_SEC_INQ_DDA_GROP>\n';
+        var PC05AD01 = document.getElementById('PC05AD01').value;
+        xml += '     <PER_SEC_INQ_INS_TYP_CD>' + PC05AD01 + '</PER_SEC_INQ_INS_TYP_CD>\n';
+        var PC05AI01 = document.getElementById('PC05AI01').value;
+        xml += '     <PER_SEC_INQ_INS_CD>' + PC05AI01 + '</PER_SEC_INQ_INS_CD>\n';
+        var PC05AQ01 = document.getElementById('PC05AQ01').value;
+        xml += '     <PER_SEC_INQ_REA_CD>' + PC05AQ01 + '</PER_SEC_INQ_REA_CD>\n';
+        xml += '    </LST_INQ_RCD>\n';
+        xml += '    <INQ_RCD_SUMMARY>\n';
+        var PC05BS01 = document.getElementById('PC05BS01').value;
+        xml += '     <IN_REC_MON_LOA_INQ_INS_NUM>' + PC05BS01 + '</IN_REC_MON_LOA_INQ_INS_NUM>\n';
+        var PC05BS02 = document.getElementById('PC05BS02').value;
+        xml += '     <IN_REC_MON_CRE_INQ_INS_NUM>' + PC05BS02 + '</IN_REC_MON_CRE_INQ_INS_NUM>\n';
+        var PC05BS03 = document.getElementById('PC05BS03').value;
+        xml += '     <IN_REC_MON_LOA_APP_INQ_NUM>' + PC05BS03 + '</IN_REC_MON_LOA_APP_INQ_NUM>\n';
+        var PC05BS04 = document.getElementById('PC05BS04').value;
+        xml += '     <IN_REC_MON_CRE_CAR_INQ_NUM>' + PC05BS04 + '</IN_REC_MON_CRE_CAR_INQ_NUM>\n';
+        var PC05BS05 = document.getElementById('PC05BS05').value;
+        xml += '     <IN_REC_MON_SEL_INQ_TIMS_NUM>' + PC05BS05 + '</IN_REC_MON_SEL_INQ_TIMS_NUM>\n';
+        var PC05BS06 = document.getElementById('PC05BS06').value;
+        xml += '     <NEALOA_AFT_MAN_INQ_TIMS_NUM>' + PC05BS06 + '</NEALOA_AFT_MAN_INQ_TIMS_NUM>\n';
+        var PC05BS07 = document.getElementById('PC05BS07').value;
+        xml += '      <NEA_ENS_QUA_INQ_TIMS_NUM>' + PC05BS07 + '</NEA_ENS_QUA_INQ_TIMS_NUM>\n';
+        var PC05BS08 = document.getElementById('PC05BS08').value;
+        xml += '     <NEA_CON_MER_INQ_TIMS_NUM>' + PC05BS08 + '</NEA_CON_MER_INQ_TIMS_NUM>\n';
+        xml += '    </INQ_RCD_SUMMARY>\n';
+        xml += '  </PC05>\n';
+        xml += '</PQO>\n';
+
+        xml += '<PDA>\n';
+        const pd01 = document.getElementsByClassName('pd01');
+        for (var i = 0; i < pd01.length; i++) {
+            xml += '  <P_DEB_CRE_ACC>\n';
+            //PD01A	 
+            xml += '  <BASIC_INFO>\n';
+            var PD01AI01 = pd01[i].querySelector('#PD01AI01').value;
+            xml += '    <ACCOUNT_NO>' + PD01AI01 + '</ACCOUNT_NO>\n';
+            var PD01AD01 = pd01[i].querySelector('#PD01AD01').value;
+            xml += '    <ACCOUNT_TYPE_CD>' + PD01AD01 + '</ACCOUNT_TYPE_CD>\n';
+            var PD01AD02 = pd01[i].querySelector('#PD01AD02').value;
+            xml += '    <BUS_MAN_INS_TYP_CD>' + PD01AD02 + '</BUS_MAN_INS_TYP_CD>\n';
+            var PD01AI02 = pd01[i].querySelector('#PD01AI02').value;
+            xml += '    <BUS_MAN_INS_CD>' + PD01AI02 + '</BUS_MAN_INS_CD>\n';
+            var PD01AI03 = pd01[i].querySelector('#PD01AI03').value;
+            xml += '    <ACCOUNT_LABEL_DESCR>' + PD01AI03 + '</ACCOUNT_LABEL_DESCR>\n';
+            var PD01AI04 = pd01[i].querySelector('#PD01AI04').value;
+            xml += '    <CREDIT_EXTENSION_AGREEMENT_NO>' + PD01AI04 + '</CREDIT_EXTENSION_AGREEMENT_NO>\n';
+            var PD01AD03 = pd01[i].querySelector('#PD01AD03').value;
+            xml += '    <BUSINESS_SPECIES_CD>' + PD01AD03 + '</BUSINESS_SPECIES_CD>\n';
+            var PD01AR01 = pd01[i].querySelector('#PD01AR01').value;
+            xml += '    <OPEN_DDATE_GROP>' + PD01AR01 + '</OPEN_DDATE_GROP>\n';
+            var PD01AD04 = pd01[i].querySelector('#PD01AD04').value;
+            xml += '    <CURRENCY_TYPE_ENCD>' + PD01AD04 + '</CURRENCY_TYPE_ENCD>\n';
+            var PD01AJ01 = pd01[i].querySelector('#PD01AJ01').value;
+            xml += '    <LOAN_AMONT>' + PD01AJ01 + '</LOAN_AMONT>\n';
+            var PD01AJ02 = pd01[i].querySelector('#PD01AJ02').value;
+            xml += '    <ACCOUNT_CREDIT_EXTENSION_LIMT>' + PD01AJ02 + '</ACCOUNT_CREDIT_EXTENSION_LIMT>\n';
+            var PD01AJ03 = pd01[i].querySelector('#PD01AJ03').value;
+            xml += '    <SHARE_CREDIT_EXTENSION_LIMT>' + PD01AJ03 + '</SHARE_CREDIT_EXTENSION_LIMT>\n';
+            var PD01AR02 = pd01[i].querySelector('#PD01AR02').value;
+            xml += '    <DUE_DDATE_GROP>' + PD01AR02 + '</DUE_DDATE_GROP>\n';
+            var PD01AD05 = pd01[i].querySelector('#PD01AD05').value;
+            xml += '    <REPAYMENT_WAY_CD>' + PD01AD05 + '</REPAYMENT_WAY_CD>\n';
+            var PD01AD06 = pd01[i].querySelector('#PD01AD06').value;
+            xml += '    <REPAYMENT_FREQUENCY_CD>' + PD01AD06 + '</REPAYMENT_FREQUENCY_CD>\n';
+            var PD01AS01 = pd01[i].querySelector('#PD01AS01').value;
+            xml += '    <REPAYMENT_PERIOD_TIME_CD>' + PD01AS01 + '</REPAYMENT_PERIOD_TIME_CD>\n';
+            var PD01AD07 = pd01[i].querySelector('#PD01AD07').value;
+            xml += '    <ENSURE_WAY_CD>' + PD01AD07 + '</ENSURE_WAY_CD>\n';
+            var PD01AD08 = pd01[i].querySelector('#PD01AD08').value;
+            xml += '    <LOAN_ISSUE_FORM_CD>' + PD01AD08 + '</LOAN_ISSUE_FORM_CD>\n';
+            var PD01AD09 = pd01[i].querySelector('#PD01AD09').value;
+            xml += '    <COMMON_LOAN_FLAG_CD>' + PD01AD09 + '</COMMON_LOAN_FLAG_CD>\n';
+            var PD01AD10 = pd01[i].querySelector('#PD01AD10').value;
+            xml += '    <CRE_RIG_TRA_REP_STA_CD>' + PD01AD10 + '</CRE_RIG_TRA_REP_STA_CD>\n';
+            xml += '  </BASIC_INFO>\n';
+
+            //PD01B	
+            xml += '  <NEW_EXP>\n';
+            var PD01BD01 = pd01[i].querySelector('#PD01BD01').value;
+            xml += '    <ACCOUNT_STATUS_CD>' + PD01BD01 + '</ACCOUNT_STATUS_CD>\n';
+            var PD01BR01 = pd01[i].querySelector('#PD01BR01').value;
+            xml += '    <CLOSE_DDATE_GROP>' + PD01BR01 + '</CLOSE_DDATE_GROP>\n';
+            var PD01BR04 = pd01[i].querySelector('#PD01BR04').value;
+            xml += '    <TRANSFER_OUT_MONTH_GROP>' + PD01BR04 + '</TRANSFER_OUT_MONTH_GROP>\n';
+            var PD01BJ01 = pd01[i].querySelector('#PD01BJ01').value;
+            xml += '    <BALNC>' + PD01BJ01 + '</BALNC>\n';
+            var PD01BR02 = pd01[i].querySelector('#PD01BR02').value;
+            xml += '    <LAS_ONE_SEC_REP_DDA_GROP>' + PD01BR02 + '</LAS_ONE_SEC_REP_DDA_GROP>\n';
+            var PD01BJ02 = pd01[i].querySelector('#PD01BJ02').value;
+            xml += '    <LAS_ONE_SEC_REP_AMONT>' + PD01BJ02 + '</LAS_ONE_SEC_REP_AMONT>\n';
+            var PD01BD03 = pd01[i].querySelector('#PD01BD03').value;
+            xml += '    <FIVE_LEVEL_CLASSIFY_CD>' + PD01BD03 + '</FIVE_LEVEL_CLASSIFY_CD>\n';
+            var PD01BD04 = pd01[i].querySelector('#PD01BD04').value;
+            xml += '    <REPAYMENT_STATUS_CD>' + PD01BD04 + '</REPAYMENT_STATUS_CD>\n';
+            var PD01BR03 = pd01[i].querySelector('#PD01BR03').value;
+            xml += '    <INFO_REPORT_DDATE_GROP>' + PD01BR03 + '</INFO_REPORT_DDATE_GROP>\n';
+            xml += '  </NEW_EXP>\n';
+
+
+            //PD01C	
+            xml += '  <LSTM_EXP>\n';
+            var PD01CR01 = pd01[i].querySelector('#PD01CR01').value;
+            xml += '    <MONTH_GROP>' + PD01CR01 + '</MONTH_GROP>\n';
+            var PD01CD01 = pd01[i].querySelector('#PD01CD01').value;
+            xml += '    <ACCOUNT_STATUS_CD>' + PD01CD01 + '</ACCOUNT_STATUS_CD>\n';
+            var PD01CJ01 = pd01[i].querySelector('#PD01CJ01').value;
+            xml += '    <BALNC>' + PD01CJ01 + '</BALNC>\n';
+            var PD01CJ02 = pd01[i].querySelector('#PD01CJ02').value;
+            xml += '    <USED_LIMT>' + PD01CJ02 + '</USED_LIMT>\n';
+            var PD01CJ03 = pd01[i].querySelector('#PD01CJ03').value;
+            xml += '    <LAR_AMO_SPE_PER_BALNC>' + PD01CJ03 + '</LAR_AMO_SPE_PER_BALNC>\n';
+            var PD01CD02 = pd01[i].querySelector('#PD01CD02').value;
+            xml += '    <FIVE_LEVEL_CLASSIFY_CD>' + PD01CD02 + '</FIVE_LEVEL_CLASSIFY_CD>\n';
+            var PD01CS01 = pd01[i].querySelector('#PD01CS01').value;
+            xml += '    <REM_REP_PER_TIM_NUM>' + PD01CS01 + '</REM_REP_PER_TIM_NUM>\n';
+            var PD01CR02 = pd01[i].querySelector('#PD01CR02').value;
+            xml += '    <SHOULD_REPAYMENT_DAY_GROP>' + PD01CR02 + '</SHOULD_REPAYMENT_DAY_GROP>\n';
+            var PD01CJ04 = pd01[i].querySelector('#PD01CJ04').value;
+            xml += '    <PRE_MON_SHO_REP_AMONT>' + PD01CJ04 + '</PRE_MON_SHO_REP_AMONT>\n';
+            var PD01CJ05 = pd01[i].querySelector('#PD01CJ05').value;
+            xml += '    <PRE_MON_ACT_REP_AMONT>' + PD01CJ05 + '</PRE_MON_ACT_REP_AMONT>\n';
+            var PD01CR03 = pd01[i].querySelector('#PD01CR03').value;
+            xml += '    <LAS_ONE_SEC_REP_DDA_GROP>' + PD01CR03 + '</LAS_ONE_SEC_REP_DDA_GROP>\n';
+            var PD01CS02 = pd01[i].querySelector('#PD01CS02').value;
+            xml += '    <CUR_OVE_PER_TIM_NUM>' + PD01CS02 + '</CUR_OVE_PER_TIM_NUM>\n';
+            var PD01CJ06 = pd01[i].querySelector('#PD01CJ06').value;
+            xml += '    <CUR_OVE_TOT_AMO_AMONT>' + PD01CJ06 + '</CUR_OVE_TOT_AMO_AMONT>\n';
+            var PD01CJ07 = pd01[i].querySelector('#PD01CJ07').value;
+            xml += '    <OVERDUE_ONE_UN_RETURN_PRINCPL>' + PD01CJ07 + '</OVERDUE_ONE_UN_RETURN_PRINCPL>\n';
+            var PD01CJ08 = pd01[i].querySelector('#PD01CJ08').value;
+            xml += '    <OVERDUE_TWO_UN_RETURN_PRINCPL>' + PD01CJ08 + '</OVERDUE_TWO_UN_RETURN_PRINCPL>\n';
+            var PD01CJ09 = pd01[i].querySelector('#PD01CJ09').value;
+            xml += '    <OVE_THR_UN_RET_PRINCPL>' + PD01CJ09 + '</OVE_THR_UN_RET_PRINCPL>\n';
+            var PD01CJ10 = pd01[i].querySelector('#PD01CJ10').value;
+            xml += '    <OVE_HAL_YEA_UN_RET_PRINCPL>' + PD01CJ10 + '</OVE_HAL_YEA_UN_RET_PRINCPL>\n';
+            var PD01CJ11 = pd01[i].querySelector('#PD01CJ11').value;
+            xml += '    <OVE_HAL_YEA_UNP_BALNC>' + PD01BR03 + '</OVE_HAL_YEA_UNP_BALNC>\n';
+            var PD01CJ12 = pd01[i].querySelector('#PD01CJ12').value;
+            xml += '    <NEA_HAL_YEA_AVE_USE_LIMT>' + PD01CJ12 + '</NEA_HAL_YEA_AVE_USE_LIMT>\n';
+            var PD01CJ13 = pd01[i].querySelector('#PD01CJ13').value;
+            xml += '    <NEA_HAL_YEA_AVE_OVE_BALNC>' + PD01CJ13 + '</NEA_HAL_YEA_AVE_OVE_BALNC>\n';
+            var PD01CJ14 = pd01[i].querySelector('#PD01CJ14').value;
+            xml += '    <BIGGEST_USE_LIMT>' + PD01CJ14 + '</BIGGEST_USE_LIMT>\n';
+            var PD01CJ15 = pd01[i].querySelector('#PD01CJ15').value;
+            xml += '    <BIGGEST_OVERDRAFT_BALNC>' + PD01CJ15 + '</BIGGEST_OVERDRAFT_BALNC>\n';
+            var PD01CR04 = pd01[i].querySelector('#PD01CR04').value;
+            xml += '    <INFO_REPORT_DDATE_GROP>' + PD01CR04 + '</INFO_REPORT_DDATE_GROP>\n';
+            xml += '  </LSTM_EXP>\n';
+
+
+            //PD01D	
+            xml += '  <NTY_REP_STATUSM>\n';
+            var PD01DR01 = pd01[i].querySelector('#PD01DR01').value;
+            xml += '    <STARTING_YEAR_MONTH_GROP>' + PD01DR01 + '</STARTING_YEAR_MONTH_GROP>\n';
+            var PD01DR02 = pd01[i].querySelector('#PD01DR02').value;
+            xml += '    <CUT_OFF_YEAR_MONTH_GROP>' + PD01DR02 + '</CUT_OFF_YEAR_MONTH_GROP>\n';
+            const pd01dh = pd01[i].getElementsByClassName('pd01dh');
+            for (var d = 0; d < pd01dh.length; d++) {
+                var PD01DR03 = pd01dh[d].querySelector('#PD01DR03').value;
+                var PD01DD01 = pd01dh[d].querySelector('#PD01DD01').value;
+                xml += '    <NTY_REP_STATUSA>\n';
+                xml += '      <MONTH_GROP>' + PD01DR03 + '</MONTH_GROP>\n';
+                xml += '      <REPAYMENT_STATUS_CD>' + PD01DD01 + '</REPAYMENT_STATUS_CD>\n';
+                xml += '    </NTY_REP_STATUSA>\n';
             }
-            xml += '</pdo1d>\n';
+            xml += '  </NTY_REP_STATUSM>\n';
+
+
+            //PD01E	
+            xml += '  <NFY_HIS_EXPM>\n';
+            var PD01ER01 = pd01[i].querySelector('#PD01ER01').value;
+            xml += '    <STARTING_YEAR_MONTH_GROP>' + PD01ER01 + '</STARTING_YEAR_MONTH_GROP>\n';
+            var PD01ER02 = pd01[i].querySelector('#PD01ER02').value;
+            xml += '    <CUT_OFF_YEAR_MONTH_GROP>' + PD01ER02 + '</CUT_OFF_YEAR_MONTH_GROP>\n';
+            var PD01ES01 = pd01[i].querySelector('#PD01ES01').value;
+            xml += '    <MONTH_NUM>' + PD01ES01 + '</MONTH_NUM>\n';
+            const pd01eh = pd01[i].getElementsByClassName('pd01eh');
+            for (var e = 0; e < pd01eh.length; e++) {
+                var PD01ER03 = pd01eh[e].querySelector('#PD01ER03').value;
+                var PD01ED01 = pd01eh[e].querySelector('#PD01ED01').value;
+                var PD01EJ01 = pd01eh[e].querySelector('#PD01EJ01').value;
+                xml += '    <NFY_HIS_EXPA>\n';
+                xml += '      <MONTH_GROP>' + PD01ER03 + '</MONTH_GROP>\n';
+                xml += '      <REPAYMENT_STATUS_CD>' + PD01ED01 + '</REPAYMENT_STATUS_CD>\n';
+                xml += '      <OVERDUE_TOTAL_AMOUNT_AMONT>' + PD01EJ01 + '</OVERDUE_TOTAL_AMOUNT_AMONT>\n';
+                xml += '    </NFY_HIS_EXPA>\n';
+            }
+            xml += '  </NFY_HIS_EXPM>\n';
+
+
+            //PD01F	
+            xml += '  <SPE_BUS_MAIN>\n';
+            var PD01FS01 = pd01[i].querySelector('#PD01FS01').value;
+            xml += '    <SPECIAL_TRADE_NUM>' + PD01FS01 + '</SPECIAL_TRADE_NUM>\n';
+            const pd01fh = pd01[i].getElementsByClassName('pd01fh');
+            for (var f = 0; f < pd01fh.length; f++) {
+                var PD01FD01 = pd01fh[f].querySelector('#PD01FD01').value;
+                var PD01FR01 = pd01fh[f].querySelector('#PD01FR01').value;
+                var PD01FS02 = pd01fh[f].querySelector('#PD01FS02').value;
+                var PD01FJ01 = pd01fh[f].querySelector('#PD01FJ01').value;
+                var PD01FQ01 = pd01fh[f].querySelector('#PD01FQ01').value;
+                xml += '    <SPE_BUS_ATT>\n';
+                xml += '      <SPECIAL_TRADE_TYPE_CD>' + PD01FD01 + '</SPECIAL_TRADE_TYPE_CD>\n';
+                xml += '      <SPE_TRA_HAP_DDA_GROP>' + PD01FR01 + '</SPE_TRA_HAP_DDA_GROP>\n';
+                xml += '      <DUE_DDATE_CHANGE_MONTH_NUM>' + PD01FS02 + '</DUE_DDATE_CHANGE_MONTH_NUM>\n';
+                xml += '      <SPECIAL_TRADE_HAPPEN_AMONT>' + PD01FJ01 + '</SPECIAL_TRADE_HAPPEN_AMONT>\n';
+                xml += '      <SPE_TRA_DET_NOT_INFO>' + PD01FQ01 + '</SPE_TRA_DET_NOT_INFO>\n';
+                xml += '    </SPE_BUS_ATT>\n';
+            }
+            xml += '  </SPE_BUS_MAIN>\n';
+
+
+            //PD01G	
+            xml += '  <SPE_EVE_EPNM>\n';
+            var PD01GS01 = pd01[i].querySelector('#PD01GS01').value;
+            xml += '    <SPECIAL_EVENT_INSTRUCTNS_NUM>' + PD01GS01 + '</SPECIAL_EVENT_INSTRUCTNS_NUM>\n';
+            const pd01gh = pd01[i].getElementsByClassName('pd01gh');
+            for (var g = 0; g < pd01gh.length; g++) {
+                var PD01GR01 = pd01gh[g].querySelector('#PD01GR01').value;
+                var PD01GD01 = pd01gh[g].querySelector('#PD01GD01').value;
+                xml += '    <SPE_EVE_EPNA>\n';
+                xml += '      <SPE_EVE_HAP_MON_GROP>' + PD01GR01 + '</SPE_EVE_HAP_MON_GROP>\n';
+                xml += '      <SPECIAL_EVENT_TYPE_CD>' + PD01GD01 + '</SPECIAL_EVENT_TYPE_CD>\n';
+                xml += '    </SPE_EVE_EPNA>\n';
+            }
+            xml += '  </SPE_EVE_EPNM>\n';
+
+
+            //PD01H	
+            xml += '  <BIG_SPE_STGM>\n';
+            var PD01HS01 = pd01[i].querySelector('#PD01HS01').value;
+            xml += '    <LAR_AMO_SPE_PER_NUM>' + PD01HS01 + '</LAR_AMO_SPE_PER_NUM>\n';
+            const pd01hh = pd01[i].getElementsByClassName('pd01hh');
+            for (var h = 0; h < pd01hh.length; h++) {
+                var PD01HJ01 = pd01hh[h].querySelector('#PD01HJ01').value;
+                var PD01HR01 = pd01hh[h].querySelector('#PD01HR01').value;
+                var PD01HR02 = pd01hh[h].querySelector('#PD01HR02').value;
+                var PD01HJ02 = pd01hh[h].querySelector('#PD01HJ02').value;
+                xml += '    <BIG_SPE_STGA>\n';
+                xml += '      <LAR_AMO_SPE_PER_LIMT>' + PD01HJ01 + '</LAR_AMO_SPE_PER_LIMT>\n';
+                xml += '      <PER_LIM_TAK_EFF_DDA_GROP>' + PD01HR01 + '</PER_LIM_TAK_EFF_DDA_GROP>\n';
+                xml += '      <PER_LIM_DUE_DDA_GROP>' + PD01HR02 + '</PER_LIM_DUE_DDA_GROP>\n';
+                xml += '      <USED_PERIODIZATION_AMONT>' + PD01HJ02 + '</USED_PERIODIZATION_AMONT>\n';
+                xml += '    </BIG_SPE_STGA>\n';
+            }
+            xml += '  </BIG_SPE_STGM>\n';
+
+
+            //PD01Z	
+            xml += '  <PCIU_SIS_MAIN>\n';
+            var PD01ZS01 = pd01[i].querySelector('#PD01ZS01').value;
+            xml += '    <LABEL_STATE_NUM>' + PD01ZS01 + '</LABEL_STATE_NUM>\n';
+            const pd01zh = pd01[i].getElementsByClassName('pd01zh');
+            for (var z = 0; z < pd01zh.length; z++) {
+                var PD01ZD01 = pd01zh[z].querySelector('#PD01ZD01').value;
+                var PD01ZQ01 = pd01zh[z].querySelector('#PD01ZQ01').value;
+                var PD01ZR01 = pd01zh[z].querySelector('#PD01ZR01').value;
+                xml += '    <PCIU_SIS_ATT>\n';
+                xml += '      <LABEL_STATE_TYPE_CD>' + PD01ZD01 + '</LABEL_STATE_TYPE_CD>\n';
+                xml += '      <LABEL_OR_STATE_CONTENT>' + PD01ZQ01 + '</LABEL_OR_STATE_CONTENT>\n';
+                xml += '      <INCREASE_DDATE_GROP>' + PD01ZR01 + '</INCREASE_DDATE_GROP>\n';
+                xml += '    </PCIU_SIS_ATT>\n';
+            }
+            xml += '  </PCIU_SIS_MAIN>\n';
+            xml += '  </P_DEB_CRE_ACC>\n';
         }
         xml += '</PDA>\n';
 
+        xml += '<PCA>\n';
+        const pd02 = document.getElementsByClassName('pd02');
+        for (var i = 0; i < pd02.length; i++) {
+            xml += '  <P_CRE_EXT_AGR>\n';
+            xml += '    <CRE_PRO_BAS>\n';
+            var PD02AI01 = pd02[i].querySelector('#PD02AI01').value;
+            xml += '      <CREDIT_EXTENSION_AGREEMENT_NO>' + PD02AI01 + '</CREDIT_EXTENSION_AGREEMENT_NO>\n';
+            var PD02AD01 = pd02[i].querySelector('#PD02AD01').value;
+            xml += '      <BUS_MAN_INS_TYP_CD>' + PD02AD01 + '</BUS_MAN_INS_TYP_CD>\n';
+            var PD02AI02 = pd02[i].querySelector('#PD02AI02').value;
+            xml += '      <BUS_MAN_INS_CD>' + PD02AI02 + '</BUS_MAN_INS_CD>\n';
+            var PD02AI03 = pd02[i].querySelector('#PD02AI03').value;
+            xml += '      <CRE_EXT_AGR_LAB_DESCR>' + PD02AI03 + '</CRE_EXT_AGR_LAB_DESCR>\n';
+            var PD02AD02 = pd02[i].querySelector('#PD02AD02').value;
+            xml += '      <CREDIT_EXTENSION_LIMT_PURPOSE>' + PD02AD02 + '</CREDIT_EXTENSION_LIMT_PURPOSE>\n';
+            var PD02AJ01 = pd02[i].querySelector('#PD02AJ01').value;
+            xml += '      <CREDIT_EXTENSION_LIMT>' + PD02AJ01 + '</CREDIT_EXTENSION_LIMT>\n';
+            var PD02AD03 = pd02[i].querySelector('#PD02AD03').value;
+            xml += '      <CURRENCY_TYPE_CD>' + PD02AD03 + '</CURRENCY_TYPE_CD>\n';
+            var PD02AR01 = pd02[i].querySelector('#PD02AR01').value;
+            xml += '      <TAKE_EFFECT_DDATE_GROP>' + PD02AR01 + '</TAKE_EFFECT_DDATE_GROP>\n';
+            var PD02AR02 = pd02[i].querySelector('#PD02AR02').value;
+            xml += '      <DUE_DDATE_GROP>' + PD02AR02 + '</DUE_DDATE_GROP>\n';
+            var PD02AD04 = pd02[i].querySelector('#PD02AD04').value;
+            xml += '      <CRE_EXT_AGR_STA_CD>' + PD02AD04 + '</CRE_EXT_AGR_STA_CD>\n';
+            var PD02AJ04 = pd02[i].querySelector('#PD02AJ04').value;
+            xml += '      <USED_LIMT>' + PD02AJ04 + '</USED_LIMT>\n';
+            var PD02AJ03 = pd02[i].querySelector('#PD02AJ03').value;
+            xml += '      <CREDIT_EXTENSION_LIMT_AMONT>' + PD02AJ03 + '</CREDIT_EXTENSION_LIMT_AMONT>\n';
+            var PD02AI04 = pd02[i].querySelector('#PD02AI04').value;
+            xml += '      <CRE_EXT_LIM_NO_DESCR>' + PD02AI04 + '</CRE_EXT_LIM_NO_DESCR>\n';
+            xml += '    </CRE_PRO_BAS>\n';
+            xml += '    </CPIU_SIS_MAIN>\n';
+            var PD02ZS01 = pd02[i].querySelector('#PD02ZS01').value;
+            xml += '      <LABEL_STATE_NUM>' + PD02ZS01 + '</LABEL_STATE_NUM>\n';
+            const pd02zh = pd02[i].getElementsByClassName('pd02zh');
+            for (var k = 0; k < pd02zh.length; k++) {
+                var PD02ZD01 = pd02zh[k].querySelector('#PD02ZD01').value;
+                var PD02ZQ01 = pd02zh[k].querySelector('#PD02ZQ01').value;
+                var PD02ZR01 = pd02zh[k].querySelector('#PD02ZR01').value;
+                xml += '      <CPIU_SIS_ATT>\n';
+                xml += '        <LABEL_STATE_TYPE_CD>' + PD02ZD01 + '</LABEL_STATE_TYPE_CD>\n';
+                xml += '        <LABEL_OR_STATE_CONTENT>' + PD02ZQ01 + '</LABEL_OR_STATE_CONTENT>\n';
+                xml += '        <INCREASE_DDATE_GROP>' + PD02ZR01 + '</INCREASE_DDATE_GROP>\n';
+                xml += '      </CPIU_SIS_ATT>\n';
+            }
+            xml += '    </CPIU_SIS_MAIN>\n';
+            xml += '  </P_CRE_EXT_AGR>\n';
+        }
+        xml += '</PCA>\n';
 
+        xml += '<PCR>\n';
+        const pd03 = document.getElementsByClassName('pd03');
+        for (var i = 0; i < pd03.length; i++) {
+            xml += '  <P_REL_REP_RES>\n';
+            xml += '    <RELREPAY_DUTY>\n';
+            var PD03AD08 = pd03[i].querySelector('#PD03AD08').value;
+            xml += '      <MAI_LEN_IDE_CAT_CD>' + PD03AD08 + '</MAI_LEN_IDE_CAT_CD>\n';
+            var PD03AD01 = pd03[i].querySelector('#PD03AD01').value;
+            xml += '      <BUS_MAN_INS_TYP_CD>' + PD03AD01 + '</BUS_MAN_INS_TYP_CD>\n';
+            var PD03AQ01 = pd03[i].querySelector('#PD03AQ01').value;
+            xml += '      <BUS_MAN_INS_CD>' + PD03AQ01 + '</BUS_MAN_INS_CD>\n';
+            var PD03AD02 = pd03[i].querySelector('#PD03AD02').value;
+            xml += '      <BUSINESS_SPECIES_CD>' + PD03AD02 + '</BUSINESS_SPECIES_CD>\n';
+            var PD03AR01 = pd03[i].querySelector('#PD03AR01').value;
+            xml += '      <OPEN_DDATE_GROP>' + PD03AR01 + '</OPEN_DDATE_GROP>\n';
+            var PD03AR02 = pd03[i].querySelector('#PD03AR02').value;
+            xml += '      <DUE_DDATE_GROP>' + PD03AR02 + '</DUE_DDATE_GROP>\n';
+            var PD03AD03 = pd03[i].querySelector('#PD03AD03').value;
+            xml += '      <REL_REP_RES_PER_TYP_CD>' + PD03AD03 + '</REL_REP_RES_PER_TYP_CD>\n';
+            var PD03AQ02 = pd03[i].querySelector('#PD03AQ02').value;
+            xml += '      <GUARANT_CONTRACT_NO_INFO>' + PD03AQ02 + '</GUARANT_CONTRACT_NO_INFO>\n';
+            var PD03AJ01 = pd03[i].querySelector('#PD03AJ01').value;
+            xml += '      <REL_REP_RES_AMONT>' + PD03AJ01 + '</REL_REP_RES_AMONT>\n';
+            var PD03AD04 = pd03[i].querySelector('#PD03AD04').value;
+            xml += '      <CURRENCY_TYPE_CD>' + PD03AD04 + '</CURRENCY_TYPE_CD>\n';
+            var PD03AJ02 = pd03[i].querySelector('#PD03AJ02').value;
+            xml += '      <BALNC>' + PD03AJ02 + '</BALNC>\n';
+            var PD03AD05 = pd03[i].querySelector('#PD03AD05').value;
+            xml += '      <FIVE_LEVEL_CLASSIFY_CD>' + PD03AD05 + '</FIVE_LEVEL_CLASSIFY_CD>\n';
+            var PD03AD06 = pd03[i].querySelector('#PD03AD06').value;
+            xml += '      <ACCOUNT_TYPE_CD>' + PD03AD06 + '</ACCOUNT_TYPE_CD>\n';
+            var PD03AD07 = pd03[i].querySelector('#PD03AD07').value;
+            xml += '      <REPAYMENT_STATUS_CD>' + PD03AD07 + '</REPAYMENT_STATUS_CD>\n';
+            var PD03AS01 = pd03[i].querySelector('#PD03AS01').value;
+            xml += '      <OVERDUE_MONTH_GROP>' + PD03AS01 + '</OVERDUE_MONTH_GROP>\n';
+            var PD03AR03 = pd03[i].querySelector('#PD03AR03').value;
+            xml += '      <INFO_REPORT_DDATE_GROP>' + PD03AR03 + '</INFO_REPORT_DDATE_GROP>\n';
+            xml += '    </RELREPAY_DUTY>\n';
+            xml += '    </RDIU_SIS_MAIN>\n';
+            var PD03ZS01 = pd03[i].querySelector('#PD03ZS01').value;
+            xml += '      <LABEL_STATE_NUM>' + PD03ZS01 + '</LABEL_STATE_NUM>\n';
+            const pd03zh = pd03[i].getElementsByClassName('pd03zh');
+            for (var k = 0; k < pd03zh.length; k++) {
+                var PD03ZD01 = pd03zh[k].querySelector('#PD03ZD01').value;
+                var PD03ZQ01 = pd03zh[k].querySelector('#PD03ZQ01').value;
+                var PD03ZR01 = pd03zh[k].querySelector('#PD03ZR01').value;
+                xml += '      <RDIU_SIS_ATT>\n';
+                xml += '        <LABEL_STATE_TYPE_CD>' + PD03ZD01 + '</LABEL_STATE_TYPE_CD>\n';
+                xml += '        <LABEL_OR_STATE_CONTENT>' + PD03ZQ01 + '</LABEL_OR_STATE_CONTENT>\n';
+                xml += '        <INCREASE_DDATE_GROP>' + PD03ZR01 + '</INCREASE_DDATE_GROP>\n';
+                xml += '      </RDIU_SIS_ATT>\n';
+            }
+            xml += '    </RDIU_SIS_MAIN>\n';
+            xml += '  </P_REL_REP_RES>\n';
+        }
+        xml += '</PCR>\n';
+
+
+        xml += '<PND>\n';
+        const pe01 = document.getElementsByClassName('pe01');
+        for (var i = 0; i < pe01.length; i++) {
+            xml += '  <P_PAY_FEE_BUSI>\n';
+            xml += '    <AFTPAY_BUS>\n';
+            var PE01AD01 = pe01[i].querySelector('#PE01AD01').value;
+            xml += '      <AFTER_PAY_FEE_ACCOUNT_TYPE_CD>' + PE01AD01 + '</AFTER_PAY_FEE_ACCOUNT_TYPE_CD>\n';
+            var PE01AQ01 = pe01[i].querySelector('#PE01AQ01').value;
+            xml += '      <ORG_NM>' + PE01AQ01 + '</ORG_NM>\n';
+            var PE01AD02 = pe01[i].querySelector('#PE01AD02').value;
+            xml += '      <BUSINESS_TYPE_CD>' + PE01AD02 + '</BUSINESS_TYPE_CD>\n';
+            var PE01AR01 = pe01[i].querySelector('#PE01AR01').value;
+            xml += '      <BUSINESS_OPEN_DDATE_GROP>' + PE01AR01 + '</BUSINESS_OPEN_DDATE_GROP>\n';
+            var PE01AD03 = pe01[i].querySelector('#PE01AD03').value;
+            xml += '      <CURRENT_PAYMENT_STATUS_CD>' + PE01AD03 + '</CURRENT_PAYMENT_STATUS_CD>\n';
+            var PE01AJ01 = pe01[i].querySelector('#PE01AJ01').value;
+            xml += '      <CURRENT_DEBT_AMONT>' + PE01AJ01 + '</CURRENT_DEBT_AMONT>\n';
+            var PE01AR02 = pe01[i].querySelector('#PE01AR02').value;
+            xml += '      <KEEP_ACCOUNTS_YEAR_MONTH_GROP>' + PE01AR02 + '</KEEP_ACCOUNTS_YEAR_MONTH_GROP>\n';
+            var PE01AQ02 = pe01[i].querySelector('#PE01AQ02').value;
+            xml += '      <NEA_PAY_NOT_CD>' + PE01AQ02 + '</NEA_PAY_NOT_CD>\n';
+            xml += '    </AFTPAY_BUS>\n';
+            xml += '    </AFIU_SIS_MAIN>\n';
+            var PE01ZS01 = pe01[i].querySelector('#PE01ZS01').value;
+            xml += '      <LABEL_STATE_NUM>' + PE01ZS01 + '</LABEL_STATE_NUM>\n';
+            const pe01zh = pe01[i].getElementsByClassName('pe01zh');
+            for (var k = 0; k < pe01zh.length; k++) {
+                var PE01ZQ01 = pe01zh[k].querySelector('#PE01ZQ01').value;
+                var PE01ZR01 = pe01zh[k].querySelector('#PE01ZR01').value;
+                xml += '      <LABEL_STATE_TYPE_CD>\n';
+                xml += '        <LABEL_OR_STATE_CONTENT>' + PE01ZQ01 + '</LABEL_OR_STATE_CONTENT>\n';
+                xml += '        <INCREASE_DDATE_GROP>' + PE01ZR01 + '</INCREASE_DDATE_GROP>\n';
+                xml += '      </LABEL_STATE_TYPE_CD>\n';
+            }
+            xml += '    </AFIU_SIS_MAIN>\n';
+            xml += '  </P_PAY_FEE_BUSI>\n';
+        }
+        xml += '</PND>\n';
+
+
+        xml += '<POT>\n';
+        const pf01 = document.getElementsByClassName('pf01');
+        for (var i = 0; i < pf01.length; i++) {
+            xml += '  <P_TAXES_NOTES>\n';
+            xml += '    <MISSTAX_RED>\n';
+            var PF01AQ01 = pf01[i].querySelector('#PF01AQ01').value;
+            xml += '      <ADM_TAX_ORG_INFO>' + PF01AQ01 + '</ADM_TAX_ORG_INFO>\n';
+            var PF01AJ01 = pf01[i].querySelector('#PF01AJ01').value;
+            xml += '      <OWING_TAXES_TOTAL_AMOUNT_AMONT>' + PF01AJ01 + '</OWING_TAXES_TOTAL_AMOUNT_AMONT>\n';
+            var PF01AR01 = pf01[i].querySelector('#PF01AR01').value;
+            xml += '      <OWI_TAX_STA_DDA_GROP>' + PF01AR01 + '</OWI_TAX_STA_DDA_GROP>\n';
+            xml += '    </MISSTAX_RED>\n';
+            xml += '    </MTIU_SIS_MAIN>\n';
+            var PF01ZS01 = pf01[i].querySelector('#PF01ZS01').value;
+            xml += '      <LABEL_STATE_NUM>' + PF01ZS01 + '</LABEL_STATE_NUM>\n';
+            const pf01zh = pf01[i].getElementsByClassName('pf01zh');
+            for (var k = 0; k < pf01zh.length; k++) {
+                var PF01ZD01 = pf01zh[k].querySelector('#PF01ZD01').value;
+                var PF01ZQ01 = pf01zh[k].querySelector('#PF01ZQ01').value;
+                var PF01ZR01 = pf01zh[k].querySelector('#PF01ZR01').value;
+                xml += '      <MTIU_SIS_ATT>\n';
+                xml += '        <LABEL_STATE_TYPE_CD>' + PF01ZD01 + '</LABEL_STATE_TYPE_CD>\n';
+                xml += '        <LABEL_OR_STATE_CONTENT>' + PF01ZQ01 + '</LABEL_OR_STATE_CONTENT>\n';
+                xml += '        <INCREASE_DDATE_GROP>' + PF01ZR01 + '</INCREASE_DDATE_GROP>\n';
+                xml += '      </MTIU_SIS_ATT>\n';
+            }
+            xml += '    </MTIU_SIS_MAIN>\n';
+            xml += '  </P_TAXES_NOTES>\n';
+        }
+        xml += '</POT>\n';
+
+        xml += '<PCJ>\n';
+        const pf02 = document.getElementsByClassName('pf02');
+        for (var i = 0; i < pf02.length; i++) {
+            xml += '  <P_CIVIL_JUDGMENT>\n';
+            xml += '    <CIVIL_JUDGE>\n';
+            var PF02AQ01 = pf02[i].querySelector('#PF02AQ01').value;
+            xml += '      <REGISTER_COURT_OF_JUSTICE_NM>' + PF02AQ01 + '</REGISTER_COURT_OF_JUSTICE_NM>\n';
+            var PF02AQ02 = pf02[i].querySelector('#PF02AQ02').value;
+            xml += '      <CAUSE_OF_ACTION_DESCR>' + PF02AQ02 + '</CAUSE_OF_ACTION_DESCR>\n';
+            var PF02AR01 = pf02[i].querySelector('#PF02AR01').value;
+            xml += '      <REGISTER_DDATE_GROP>' + PF02AR01 + '</REGISTER_DDATE_GROP>\n';
+            var PF02AD01 = pf02[i].querySelector('#PF02AD01').value;
+            xml += '      <CLOSED_WAY_CD>' + PF02AD01 + '</CLOSED_WAY_CD>\n';
+            var PF02AQ03 = pf02[i].querySelector('#PF02AQ03').value;
+            xml += '      <JUDGMENT_RESULTS_INFO>' + PF02AQ03 + '</JUDGMENT_RESULTS_INFO>\n';
+            var PF02AR02 = pf02[i].querySelector('#PF02AR02').value;
+            xml += '      <JUD_TAK_EFF_DDA_GROP>' + PF02AR02 + '</JUD_TAK_EFF_DDA_GROP>\n';
+            var PF02AQ04 = pf02[i].querySelector('#PF02AQ04').value;
+            xml += '      <LAWSUIT_OBJECT_INFO>' + PF02AQ04 + '</LAWSUIT_OBJECT_INFO>\n';
+            var PF02AJ01 = pf02[i].querySelector('#PF02AJ01').value;
+            xml += '      <LAWSUIT_OBJECT_AMONT>' + PF02AJ01 + '</LAWSUIT_OBJECT_AMONT>\n';
+            xml += '    </CIVIL_JUDGE>\n';
+            xml += '    </CJIU_SIS_MAIN>\n';
+            var PF02ZS01 = pf02[i].querySelector('#PF02ZS01').value;
+            xml += '      <LABEL_STATE_NUM>' + PF02ZS01 + '</LABEL_STATE_NUM>\n';
+            const pf02zh = pf02[i].getElementsByClassName('pf02zh');
+            for (var k = 0; k < pf02zh.length; k++) {
+                var PF02ZD01 = pf02zh[k].querySelector('#PF02ZD01').value;
+                var PF02ZQ01 = pf02zh[k].querySelector('#PF02ZQ01').value;
+                var PF02ZR01 = pf02zh[k].querySelector('#PF02ZR01').value;
+                xml += '      <CJIU_SIS_ATT>\n';
+                xml += '        <LABEL_STATE_TYPE_CD>' + PF02ZD01 + '</LABEL_STATE_TYPE_CD>\n';
+                xml += '        <LABEL_OR_STATE_CONTENT>' + PF02ZQ01 + '</LABEL_OR_STATE_CONTENT>\n';
+                xml += '        <INCREASE_DDATE_GROP>' + PF02ZR01 + '</INCREASE_DDATE_GROP>\n';
+                xml += '      </CJIU_SIS_ATT>\n';
+            }
+            xml += '    </CJIU_SIS_MAIN>\n';
+            xml += '  </P_CIVIL_JUDGMENT>\n';
+        }
+        xml += '</PCJ>\n';
+
+        xml += '<PCE>\n';
+        const pf03 = document.getElementsByClassName('pf03');
+        for (var i = 0; i < pf03.length; i++) {
+            xml += '  <P_MANDATORY_EXECUTE>\n';
+            xml += '    <FOREXE_RED>\n';
+            var PF03AQ01 = pf03[i].querySelector('#PF03AQ01').value;
+            xml += '      <EXECUTE_COURT_OF_JUSTICE_NM>' + PF03AQ01 + '</EXECUTE_COURT_OF_JUSTICE_NM>\n';
+            var PF03AQ02 = pf03[i].querySelector('#PF03AQ02').value;
+            xml += '      <EXECUTE_CAUSE_OF_ACTION_DESCR>' + PF03AQ02 + '</EXECUTE_CAUSE_OF_ACTION_DESCR>\n';
+            var PF03AR01 = pf03[i].querySelector('#PF03AR01').value;
+            xml += '      <REGISTER_DDATE_GROP>' + PF03AR01 + '</REGISTER_DDATE_GROP>\n';
+            var PF03AD01 = pf03[i].querySelector('#PF03AD01').value;
+            xml += '      <CLOSED_WAY_CD>' + PF03AD01 + '</CLOSED_WAY_CD>\n';
+            var PF03AQ03 = pf03[i].querySelector('#PF03AQ03').value;
+            xml += '      <CASES_STATUS_CD>' + PF03AQ03 + '</CASES_STATUS_CD>\n';
+            var PF03AR02 = pf03[i].querySelector('#PF03AR02').value;
+            xml += '      <CLOSED_DDATE_GROP>' + PF03AR02 + '</CLOSED_DDATE_GROP>\n';
+            var PF03AQ04 = pf03[i].querySelector('#PF03AQ04').value;
+            xml += '      <APPLYFOR_EXECUTE_OBJECT_INFO>' + PF03AQ04 + '</APPLYFOR_EXECUTE_OBJECT_INFO>\n';
+            var PF03AJ01 = pf03[i].querySelector('#PF03AJ01').value;
+            xml += '      <APPLYFOR_EXECUTE_OBJECT_AMONT>' + PF03AJ01 + '</APPLYFOR_EXECUTE_OBJECT_AMONT>\n';
+            var PF03AQ05 = pf03[i].querySelector('#PF03AQ05').value;
+            xml += '      <ALREADY_EXECUTE_OBJECT_INFO>' + PF03AQ05 + '</ALREADY_EXECUTE_OBJECT_INFO>\n';
+            var PF03AJ02 = pf03[i].querySelector('#PF03AJ02').value;
+            xml += '      <ALREADY_EXECUTE_OBJECT_AMONT>' + PF03AJ02 + '</ALREADY_EXECUTE_OBJECT_AMONT>\n';
+            xml += '    </FOREXE_RED>\n';
+            xml += '    </FRIU_SIS_MAIN>\n';
+            var PF03ZS01 = pf03[i].querySelector('#PF03ZS01').value;
+            xml += '      <LABEL_STATE_NUM>' + PF03ZS01 + '</LABEL_STATE_NUM>\n';
+            const pf03zh = pf03[i].getElementsByClassName('pf03zh');
+            for (var k = 0; k < pf03zh.length; k++) {
+                var PF03ZD01 = pf03zh[k].querySelector('#PF03ZD01').value;
+                var PF03ZQ01 = pf03zh[k].querySelector('#PF03ZQ01').value;
+                var PF03ZR01 = pf03zh[k].querySelector('#PF03ZR01').value;
+                xml += '      <FRIU_SIS_ATT>\n';
+                xml += '        <LABEL_STATE_TYPE_CD>' + PF03ZD01 + '</LABEL_STATE_TYPE_CD>\n';
+                xml += '        <LABEL_OR_STATE_CONTENT>' + PF03ZQ01 + '</LABEL_OR_STATE_CONTENT>\n';
+                xml += '        <INCREASE_DDATE_GROP>' + PF03ZR01 + '</INCREASE_DDATE_GROP>\n';
+                xml += '      </FRIU_SIS_ATT>\n';
+            }
+            xml += '    </FRIU_SIS_MAIN>\n';
+            xml += '  </P_MANDATORY_EXECUTE>\n';
+        }
+        xml += '</PCE>\n';
+
+        xml += '<PAP>\n';
+        const pf04 = document.getElementsByClassName('pf04');
+        for (var i = 0; i < pf04.length; i++) {
+            xml += '  <P_ADMINISTRATION_PUNISH>\n';
+            xml += '    <ADMPUN_RED>\n';
+            var PF04AQ01 = pf04[i].querySelector('#PF04AQ01').value;
+            var PF04AQ02 = pf04[i].querySelector('#PF04AQ02').value;
+            var PF04AJ01 = pf04[i].querySelector('#PF04AJ01').value;
+            var PF04AR01 = pf04[i].querySelector('#PF04AR01').value;
+            var PF04AR02 = pf04[i].querySelector('#PF04AR02').value;
+            var PF04AQ03 = pf04[i].querySelector('#PF04AQ03').value;
+            xml += '      <PUNISH_ORG_NM>' + PF04AQ01 + '</PUNISH_ORG_NM>\n';
+            xml += '      <PUNISH_CONTENT>' + PF04AQ02 + '</PUNISH_CONTENT>\n';
+            xml += '      <PUNISH_AMONT>' + PF04AJ01 + '</PUNISH_AMONT>\n';
+            xml += '      <PUNISH_TAKE_EFFECT_DDATE_GROP>' + PF04AR01 + '</PUNISH_TAKE_EFFECT_DDATE_GROP>\n';
+            xml += '      <PUNISH_CUT_OFF_DDATE_GROP>' + PF04AR02 + '</PUNISH_CUT_OFF_DDATE_GROP>\n';
+            xml += '      <ADM_REC_RES_DESCR>' + PF04AQ03 + '</ADM_REC_RES_DESCR>\n';
+            xml += '    </ADMPUN_RED>\n';
+            xml += '    </ADIU_SIS_MAIN>\n';
+            var PF04ZS01 = pf04[i].querySelector('#PF04ZS01').value;
+            xml += '      <LABEL_STATE_NUM>' + PF04ZS01 + '</LABEL_STATE_NUM>\n';
+            const pf04zh = pf04[i].getElementsByClassName('pf04zh');
+            for (var k = 0; k < pf04zh.length; k++) {
+                var PF04ZD01 = pf04zh[k].querySelector('#PF04ZD01').value;
+                var PF04ZQ01 = pf04zh[k].querySelector('#PF04ZQ01').value;
+                var PF04ZR01 = pf04zh[k].querySelector('#PF04ZR01').value;
+                xml += '      <ADIU_SIS_ATT>\n';
+                xml += '        <LABEL_STATE_TYPE_CD>' + PF04ZD01 + '</LABEL_STATE_TYPE_CD>\n';
+                xml += '        <LABEL_OR_STATE_CONTENT>' + PF04ZQ01 + '</LABEL_OR_STATE_CONTENT>\n';
+                xml += '        <INCREASE_DDATE_GROP>' + PF04ZR01 + '</INCREASE_DDATE_GROP>\n';
+                xml += '      </ADIU_SIS_ATT>\n';
+            }
+            xml += '    </ADIU_SIS_MAIN>\n';
+            xml += '  </P_ADMINISTRATION_PUNISH>\n';
+        }
+        xml += '</PAP>\n';
+
+        xml += '<PHF>\n';
+        const pf05 = document.getElementsByClassName('pf05');
+        for (var i = 0; i < pf05.length; i++) {
+            xml += '  <P_HOUSE_SURPLUSES>\n';
+            xml += '    <HOUPAF_PAYRED>\n';
+            var PF05AQ01 = pf05[i].querySelector('#PF05AQ01').value;
+            var PF05AR01 = pf05[i].querySelector('#PF05AR01').value;
+            var PF05AD01 = pf05[i].querySelector('#PF05AD01').value;
+            var PF05AR02 = pf05[i].querySelector('#PF05AR02').value;
+            var PF05AR03 = pf05[i].querySelector('#PF05AR03').value;
+            var PF05AQ02 = pf05[i].querySelector('#PF05AQ02').value;
+            var PF05AQ03 = pf05[i].querySelector('#PF05AQ03').value;
+            var PF05AJ01 = pf05[i].querySelector('#PF05AJ01').value;
+            var PF05AQ04 = pf05[i].querySelector('#PF05AQ04').value;
+            var PF05AR04 = pf05[i].querySelector('#PF05AR04').value;
+            xml += '      <PAY_ADDR>' + PF05AQ01 + '</PAY_ADDR>\n';
+            xml += '      <PAY_DDATE_GROP>' + PF05AR01 + '</PAY_DDATE_GROP>\n';
+            xml += '      <PAYMENT_STATUS_CD>' + PF05AD01 + '</PAYMENT_STATUS_CD>\n';
+            xml += '      <FIRST_TIME_PAY_MONTH_GROP>' + PF05AR02 + '</FIRST_TIME_PAY_MONTH_GROP>\n';
+            xml += '      <CUT_OFF_PAY_MONTH_GROP>' + PF05AR03 + '</CUT_OFF_PAY_MONTH_GROP>\n';
+            xml += '      <UNIT_INDEPOSIT_PROPRTN>' + PF05AQ02 + '</UNIT_INDEPOSIT_PROPRTN>\n';
+            xml += '      <PERSONAL_INDEPOSIT_PROPRTN>' + PF05AQ03 + '</PERSONAL_INDEPOSIT_PROPRTN>\n';
+            xml += '      <MONTH_PAY_AMONT>' + PF05AJ01 + '</MONTH_PAY_AMONT>\n';
+            xml += '      <PAYMENT_UNIT_NM>' + PF05AQ04 + '</PAYMENT_UNIT_NM>\n';
+            xml += '      <INFO_UPDATE_DDATE_GROP>' + PF05AR04 + '</INFO_UPDATE_DDATE_GROP>\n';
+            xml += '    </HOUPAF_PAYRED>\n';
+            xml += '    </HPIU_SIS_MAIN>\n';
+            var PF05ZS01 = pf05[i].querySelector('#PF05ZS01').value;
+            xml += '      <LABEL_STATE_NUM>' + PF05ZS01 + '</LABEL_STATE_NUM>\n';
+            const pf05zh = pf05[i].getElementsByClassName('pf05zh');
+            for (var k = 0; k < pf05zh.length; k++) {
+                var PF05ZD01 = pf05zh[k].querySelector('#PF05ZD01').value;
+                var PF05ZQ01 = pf05zh[k].querySelector('#PF05ZQ01').value;
+                var PF05ZR01 = pf05zh[k].querySelector('#PF05ZR01').value;
+                xml += '      <HPIU_SIS_ATT>\n';
+                xml += '        <LABEL_STATE_TYPE_CD>' + PF05ZD01 + '</LABEL_STATE_TYPE_CD>\n';
+                xml += '        <LABEL_OR_STATE_CONTENT>' + PF05ZQ01 + '</LABEL_OR_STATE_CONTENT>\n';
+                xml += '        <INCREASE_DDATE_GROP>' + PF05ZR01 + '</INCREASE_DDATE_GROP>\n';
+                xml += '      </HPIU_SIS_ATT>\n';
+            }
+            xml += '    </HPIU_SIS_MAIN>\n';
+            xml += '  </P_HOUSE_SURPLUSES>\n';
+        }
+        xml += '</PHF>\n';
+
+        xml += '<PBS>\n';
+        const pf06 = document.getElementsByClassName('pf06');
+        for (var i = 0; i < pf06.length; i++) {
+            xml += '  <P_BAS_LIV>\n';
+            xml += '    <BLA_INFO_RED>\n';
+            var PF06AD01 = pf06[i].querySelector('#PF06AD01').value;
+            var PF06AQ01 = pf06[i].querySelector('#PF06AQ01').value;
+            var PF06AQ02 = pf06[i].querySelector('#PF06AQ02').value;
+            var PF06AQ03 = pf06[i].querySelector('#PF06AQ03').value;
+            var PF06AR01 = pf06[i].querySelector('#PF06AR01').value;
+            var PF06AR02 = pf06[i].querySelector('#PF06AR02').value;
+            var PF06AR03 = pf06[i].querySelector('#PF06AR03').value;
+            xml += '      <STAFF_CATEGORY_CD>' + PF06AD01 + '</STAFF_CATEGORY_CD>\n';
+            xml += '      <ADDR>' + PF06AQ01 + '</ADDR>\n';
+            xml += '      <WORK_UNIT_NI>' + PF06AQ02 + '</WORK_UNIT_NI>\n';
+            xml += '      <FAMILY_MONTH_INCOME_AMONT>' + PF06AQ03 + '</FAMILY_MONTH_INCOME_AMONT>\n';
+            xml += '      <APPLYFOR_DDATE_GROP>' + PF06AR01 + '</APPLYFOR_DDATE_GROP>\n';
+            xml += '      <APPROVAL_DDATE_GROP>' + PF06AR02 + '</APPROVAL_DDATE_GROP>\n';
+            xml += '      <INFO_UPDATE_DDATE_GROP>' + PF06AR03 + '</INFO_UPDATE_DDATE_GROP>\n';
+            xml += '    </BLA_INFO_RED>\n';
+            xml += '    </BLIU_SIS_MAIN>\n';
+            var PF06ZS01 = pf06[i].querySelector('#PF06ZS01').value;
+            xml += '      <LABEL_STATE_NUM>' + PF06ZS01 + '</LABEL_STATE_NUM>\n';
+            const pf06zh = pf06[i].getElementsByClassName('pf06zh');
+            for (var k = 0; k < pf06zh.length; k++) {
+                var PF06ZD01 = pf06zh[k].querySelector('#PF06ZD01').value;
+                var PF06ZQ01 = pf06zh[k].querySelector('#PF06ZQ01').value;
+                var PF06ZR01 = pf06zh[k].querySelector('#PF06ZR01').value;
+                xml += '      <BLIU_SIS_ATT>\n';
+                xml += '        <LABEL_STATE_TYPE_CD>' + PF06ZD01 + '</LABEL_STATE_TYPE_CD>\n';
+                xml += '        <LABEL_OR_STATE_CONTENT>' + PF06ZQ01 + '</LABEL_OR_STATE_CONTENT>\n';
+                xml += '        <INCREASE_DDATE_GROP>' + PF06ZR01 + '</INCREASE_DDATE_GROP>\n';
+                xml += '      </BLIU_SIS_ATT>\n';
+            }
+            xml += '    </BLIU_SIS_MAIN>\n';
+            xml += '  </P_BAS_LIV>\n';
+        }
+        xml += '</PBS>\n';
+
+        xml += '<PPQ>\n';
+        const pf07 = document.getElementsByClassName('pf07');
+        for (var i = 0; i < pf07.length; i++) {
+            xml += '  <P_PRAC_QUALIFICATION>\n';
+            xml += '    <PRAC_REQ_RED>\n';
+            var PF07AQ01 = pf07[i].querySelector('#PF07AQ01').value;
+            var PF07AQ02 = pf07[i].querySelector('#PF07AQ02').value;
+            var PF07AD01 = pf07[i].querySelector('#PF07AD01').value;
+            var PF07AD02 = pf07[i].querySelector('#PF07AD02').value;
+            var PF07AR01 = pf07[i].querySelector('#PF07AR01').value;
+            var PF07AR02 = pf07[i].querySelector('#PF07AR02').value;
+            var PF07AR03 = pf07[i].querySelector('#PF07AR03').value;
+            xml += '      <PRACTICE_QUALIFICATION_NM>' + PF07AQ01 + '</PRACTICE_QUALIFICATION_NM>\n';
+            xml += '      <AWARD_INSTITUTION_DESCR>' + PF07AQ02 + '</AWARD_INSTITUTION_DESCR>\n';
+            xml += '      <LEVEL_CD>' + PF07AD01 + '</LEVEL_CD>\n';
+            xml += '      <INSTITUTION_ADDR>' + PF07AD02 + '</INSTITUTION_ADDR>\n';
+            xml += '      <GAIN_YEAR_MONTH_GROP>' + PF07AR01 + '</GAIN_YEAR_MONTH_GROP>\n';
+            xml += '      <DU_YEAR_MONTH_GROP>' + PF07AR02 + '</DU_YEAR_MONTH_GROP>\n';
+            xml += '      <REVOKE_YEAR_MONTH_GROP>' + PF07AR03 + '</REVOKE_YEAR_MONTH_GROP>\n';
+            xml += '    </PRAC_REQ_RED>\n';
+            xml += '    </PRIU_SIS_MAIN>\n';
+            var PF07ZS01 = pf07[i].querySelector('#PF07ZS01').value;
+            xml += '      <LABEL_STATE_NUM>' + PF07ZS01 + '</LABEL_STATE_NUM>\n';
+            const pf07zh = pf07[i].getElementsByClassName('pf07zh');
+            for (var k = 0; k < pf07zh.length; k++) {
+                var PF07ZD01 = pf07zh[k].querySelector('#PF07ZD01').value;
+                var PF07ZQ01 = pf07zh[k].querySelector('#PF07ZQ01').value;
+                var PF07ZR01 = pf07zh[k].querySelector('#PF07ZR01').value;
+                xml += '      <PRIU_SIS_ATT>\n';
+                xml += '        <LABEL_STATE_TYPE_CD>' + PF07ZD01 + '</LABEL_STATE_TYPE_CD>\n';
+                xml += '        <LABEL_OR_STATE_CONTENT>' + PF07ZQ01 + '</LABEL_OR_STATE_CONTENT>\n';
+                xml += '        <INCREASE_DDATE_GROP>' + PF07ZR01 + '</INCREASE_DDATE_GROP>\n';
+                xml += '      </PRIU_SIS_ATT>\n';
+            }
+            xml += '    </PRIU_SIS_MAIN>\n';
+            xml += '  </P_PRAC_QUALIFICATION>\n';
+        }
+        xml += '</PPQ>\n';
+
+        xml += '<PAH>\n';
+        const pf08 = document.getElementsByClassName('pf08');
+        for (var i = 0; i < pf08.length; i++) {
+            xml += '  <P_ADMINISTRATION_REWARD>\n';
+            xml += '    <ADM_REW_RED>\n';
+            var PF08AQ01 = pf08[i].querySelector('#PF08AQ01').value;
+            var PF08AQ02 = pf08[i].querySelector('#PF08AQ02').value;
+            var PF08AR01 = pf08[i].querySelector('#PF08AR01').value;
+            var PF08AR02 = pf08[i].querySelector('#PF08AR02').value;
+            xml += '      <REWARD_INSTITUTION_DESCR>' + PF08AQ01 + '</REWARD_INSTITUTION_DESCR>\n';
+            xml += '      <REWARD_CONTENT>' + PF08AQ02 + '</REWARD_CONTENT>\n';
+            xml += '      <TAKE_EFFECT_YEAR_MONTH_GROP>' + PF08AR01 + '</TAKE_EFFECT_YEAR_MONTH_GROP>\n';
+            xml += '      <CUT_OFF_YEAR_MONTH_GROP>' + PF08AR02 + '</CUT_OFF_YEAR_MONTH_GROP>\n';
+            xml += '    </ADM_REW_RED>\n';
+            xml += '  </ADMIU_SIS_MAIN>\n';
+            var PF08ZS01 = pf08[i].querySelector('#PF08ZS01').value;
+            xml += '      <LABEL_STATE_NUM>' + PF08ZS01 + '</LABEL_STATE_NUM>\n';
+            const pf08zh = pf08[i].getElementsByClassName('pf08zh');
+            for (var k = 0; k < pf08zh.length; k++) {
+                var PF08ZD01 = pf08zh[k].querySelector('#PF08ZD01').value;
+                var PF08ZQ01 = pf08zh[k].querySelector('#PF08ZQ01').value;
+                var PF08ZR01 = pf08zh[k].querySelector('#PF08ZR01').value;
+                xml += '      <ADMIU_SIS_ATT>\n';
+                xml += '        <LABEL_STATE_TYPE_CD>' + PF08ZD01 + '</LABEL_STATE_TYPE_CD>\n';
+                xml += '        <LABEL_OR_STATE_CONTENT>' + PF08ZQ01 + '</LABEL_OR_STATE_CONTENT>\n';
+                xml += '        <INCREASE_DDATE_GROP>' + PF08ZR01 + '</INCREASE_DDATE_GROP>\n';
+                xml += '      </ADMIU_SIS_ATT>\n';
+            }
+            xml += '    </ADMIU_SIS_MAIN>\n';
+            xml += '  </P_ADMINISTRATION_REWARD>\n';
+        }
+        xml += '</PAH>\n';
+
+        xml += '<POS>\n';
+        xml += '  <STATE_INFO_UNITM>\n';
+        var PG010D01 = document.getElementById('PG010D01').value;
+        xml += '    <OBJECT_TYPE_CD>' + PG010D01 + '</OBJECT_TYPE_CD>\n';
+        var PG010D02 = document.getElementById('PG010D02').value;
+        xml += '    <OBJECT_LABEL_CD>' + PG010D02 + '</OBJECT_LABEL_CD>\n';
+        var PG010S01 = document.getElementById('PG010S01').value;
+        xml += '    <LABEL_STATE_TYPE_NUM>' + PG010S01 + '</LABEL_STATE_TYPE_NUM>\n';
+        xml += '  </STATE_INFO_UNITM>\n';
+        const  pg010h= document.getElementsByClassName('pg010h');
+        for (var i = 0; i < pg010h.length; i++) {
+            xml += '  <STATE_INFO_UNITA>\n';
+            var PG010D03 = pg010h[i].querySelector('#PG010D03').value;
+            var PG010Q01 = pg010h[i].querySelector('#PG010Q01').value;
+            var PG010R01 = pg010h[i].querySelector('#PG010R01').value;
+            xml += '    <LABEL_STATE_TYPE_CD>' + PG010D03 + '</LABEL_STATE_TYPE_CD>\n';
+            xml += '    <LABEL_OR_STATE_CONTENT>' + PG010Q01 + '</LABEL_OR_STATE_CONTENT>\n';
+            xml += '    <INCREASE_DDATE_GROP>' + PG010R01 + '</INQUIINCREASE_DDATE_GROPRE_REASON_CD>\n';
+            xml += '  </STATE_INFO_UNITA>\n';
+        }
+        xml += '</POS>\n';
+
+        xml += '<POQ>\n';
+        const  ph01= document.getElementsByClassName('ph01');
+        for (var i = 0; i < ph01.length; i++) {
+            xml += '  <INQ_RED>\n';
+            var PH010R01 = ph01[i].querySelector('#PH010R01').value;
+            var PH010D01 = ph01[i].querySelector('#PH010D01').value;
+            var PH010Q02 = ph01[i].querySelector('#PH010Q02').value;
+            var PH010Q03 = ph01[i].querySelector('#PH010Q03').value;
+            xml += '    <INQUIRE_DDATE_GROP>' + PH010R01 + '</INQUIRE_DDATE_GROP>\n';
+            xml += '    <INQUIRE_INSTITUTION_TYPE_CD>' + PH010D01 + '</INQUIRE_INSTITUTION_TYPE_CD>\n';
+            xml += '    <INQUIRE_INSTITUTION_CD>' + PH010Q02 + '</INQUIRE_INSTITUTION_CD>\n';
+            xml += '    <INQUIRE_REASON_CD>' + PH010Q03 + '</INQUIRE_REASON_CD>\n';
+            xml += '  </INQ_RED>\n';
+        }
+        xml += '</POQ>\n';
         xml += '</Document>\n';
 
         var blob = new Blob([xml], { type: 'application/xml' });
