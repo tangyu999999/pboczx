@@ -68,12 +68,12 @@
         }
 
         label {
-            margin-right: 10px;
-            width: 180px;
+            margin-left: 15px;
+            width: 300px;
             /* 调整label和input之间的间距 */
             font-weight: bold;
             font-family: 'Arial', sans-serif;
-            font-size: 10px;
+            font-size: 15px;
             color: #333333;
             font-weight: bold;
             text-align: justify;
@@ -86,13 +86,13 @@
             border-radius: 4px;
             box-sizing: border-box;
             transition: border-color 0.3s ease;
-            width: 180px;
+            width: 200px;
         }
     </style>
 </head>
 
 <body>
-    <details>
+    <details open>
         <summary>征信文件生成器</summary>
         <details id="prh">
             <summary>PRH ( 报告头 )</summary>
@@ -138,18 +138,20 @@
                         <label for="PA01CS01">PA01CS01 (身份标识个数)</label>
                         <input type="text" id="PA01CS01">
                     </div>
-                    <div class="form-group">
-                        <label for="PA01CH">PA01CH (身份信息)</label>
-                        <input type="text" id="PA01CH">
-                    </div>
-                    <div class="form-group">
-                        <label for="PA01CD01">PA01CD01 (证件类型)</label>
-                        <input type="text" id="PA01CD01">
-                    </div>
-                    <div class="form-group">
-                        <label for="PA01CI01">PA01CI01 (证件号码) )</label>
-                        <input type="text" id="PA01CI01">
-                    </div>
+                    <details id="pa01ch" class="pa01ch">
+                        <summary>PA01CH (身份信息)
+                            <button onclick="getParentIdcopy(this)">+</button>
+                            <button onclick="getParentIddel(this)">-</button>
+                        </summary>
+                        <div class="form-group">
+                            <label for="PA01CD01">PA01CD01 (证件类型)</label>
+                            <input type="text" id="PA01CD01">
+                        </div>
+                        <div class="form-group">
+                            <label for="PA01CI01">PA01CI01 (证件号码) )</label>
+                            <input type="text" id="PA01CI01">
+                        </div>
+                    </details>
                 </details>
                 <details id="pa01d">
                     <summary>PA01D (防欺诈警示信息段)</summary>
@@ -1250,7 +1252,10 @@
                         <input type="text" id="PD02ZS01">
                     </div>
                     <details id="pd02zh" class="pd02zh">
-                        <summary>PD02ZH ( 标注及声明信息 )</summary>
+                        <summary>PD02ZH ( 标注及声明信息 )
+                            <button onclick="getParentIdcopy(this)">+</button>
+                            <button onclick="getParentIddel(this)">-</button>
+                        </summary>
                         <div class="form-group"> <label for="PD02ZD01">PD02ZD01(标注及声明类型)</label>
                             <input type="text" id="PD02ZD01">
                         </div>
@@ -1333,7 +1338,10 @@
                         <input type="text" id="PD03ZS01">
                     </div>
                     <details id="pd03zh" class="pd03zh">
-                        <summary>PD03ZH ( 标注及声明信息 )</summary>
+                        <summary>PD03ZH ( 标注及声明信息 )
+                            <button onclick="getParentIdcopy(this)">+</button>
+                            <button onclick="getParentIddel(this)">-</button>
+                        </summary>
                         <div class="form-group"> <label for="PD03ZD01">PD03ZD01(标注及声明类型)</label>
                             <input type="text" id="PD03ZD01">
                         </div>
@@ -1391,7 +1399,10 @@
                         <input type="text" id="PE01ZS01">
                     </div>
                     <details id="pe01zh" class="pe01zh">
-                        <summary>PE01ZH ( 标注及声明信息 )</summary>
+                        <summary>PE01ZH ( 标注及声明信息 )
+                            <button onclick="getParentIdcopy(this)">+</button>
+                            <button onclick="getParentIddel(this)">-</button>
+                        </summary>
                         <div class="form-group"> <label for="PE01ZQ01">PE01ZQ01(标注或声明内容)</label>
                             <input type="text" id="PE01ZQ01">
                         </div>
@@ -1430,7 +1441,10 @@
                         <input type="text" id="PF01ZS01">
                     </div>
                     <details id="pf01zh" class="pf01zh">
-                        <summary>PF01ZH ( 标注及声明信息 )</summary>
+                        <summary>PF01ZH ( 标注及声明信息 )
+                            <button onclick="getParentIdcopy(this)">+</button>
+                            <button onclick="getParentIddel(this)">-</button>
+                        </summary>
                         <div class="form-group"> <label for="PF01ZD01">PF01ZD01(标注及声明类型)</label>
                             <input type="text" id="PF01ZD01">
                         </div>
@@ -1490,7 +1504,10 @@
                         <input type="text" id="PF02ZS01">
                     </div>
                     <details id="pf02zh" class="pf02zh">
-                        <summary>PF02ZH ( 标注及声明信息 )</summary>
+                        <summary>PF02ZH ( 标注及声明信息 )
+                            <button onclick="getParentIdcopy(this)">+</button>
+                            <button onclick="getParentIddel(this)">-</button>
+                        </summary>
                         <div class="form-group"> <label for="PF02ZD01">PF02ZD01(标注及声明类型)</label>
                             <input type="text" id="PF02ZD01">
                         </div>
@@ -1557,7 +1574,10 @@
                         <input type="text" id="PF03ZS01">
                     </div>
                     <details id="pf03zh" class="pf03zh">
-                        <summary>PF03ZH ( 标注及声明信息 )</summary>
+                        <summary>PF03ZH ( 标注及声明信息 )
+                            <button onclick="getParentIdcopy(this)">+</button>
+                            <button onclick="getParentIddel(this)">-</button>
+                        </summary>
                         <div class="form-group"> <label for="PF03ZD01">PF03ZD01(标注及声明类型)</label>
                             <input type="text" id="PF03ZD01">
                         </div>
@@ -1612,7 +1632,10 @@
                         <input type="text" id="PF04ZS01">
                     </div>
                     <details id="pf04zh" class="pf04zh">
-                        <summary>PF04ZH ( 标注及声明信息 )</summary>
+                        <summary>PF04ZH ( 标注及声明信息 )
+                            <button onclick="getParentIdcopy(this)">+</button>
+                            <button onclick="getParentIddel(this)">-</button>
+                        </summary>
                         <div class="form-group"> <label for="PF04ZD01">PF04ZD01(标注及声明类型)</label>
                             <input type="text" id="PF04ZD01">
                         </div>
@@ -1683,7 +1706,10 @@
                         <input type="text" id="PF05ZS01">
                     </div>
                     <details id="pf05zh" class="pf05zh">
-                        <summary>PF05ZH ( 标注及声明信息 )</summary>
+                        <summary>PF05ZH ( 标注及声明信息 )
+                            <button onclick="getParentIdcopy(this)">+</button>
+                            <button onclick="getParentIddel(this)">-</button>
+                        </summary>
                         <div class="form-group"> <label for="PF05ZD01">PF05ZD01(标注及声明类型)</label>
                             <input type="text" id="PF05ZD01">
                         </div>
@@ -1745,7 +1771,10 @@
                         <input type="text" id="PF06ZS01">
                     </div>
                     <details id="pf06zh" class="pf06zh">
-                        <summary>PF06ZH ( 标注及声明信息 )</summary>
+                        <summary>PF06ZH ( 标注及声明信息 )
+                            <button onclick="getParentIdcopy(this)">+</button>
+                            <button onclick="getParentIddel(this)">-</button>
+                        </summary>
                         <div class="form-group"> <label for="PF06ZD01">PF06ZD01(标注及声明类型)</label>
                             <input type="text" id="PF06ZD01">
                         </div>
@@ -1797,10 +1826,7 @@
                         <label for="PF07AR03">PF07AR03 (吊销年月)</label>
                         <input type="text" id="PF07AR03">
                     </div>
-                    <div class="form-group">
-                        <label for="PF05AJ01">PF05AJ01 (月缴存额)</label>
-                        <input type="text" id="PF05AJ01">
-                    </div>
+
 
                 </details>
                 <details id="pf07z">
@@ -1809,7 +1835,10 @@
                         <input type="text" id="PF07ZS01">
                     </div>
                     <details id="pf07zh" class="pf07zh">
-                        <summary>PF07ZH ( 标注及声明信息 )</summary>
+                        <summary>PF07ZH ( 标注及声明信息 )
+                            <button onclick="getParentIdcopy(this)">+</button>
+                            <button onclick="getParentIddel(this)">-</button>
+                        </summary>
                         <div class="form-group"> <label for="PF07ZD01">PF07ZD01(标注及声明类型)</label>
                             <input type="text" id="PF07ZD01">
                         </div>
@@ -1856,7 +1885,10 @@
                         <input type="text" id="PF08ZS01">
                     </div>
                     <details id="pf08zh" class="pf08zh">
-                        <summary>PF08ZH ( 标注及声明信息 )</summary>
+                        <summary>PF08ZH ( 标注及声明信息 )
+                            <button onclick="getParentIdcopy(this)">+</button>
+                            <button onclick="getParentIddel(this)">-</button>
+                        </summary>
                         <div class="form-group"> <label for="PF08ZD01">PF08ZD01(标注及声明类型)</label>
                             <input type="text" id="PF08ZD01">
                         </div>
@@ -1928,6 +1960,8 @@
         </details>
     </details>
 
+    <input type="file" id="fileInput" accept=".xml" width="200" />
+    <button onclick="importXML()">导入XML</button>
     <label for="fileName">文件名：</label>
     <input type="text" id="fileName">
     <button onclick="generateXML()">生成 XML</button>
@@ -1974,8 +2008,7 @@
             return;
         }
 
-        var PA01CD01 = document.getElementById('PA01CD01').value;
-        var PA01CI01 = document.getElementById('PA01CI01').value;
+
         var PA01DQ01 = document.getElementById('PA01DQ01').value;
         var PA01DQ02 = document.getElementById('PA01DQ02').value;
         var PA01DR01 = document.getElementById('PA01DR01').value;
@@ -1989,36 +2022,43 @@
         var PA01BI02 = document.getElementById('PA01BI02').value;
         var PA01BD02 = document.getElementById('PA01BD02').value;
         var PA01CS01 = document.getElementById('PA01CS01').value;
-        var PA01CH = document.getElementById('PA01CH').value;
         var xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
         xml += '<Document>\n';
         xml += '<PRH>\n';
-        xml += '  <REP_IDE>\n';
-        xml += '    <REPORT_NO>' + PA01AI01 + '</REPORT_NO>\n';
-        xml += '    <REPORT_TIME_GROP>' + PA01AR01 + '</REPORT_TIME_GROP>\n';
-        xml += '  </REP_IDE>\n';
-        xml += '  <THT_INQ_REQ>\n';
-        xml += '    <BE_INQUIRE_PERSON_NM>' + PA01BQ01 + '</BE_INQUIRE_PERSON_NM>\n';
-        xml += '    <BE_INQ_PER_CER_TYP_ENCD>' + PA01BD01 + '</BE_INQ_PER_CER_TYP_ENCD>\n';
-        xml += '    <BE_INQUIRE_PERSON_CERTFCT_NO>' + PA01BI01 + '</BE_INQUIRE_PERSON_CERTFCT_NO>\n';
-        xml += '    <INQUIRE_INSTITUTION_CD>' + PA01BI02 + '</INQUIRE_INSTITUTION_CD>\n';
-        xml += '    <INQUIRE_REASON_CD>' + PA01BD02 + '</INQUIRE_REASON_CD>\n';
-        xml += '  </THT_INQ_REQ>\n';
-        xml += '  <OTR_IDE_MAIN>\n';
-        xml += '    <IDENTITY_LABEL_NUM>' + PA01CS01 + '</IDENTITY_LABEL_NUM>\n';
-        xml += '    <OTR_IDE_ATT>' + PA01CH + '</OTR_IDE_ATT>\n';
-        xml += '    <CERTIFICATE_TYPE_ENCD>' + PA01CD01 + '</CERTIFICATE_TYPE_ENCD>\n';
-        xml += '    <CERTFCT_NO>' + PA01CI01 + '</CERTFCT_NO>\n';
-        xml += '  </OTR_IDE_MAIN>\n';
-        xml += '  <PRE_FAKE_WARM>\n';
-        xml += '    <PRE_CHE_CAU_WAR_FLA_CD>' + PA01DQ01 + '</PRE_CHE_CAU_WAR_FLA_CD>\n';
-        xml += '    <PRE_CHE_CAU_TEL_INFO>' + PA01DQ02 + '</PRE_CHE_CAU_TEL_INFO>\n';
-        xml += '    <PRE_CHE_CAU_TAK_EFF_DDA_GROP>' + PA01DR01 + '</PRE_CHE_CAU_TAK_EFF_DDA_GROP>\n';
-        xml += '    <PRE_CHE_CAU_CUT_OFF_DDA_GROP>' + PA01DR02 + '</PRE_CHE_CAU_CUT_OFF_DDA_GROP>\n';
-        xml += '  </PRE_FAKE_WARM>\n';
-        xml += '  <DISS_PMT>\n';
-        xml += '    <DISSENT_LABEL_NUM>' + PA01ES01 + '</DISSENT_LABEL_NUM>\n';
-        xml += '  </DISS_PMT>\n';
+        xml += '  <PA01>\n';
+        xml += '    <REP_IDE>\n';
+        xml += '      <REPORT_NO>' + PA01AI01 + '</REPORT_NO>\n';
+        xml += '      <REPORT_TIME_GROP>' + PA01AR01 + '</REPORT_TIME_GROP>\n';
+        xml += '    </REP_IDE>\n';
+        xml += '    <THT_INQ_REQ>\n';
+        xml += '      <BE_INQUIRE_PERSON_NM>' + PA01BQ01 + '</BE_INQUIRE_PERSON_NM>\n';
+        xml += '      <BE_INQ_PER_CER_TYP_ENCD>' + PA01BD01 + '</BE_INQ_PER_CER_TYP_ENCD>\n';
+        xml += '      <BE_INQUIRE_PERSON_CERTFCT_NO>' + PA01BI01 + '</BE_INQUIRE_PERSON_CERTFCT_NO>\n';
+        xml += '      <INQUIRE_INSTITUTION_CD>' + PA01BI02 + '</INQUIRE_INSTITUTION_CD>\n';
+        xml += '      <INQUIRE_REASON_CD>' + PA01BD02 + '</INQUIRE_REASON_CD>\n';
+        xml += '    </THT_INQ_REQ>\n';
+        xml += '    <OTR_IDE_MAIN>\n';
+        xml += '      <IDENTITY_LABEL_NUM>' + PA01CS01 + '</IDENTITY_LABEL_NUM>\n';
+        const pa01ch = document.getElementsByClassName('pa01ch');
+        for (var i = 0; i < pa01ch.length; i++) {
+            var PA01CD01 = pa01ch[i].querySelector('#PA01CD01').value;
+            var PA01CI01 = pa01ch[i].querySelector('#PA01CI01').value;
+            xml += '      <OTR_IDE_ATT>\n';
+            xml += '        <CERTIFICATE_TYPE_ENCD>' + PA01CD01 + '</CERTIFICATE_TYPE_ENCD>\n';
+            xml += '        <CERTFCT_NO>' + PA01CI01 + '</CERTFCT_NO>\n';
+            xml += '      </OTR_IDE_ATT>\n';
+        }
+        xml += '    </OTR_IDE_MAIN>\n';
+        xml += '      <PRE_FAKE_WARM>\n';
+        xml += '      <PRE_CHE_CAU_WAR_FLA_CD>' + PA01DQ01 + '</PRE_CHE_CAU_WAR_FLA_CD>\n';
+        xml += '      <PRE_CHE_CAU_TEL_INFO>' + PA01DQ02 + '</PRE_CHE_CAU_TEL_INFO>\n';
+        xml += '      <PRE_CHE_CAU_TAK_EFF_DDA_GROP>' + PA01DR01 + '</PRE_CHE_CAU_TAK_EFF_DDA_GROP>\n';
+        xml += '      <PRE_CHE_CAU_CUT_OFF_DDA_GROP>' + PA01DR02 + '</PRE_CHE_CAU_CUT_OFF_DDA_GROP>\n';
+        xml += '    </PRE_FAKE_WARM>\n';
+        xml += '    <DISS_PMT>\n';
+        xml += '      <DISSENT_LABEL_NUM>' + PA01ES01 + '</DISSENT_LABEL_NUM>\n';
+        xml += '    </DISS_PMT>\n';
+        xml += '  </PA01>\n';
         xml += '</PRH>\n';
 
         var PB01AD01 = document.getElementById('PB01AD01').value;
@@ -2124,7 +2164,7 @@
         xml += '<PSM>\n';
         xml += '  <SCORE>\n';
         xml += '    <DIGITAL_UNSCRAMBLE_CD>' + PC010Q01 + '</DIGITAL_UNSCRAMBLE_CD>\n';
-        xml += '    <0PPOSITE_LOCTN>' + PC010Q02 + '</0PPOSITE_LOCTN>\n';
+        xml += '    <OPPOSITE_LOCTN>' + PC010Q02 + '</OPPOSITE_LOCTN>\n';
         xml += '    <FRECTION_INSTRUCTNS_PIC_NUM>' + PC010S01 + '</FRECTION_INSTRUCTNS_PIC_NUM>\n';
         xml += '    <FRECTION_INSTRUCTNS>' + PC010D01 + '</FRECTION_INSTRUCTNS>\n';
         xml += '    <RESERVE_FRECTION_INSTRUCTNS>' + PC010D02 + '</RESERVE_FRECTION_INSTRUCTNS>\n';
@@ -2187,7 +2227,7 @@
         //PC02D
         var PC02DS01 = document.getElementById('PC02DS01').value;
         xml += '    <OVETIME_TTL_MN>\n';
-        xml += '      <ACCOUNT_NUM>' + PC02CS01 + '</ACCOUNT_NUM>\n';
+        xml += '      <ACCOUNT_TYPE_NUM>' + PC02DS01 + '</ACCOUNT_TYPE_NUM>\n';
         const pc02dh = document.getElementsByClassName('pc02dh');
         for (var i = 0; i < pc02dh.length; i++) {
             var PC02DD01 = pc02dh[i].querySelector('#PC02DD01').value;
@@ -2252,7 +2292,7 @@
         var PC02HS01 = document.getElementById('PC02HS01').value;
         xml += '      <ISSUE_CARD_INSTITUTION_NUM>' + PC02HS01 + '</ISSUE_CARD_INSTITUTION_NUM>\n';
         var PC02HS02 = document.getElementById('PC02HS02').value;
-        xml += '  <ACCOUNT_NUM>' + PC02HS02 + '</ACCOUNT_NUM>\n';
+        xml += '      <ACCOUNT_NUM>' + PC02HS02 + '</ACCOUNT_NUM>\n';
         var PC02HJ01 = document.getElementById('PC02HJ01').value;
         xml += '      <CRE_EXT_TOT_AMO_AMONT>' + PC02HJ01 + '</CRE_EXT_TOT_AMO_AMONT>\n';
         var PC02HJ02 = document.getElementById('PC02HJ02').value;
@@ -2283,7 +2323,7 @@
         xml += '      <NEA_HAL_YEA_AVE_USE_LIMT>' + PC02IJ05 + '</NEA_HAL_YEA_AVE_USE_LIMT>\n';
         xml += '    </SECRECD_ACC_TTL>\n';
 
-        
+
         xml += '    <RELREPAY_DTTLM>\n';
         var PC02KS01 = document.getElementById('PC02KS01').value;
         xml += '     <REL_REP_RES_NUM>' + PC02KS01 + '</REL_REP_RES_NUM>\n';
@@ -2647,7 +2687,7 @@
             var PD02AI04 = pd02[i].querySelector('#PD02AI04').value;
             xml += '      <CRE_EXT_LIM_NO_DESCR>' + PD02AI04 + '</CRE_EXT_LIM_NO_DESCR>\n';
             xml += '    </CRE_PRO_BAS>\n';
-            xml += '    </CPIU_SIS_MAIN>\n';
+            xml += '    <CPIU_SIS_MAIN>\n';
             var PD02ZS01 = pd02[i].querySelector('#PD02ZS01').value;
             xml += '      <LABEL_STATE_NUM>' + PD02ZS01 + '</LABEL_STATE_NUM>\n';
             const pd02zh = pd02[i].getElementsByClassName('pd02zh');
@@ -2704,7 +2744,7 @@
             var PD03AR03 = pd03[i].querySelector('#PD03AR03').value;
             xml += '      <INFO_REPORT_DDATE_GROP>' + PD03AR03 + '</INFO_REPORT_DDATE_GROP>\n';
             xml += '    </RELREPAY_DUTY>\n';
-            xml += '    </RDIU_SIS_MAIN>\n';
+            xml += '    <RDIU_SIS_MAIN>\n';
             var PD03ZS01 = pd03[i].querySelector('#PD03ZS01').value;
             xml += '      <LABEL_STATE_NUM>' + PD03ZS01 + '</LABEL_STATE_NUM>\n';
             const pd03zh = pd03[i].getElementsByClassName('pd03zh');
@@ -2746,7 +2786,7 @@
             var PE01AQ02 = pe01[i].querySelector('#PE01AQ02').value;
             xml += '      <NEA_PAY_NOT_CD>' + PE01AQ02 + '</NEA_PAY_NOT_CD>\n';
             xml += '    </AFTPAY_BUS>\n';
-            xml += '    </AFIU_SIS_MAIN>\n';
+            xml += '    <AFIU_SIS_MAIN>\n';
             var PE01ZS01 = pe01[i].querySelector('#PE01ZS01').value;
             xml += '      <LABEL_STATE_NUM>' + PE01ZS01 + '</LABEL_STATE_NUM>\n';
             const pe01zh = pe01[i].getElementsByClassName('pe01zh');
@@ -2776,7 +2816,7 @@
             var PF01AR01 = pf01[i].querySelector('#PF01AR01').value;
             xml += '      <OWI_TAX_STA_DDA_GROP>' + PF01AR01 + '</OWI_TAX_STA_DDA_GROP>\n';
             xml += '    </MISSTAX_RED>\n';
-            xml += '    </MTIU_SIS_MAIN>\n';
+            xml += '    <MTIU_SIS_MAIN>\n';
             var PF01ZS01 = pf01[i].querySelector('#PF01ZS01').value;
             xml += '      <LABEL_STATE_NUM>' + PF01ZS01 + '</LABEL_STATE_NUM>\n';
             const pf01zh = pf01[i].getElementsByClassName('pf01zh');
@@ -2817,7 +2857,7 @@
             var PF02AJ01 = pf02[i].querySelector('#PF02AJ01').value;
             xml += '      <LAWSUIT_OBJECT_AMONT>' + PF02AJ01 + '</LAWSUIT_OBJECT_AMONT>\n';
             xml += '    </CIVIL_JUDGE>\n';
-            xml += '    </CJIU_SIS_MAIN>\n';
+            xml += '    <CJIU_SIS_MAIN>\n';
             var PF02ZS01 = pf02[i].querySelector('#PF02ZS01').value;
             xml += '      <LABEL_STATE_NUM>' + PF02ZS01 + '</LABEL_STATE_NUM>\n';
             const pf02zh = pf02[i].getElementsByClassName('pf02zh');
@@ -2862,7 +2902,7 @@
             var PF03AJ02 = pf03[i].querySelector('#PF03AJ02').value;
             xml += '      <ALREADY_EXECUTE_OBJECT_AMONT>' + PF03AJ02 + '</ALREADY_EXECUTE_OBJECT_AMONT>\n';
             xml += '    </FOREXE_RED>\n';
-            xml += '    </FRIU_SIS_MAIN>\n';
+            xml += '    <FRIU_SIS_MAIN>\n';
             var PF03ZS01 = pf03[i].querySelector('#PF03ZS01').value;
             xml += '      <LABEL_STATE_NUM>' + PF03ZS01 + '</LABEL_STATE_NUM>\n';
             const pf03zh = pf03[i].getElementsByClassName('pf03zh');
@@ -2899,7 +2939,7 @@
             xml += '      <PUNISH_CUT_OFF_DDATE_GROP>' + PF04AR02 + '</PUNISH_CUT_OFF_DDATE_GROP>\n';
             xml += '      <ADM_REC_RES_DESCR>' + PF04AQ03 + '</ADM_REC_RES_DESCR>\n';
             xml += '    </ADMPUN_RED>\n';
-            xml += '    </ADIU_SIS_MAIN>\n';
+            xml += '    <ADIU_SIS_MAIN>\n';
             var PF04ZS01 = pf04[i].querySelector('#PF04ZS01').value;
             xml += '      <LABEL_STATE_NUM>' + PF04ZS01 + '</LABEL_STATE_NUM>\n';
             const pf04zh = pf04[i].getElementsByClassName('pf04zh');
@@ -2944,7 +2984,7 @@
             xml += '      <PAYMENT_UNIT_NM>' + PF05AQ04 + '</PAYMENT_UNIT_NM>\n';
             xml += '      <INFO_UPDATE_DDATE_GROP>' + PF05AR04 + '</INFO_UPDATE_DDATE_GROP>\n';
             xml += '    </HOUPAF_PAYRED>\n';
-            xml += '    </HPIU_SIS_MAIN>\n';
+            xml += '    <HPIU_SIS_MAIN>\n';
             var PF05ZS01 = pf05[i].querySelector('#PF05ZS01').value;
             xml += '      <LABEL_STATE_NUM>' + PF05ZS01 + '</LABEL_STATE_NUM>\n';
             const pf05zh = pf05[i].getElementsByClassName('pf05zh');
@@ -2983,7 +3023,7 @@
             xml += '      <APPROVAL_DDATE_GROP>' + PF06AR02 + '</APPROVAL_DDATE_GROP>\n';
             xml += '      <INFO_UPDATE_DDATE_GROP>' + PF06AR03 + '</INFO_UPDATE_DDATE_GROP>\n';
             xml += '    </BLA_INFO_RED>\n';
-            xml += '    </BLIU_SIS_MAIN>\n';
+            xml += '    <BLIU_SIS_MAIN>\n';
             var PF06ZS01 = pf06[i].querySelector('#PF06ZS01').value;
             xml += '      <LABEL_STATE_NUM>' + PF06ZS01 + '</LABEL_STATE_NUM>\n';
             const pf06zh = pf06[i].getElementsByClassName('pf06zh');
@@ -3022,7 +3062,7 @@
             xml += '      <DU_YEAR_MONTH_GROP>' + PF07AR02 + '</DU_YEAR_MONTH_GROP>\n';
             xml += '      <REVOKE_YEAR_MONTH_GROP>' + PF07AR03 + '</REVOKE_YEAR_MONTH_GROP>\n';
             xml += '    </PRAC_REQ_RED>\n';
-            xml += '    </PRIU_SIS_MAIN>\n';
+            xml += '    <PRIU_SIS_MAIN>\n';
             var PF07ZS01 = pf07[i].querySelector('#PF07ZS01').value;
             xml += '      <LABEL_STATE_NUM>' + PF07ZS01 + '</LABEL_STATE_NUM>\n';
             const pf07zh = pf07[i].getElementsByClassName('pf07zh');
@@ -3055,7 +3095,7 @@
             xml += '      <TAKE_EFFECT_YEAR_MONTH_GROP>' + PF08AR01 + '</TAKE_EFFECT_YEAR_MONTH_GROP>\n';
             xml += '      <CUT_OFF_YEAR_MONTH_GROP>' + PF08AR02 + '</CUT_OFF_YEAR_MONTH_GROP>\n';
             xml += '    </ADM_REW_RED>\n';
-            xml += '  </ADMIU_SIS_MAIN>\n';
+            xml += '  <ADMIU_SIS_MAIN>\n';
             var PF08ZS01 = pf08[i].querySelector('#PF08ZS01').value;
             xml += '      <LABEL_STATE_NUM>' + PF08ZS01 + '</LABEL_STATE_NUM>\n';
             const pf08zh = pf08[i].getElementsByClassName('pf08zh');
@@ -3083,7 +3123,7 @@
         var PG010S01 = document.getElementById('PG010S01').value;
         xml += '    <LABEL_STATE_TYPE_NUM>' + PG010S01 + '</LABEL_STATE_TYPE_NUM>\n';
         xml += '  </STATE_INFO_UNITM>\n';
-        const  pg010h= document.getElementsByClassName('pg010h');
+        const pg010h = document.getElementsByClassName('pg010h');
         for (var i = 0; i < pg010h.length; i++) {
             xml += '  <STATE_INFO_UNITA>\n';
             var PG010D03 = pg010h[i].querySelector('#PG010D03').value;
@@ -3091,13 +3131,13 @@
             var PG010R01 = pg010h[i].querySelector('#PG010R01').value;
             xml += '    <LABEL_STATE_TYPE_CD>' + PG010D03 + '</LABEL_STATE_TYPE_CD>\n';
             xml += '    <LABEL_OR_STATE_CONTENT>' + PG010Q01 + '</LABEL_OR_STATE_CONTENT>\n';
-            xml += '    <INCREASE_DDATE_GROP>' + PG010R01 + '</INQUIINCREASE_DDATE_GROPRE_REASON_CD>\n';
+            xml += '    <INCREASE_DDATE_GROP>' + PG010R01 + '</INCREASE_DDATE_GROP>\n';
             xml += '  </STATE_INFO_UNITA>\n';
         }
         xml += '</POS>\n';
 
         xml += '<POQ>\n';
-        const  ph01= document.getElementsByClassName('ph01');
+        const ph01 = document.getElementsByClassName('ph01');
         for (var i = 0; i < ph01.length; i++) {
             xml += '  <INQ_RED>\n';
             var PH010R01 = ph01[i].querySelector('#PH010R01').value;
@@ -3118,6 +3158,1708 @@
         link.href = URL.createObjectURL(blob);
         link.download = fileName + '.xml';  // 使用自定义文件名
         link.click();
+    }
+
+
+    function importXML() {
+        console.log("导入xml文件");
+        const fileInput = document.getElementById('fileInput');
+        if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const xmlString = e.target.result;
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(xmlString, 'application/xml');
+                // PRH
+                var PRH = xmlDoc.getElementsByTagName('PRH');
+                if (PRH.length > 0) {
+                    var PA01 = PRH[0].getElementsByTagName('PA01');
+                    if (PA01.length > 0) {
+                        PA01 = PA01[0];
+                        var REP_IDE = PA01.getElementsByTagName('REP_IDE');
+                        if (REP_IDE.length > 0) {
+                            REP_IDE = REP_IDE[0];
+                            var PA01AI01 = REP_IDE.getElementsByTagName('REPORT_NO');
+                            document.getElementById('PA01AI01').value = getValue(PA01AI01);
+                            var PA01AR01 = REP_IDE.getElementsByTagName('REPORT_TIME_GROP');
+                            document.getElementById('PA01AR01').value = getValue(PA01AR01);
+                        }
+                        var THT_INQ_REQ = PA01.getElementsByTagName('THT_INQ_REQ');
+                        if (THT_INQ_REQ.length > 0) {
+                            THT_INQ_REQ = THT_INQ_REQ[0];
+                            var PA01BQ01 = THT_INQ_REQ.getElementsByTagName('BE_INQUIRE_PERSON_NM');
+                            document.getElementById('PA01BQ01').value = getValue(PA01BQ01);
+                            var PA01BD01 = THT_INQ_REQ.getElementsByTagName('BE_INQ_PER_CER_TYP_ENCD');
+                            document.getElementById('PA01BD01').value = getValue(PA01BD01);
+                            var PA01BI01 = THT_INQ_REQ.getElementsByTagName('BE_INQUIRE_PERSON_CERTFCT_NO');
+                            document.getElementById('PA01BI01').value = getValue(PA01BI01);
+                            var PA01BI02 = THT_INQ_REQ.getElementsByTagName('INQUIRE_INSTITUTION_CD');
+                            document.getElementById('PA01BI02').value = getValue(PA01BI02);
+                            var PA01BD02 = THT_INQ_REQ.getElementsByTagName('INQUIRE_REASON_CD');
+                            document.getElementById('PA01BD02').value = getValue(PA01BD02);
+                        }
+                        var OTR_IDE_MAIN = PA01.getElementsByTagName('OTR_IDE_MAIN');
+                        if (OTR_IDE_MAIN.length > 0) {
+                            OTR_IDE_MAIN = OTR_IDE_MAIN[0];
+                            var PA01CS01 = OTR_IDE_MAIN.getElementsByTagName('IDENTITY_LABEL_NUM');
+                            document.getElementById('PA01CS01').value = getValue(PA01CS01);
+                            var PA01CHS = xmlDoc.getElementsByTagName('OTR_IDE_ATT');
+                            for (let i = 0; i < PA01CHS.length; i++) {
+                                var PA01CH = PA01CHS[i];
+                                var pa01ch = document.getElementById('pa01ch');
+                                var newpa01ch = pa01ch.cloneNode(true);
+                                newpa01ch.id = 'pa01ch' + Math.floor(Math.random() * 100);
+                                var PA01CD01 = PA01CH.getElementsByTagName('CERTIFICATE_TYPE_ENCD');
+                                var PA01CI01 = PA01CH.getElementsByTagName('CERTFCT_NO');
+                                newpa01ch.getElementsByTagName('input')[0].value = getValue(PA01CD01);
+                                newpa01ch.getElementsByTagName('input')[1].value = getValue(PA01CI01);
+                                pa01ch.parentNode.appendChild(newpa01ch);
+                            }
+                            if (PA01CHS.length > 0) {
+                                var details = document.getElementById('pa01ch');
+                                details.parentNode.removeChild(details);
+                            }
+                        }
+                        var PRE_FAKE_WARM = PA01.getElementsByTagName('PRE_FAKE_WARM');
+                        if (PRE_FAKE_WARM.length > 0) {
+                            PRE_FAKE_WARM = PRE_FAKE_WARM[0];
+                            var PA01DQ01 = PRE_FAKE_WARM.getElementsByTagName('PRE_CHE_CAU_WAR_FLA_CD');
+                            document.getElementById('PA01DQ01').value = getValue(PA01DQ01);
+                            var PA01DQ02 = PRE_FAKE_WARM.getElementsByTagName('PRE_CHE_CAU_TEL_INFO');
+                            document.getElementById('PA01DQ02').value = getValue(PA01DQ02);
+                            var PA01DR01 = PRE_FAKE_WARM.getElementsByTagName('PRE_CHE_CAU_TAK_EFF_DDA_GROP');
+                            document.getElementById('PA01DR01').value = getValue(PA01DR01);
+                            var PA01DR02 = PRE_FAKE_WARM.getElementsByTagName('PRE_CHE_CAU_CUT_OFF_DDA_GROP');
+                            document.getElementById('PA01DR02').value = getValue(PA01DR02);
+                        }
+                        var DISS_PMT = PA01.getElementsByTagName('DISS_PMT');
+                        if (DISS_PMT.length > 0) {
+                            DISS_PMT = DISS_PMT[0];
+                            var PA01ES01 = DISS_PMT.getElementsByTagName('DISSENT_LABEL_NUM');
+                            document.getElementById('PA01ES01').value = getValue(PA01ES01);
+                        }
+                    }
+                }
+
+                // PIM
+                var PIM = xmlDoc.getElementsByTagName('PIM');
+                if (PIM.length > 0) {
+                    PIM = PIM[0];
+                    var PB01 = PIM.getElementsByTagName('PB01');
+                    if (PB01.length > 0) {
+                        PB01 = PB01[0];
+                        var BAS_SRY = PB01.getElementsByTagName('BAS_SRY');
+                        if (BAS_SRY.length > 0) {
+                            BAS_SRY = BAS_SRY[0];
+                            var PB01AD01 = BAS_SRY.getElementsByTagName('GENDER_ENCD');
+                            document.getElementById('PB01AD01').value = getValue(PB01AD01);
+                            var PB01AR01 = BAS_SRY.getElementsByTagName('BORN_DDATE_GROP');
+                            document.getElementById('PB01AR01').value = getValue(PB01AR01);
+                            var PB01AD02 = BAS_SRY.getElementsByTagName('ACADEMIC_DEGREE_ENCD');
+                            document.getElementById('PB01AD02').value = getValue(PB01AD02);
+                            var PB01AD03 = BAS_SRY.getElementsByTagName('SCHOLAR_ENCD');
+                            document.getElementById('PB01AD03').value = getValue(PB01AD03);
+                            var PB01AD04 = BAS_SRY.getElementsByTagName('GET_A_JOB_SITUATION_INSTRUCTNS');
+                            document.getElementById('PB01AD04').value = getValue(PB01AD04);
+                            var PB01AQ01 = BAS_SRY.getElementsByTagName('ELECTRONIC_EMAIL_ADDR');
+                            document.getElementById('PB01AQ01').value = getValue(PB01AQ01);
+                            var PB01AQ02 = BAS_SRY.getElementsByTagName('COMMUNICATION_ADDR');
+                            document.getElementById('PB01AQ02').value = getValue(PB01AQ02);
+                            var PB01AD05 = BAS_SRY.getElementsByTagName('NATIONALITY_ENCD');
+                            document.getElementById('PB01AD05').value = getValue(PB01AD05);
+                            var PB01AQ03 = BAS_SRY.getElementsByTagName('HOUSEHOLD_REGISTER_ADDR');
+                            document.getElementById('PB01AQ03').value = getValue(PB01AQ03);
+
+                        }
+                        var TEL_NO_MAIN = PB01.getElementsByTagName('TEL_NO_MAIN');
+                        if (TEL_NO_MAIN.length > 0) {
+                            TEL_NO_MAIN = TEL_NO_MAIN[0];
+                            var PB01BS01 = TEL_NO_MAIN.getElementsByTagName('MOBILE_PHONE_NO_NUM');
+                            document.getElementById('PB01BS01').value = getValue(PB01BS01);
+                            var PB01BHS = xmlDoc.getElementsByTagName('TEL_NO_ATT');
+                            for (let i = 0; i < PB01BHS.length; i++) {
+                                var PB01BH = PB01BHS[i];
+                                var pb01bh = document.getElementById('pb01bh');
+                                var newpb01bh = pb01bh.cloneNode(true);
+                                newpb01bh.id = 'pb01bh' + Math.floor(Math.random() * 100);
+                                var PB01BQ01 = PB01BH.getElementsByTagName('MOBILE_PHONE_NO');
+                                var PB01BR01 = PB01BH.getElementsByTagName('INFO_UPDATE_DDATE_GROP');
+                                newpb01bh.getElementsByTagName('input')[0].value = getValue(PB01BQ01);
+                                newpb01bh.getElementsByTagName('input')[1].value = getValue(PB01BR01);
+                                pb01bh.parentNode.appendChild(newpb01bh);
+                            }
+                            if (PB01BHS.length > 0) {
+                                var details = document.getElementById('pb01bh');
+                                details.parentNode.removeChild(details);
+                            }
+                        }
+                    }
+                }
+
+                // PMM
+                var PMM = xmlDoc.getElementsByTagName('PMM');
+                if (PMM.length > 0) {
+                    PMM = PMM[0];
+                    var PB02 = PMM.getElementsByTagName('MARRIAGE');
+                    if (PB02.length > 0) {
+                        PB02 = PB02[0];
+                        var PB020D01 = PB02.getElementsByTagName('WEDDING_SITUATION_INSTRUCTNS');
+                        document.getElementById('PB020D01').value = getValue(PB020D01);
+                        var PB020Q01 = PB02.getElementsByTagName('SPOUSE_NM');
+                        document.getElementById('PB020Q01').value = getValue(PB020Q01);
+                        var PB020D02 = PB02.getElementsByTagName('SPOUSE_CERTIFICATE_TYPE_NO');
+                        document.getElementById('PB020D02').value = getValue(PB020D02);
+                        var PB020I01 = PB02.getElementsByTagName('SPOUSE_CERTIFICATE_NO');
+                        document.getElementById('PB020I01').value = getValue(PB020I01);
+                        var PB020Q02 = PB02.getElementsByTagName('SPOUSE_WORK_UNIT_NM');
+                        document.getElementById('PB020Q02').value = getValue(PB020Q02);
+                        var PB020Q03 = PB02.getElementsByTagName('SPOUSE_CONTACT_TELEPHONE_DESCR');
+                        document.getElementById('PB020Q03').value = getValue(PB020Q03);
+                    }
+                }
+                // PRM
+                var PRM = xmlDoc.getElementsByTagName('PRM');
+                if (PRM.length > 0) {
+                    PRM = PRM[0];
+                    var PB03 = PRM.getElementsByTagName('LIVE');
+                    if (PB03.length > 0) {
+                        PB03 = PB03[0];
+                        var PB030D01 = PB03.getElementsByTagName('LIVE_SITUATION_INSTRUCTNS');
+                        document.getElementById('PB030D01').value = getValue(PB030D01);
+                        var PB030Q01 = PB03.getElementsByTagName('LIVE_ADDR');
+                        document.getElementById('PB030Q01').value = getValue(PB030Q01);
+                        var PB030Q02 = PB03.getElementsByTagName('FAMILY_TELEPHONE_DESCR');
+                        document.getElementById('PB030Q02').value = getValue(PB030Q02);
+                        var PB030R01 = PB03.getElementsByTagName('INFO_UPDATE_DDATE_GROP');
+                        document.getElementById('PB030R01').value = getValue(PB030R01);
+                    }
+                }
+                // POM
+                var POM = xmlDoc.getElementsByTagName('POM');
+                if (POM.length > 0) {
+                    POM = POM[0];
+                    var PB04 = POM.getElementsByTagName('PROFESSION');
+                    if (PB04.length > 0) {
+                        PB04 = PB04[0];
+                        var PB040D01 = PB04.getElementsByTagName('GET_A_JOB_SITUATION_INSTRUCTNS');
+                        document.getElementById('PB040D01').value = getValue(PB040D01);
+                        var PB040Q01 = PB04.getElementsByTagName('WORK_UNIT_NM');
+                        document.getElementById('PB040Q01').value = getValue(PB040Q01);
+                        var PB040D02 = PB04.getElementsByTagName('UNIT_ATTRIBUTE_DESCR');
+                        document.getElementById('PB040D02').value = getValue(PB040D02);
+                        var PB040D03 = PB04.getElementsByTagName('INDUSTRY_CD');
+                        document.getElementById('PB040D03').value = getValue(PB040D03);
+                        var PB040Q02 = PB04.getElementsByTagName('UNIT_ADDR');
+                        document.getElementById('PB040Q02').value = getValue(PB040Q02);
+                        var PB040Q03 = PB04.getElementsByTagName('UNIT_TELEPHONE_INFO');
+                        document.getElementById('PB040Q03').value = getValue(PB040Q03);
+                        var PB040D04 = PB04.getElementsByTagName('CAREER_NM');
+                        document.getElementById('PB040D04').value = getValue(PB040D04);
+
+                        var PB040D05 = PB04.getElementsByTagName('POSITION_CD');
+                        document.getElementById('PB040D05').value = getValue(PB040D05);
+
+                        var PB040D06 = PB04.getElementsByTagName('PROFESSIONAL_CD');
+                        document.getElementById('PB040D06').value = getValue(PB040D06);
+
+                        var PB040R01 = PB04.getElementsByTagName('ENTER_UNIT_YEAR_MONTH_GROP');
+                        document.getElementById('PB040R01').value = getValue(PB040R01);
+
+                        var PB040R02 = PB04.getElementsByTagName('INFO_UPDATE_DDATE_GROP');
+                        document.getElementById('PB040R02').value = getValue(PB040R02);
+                    }
+                }
+                // PSM
+                var PSM = xmlDoc.getElementsByTagName('PSM');
+                if (PSM.length > 0) {
+                    PSM = PSM[0];
+                    var PC01 = PSM.getElementsByTagName('SCORE');
+                    if (PC01.length > 0) {
+                        PC01 = PC01[0];
+                        var PC010Q01 = PC01.getElementsByTagName('DIGITAL_UNSCRAMBLE_CD');
+                        document.getElementById('PC010Q01').value = getValue(PC010Q01);
+
+                        var PC010Q02 = PC01.getElementsByTagName('OPPOSITE_LOCTN');
+                        document.getElementById('PC010Q02').value = getValue(PC010Q02);
+
+                        var PC010S01 = PC01.getElementsByTagName('FRECTION_INSTRUCTNS_PIC_NUM');
+                        document.getElementById('PC010S01').value = getValue(PC010S01);
+
+                        var PC010D01 = PC01.getElementsByTagName('FRECTION_INSTRUCTNS');
+                        document.getElementById('PC010D01').value = getValue(PC010D01);
+
+                        var PC010D02 = PC01.getElementsByTagName('RESERVE_FRECTION_INSTRUCTNS');
+                        document.getElementById('PC010D02').value = getValue(PC010D02);
+                    }
+                }
+                // PCO
+                var PCO = xmlDoc.getElementsByTagName('PCO');
+                if (PCO.length > 0) {
+                    PCO = PCO[0];
+                    var PC02 = PCO.getElementsByTagName('PC02');
+                    if (PC02.length > 0) {
+                        PC02 = PC02[0];
+                        var PC02A = PC02.getElementsByTagName('CRE_BUS_WARM_MN');
+                        if (PC02A.length > 0) {
+                            PC02A = PC02A[0];
+                            var PC02AS01 = PC02A.getElementsByTagName('ACCOUNT_TOTAL_NUM');
+                            document.getElementById('PC02AS01').value = getValue(PC02AS01);
+                            var PC02AS02 = PC02A.getElementsByTagName('BUSINESS_TYPE_NUM');
+                            document.getElementById('PC02AS02').value = getValue(PC02AS02);
+                            var PC02AHS = xmlDoc.getElementsByTagName('CRE_BUS_WARM_ATT');
+                            for (let i = 0; i < PC02AHS.length; i++) {
+                                var PC02AH = PC02AHS[i];
+                                var pc02ah = document.getElementById('pc02ah');
+                                var newpc02ah = pc02ah.cloneNode(true);
+                                newpc02ah.id = 'pc02ah' + Math.floor(Math.random() * 100);
+                                var PC02AD01 = PC02AH.getElementsByTagName('BUSINESS_TYPE_CD');
+                                var PC02AD02 = PC02AH.getElementsByTagName('BUSINESS_BROAD_HEADING_CD');
+                                var PC02AS03 = PC02AH.getElementsByTagName('ACCOUNT_NUM');
+                                var PC02AR01 = PC02AH.getElementsByTagName('FIR_TIM_BUS_ISS_MON_GROP');
+                                newpc02ah.getElementsByTagName('input')[0].value = getValue(PC02AD01);
+                                newpc02ah.getElementsByTagName('input')[1].value = getValue(PC02AD02);
+                                newpc02ah.getElementsByTagName('input')[2].value = getValue(PC02AS03);
+                                newpc02ah.getElementsByTagName('input')[3].value = getValue(PC02AR01);
+                                pc02ah.parentNode.appendChild(newpc02ah);
+                            }
+                            if (PC02AHS.length > 0) {
+                                var details = document.getElementById('pc02ah');
+                                details.parentNode.removeChild(details);
+                            }
+                        }
+
+                        var PC02B = PC02.getElementsByTagName('QUIT_RCY_TTL_MN');
+                        if (PC02B.length > 0) {
+                            PC02B = PC02B[0];
+                            var PC02BS01 = PC02B.getElementsByTagName('ACCOUNT_TOTAL_NUM');
+                            document.getElementById('PC02BS01').value = getValue(PC02BS01);
+                            var PC02BJ01 = PC02B.getElementsByTagName('TOTAL_BALNC');
+                            document.getElementById('PC02BJ01').value = getValue(PC02BJ01);
+                            var PC02BS02 = PC02B.getElementsByTagName('BUSINESS_TYPE_NUM');
+                            document.getElementById('PC02BS02').value = getValue(PC02BS02);
+                            var PC02BHS = xmlDoc.getElementsByTagName('QUIT_RCY_TTL_ATT');
+                            for (let i = 0; i < PC02BHS.length; i++) {
+                                var PC02BH = PC02BHS[i];
+                                var pc02bh = document.getElementById('pc02bh');
+                                var newpc02bh = pc02bh.cloneNode(true);
+                                newpc02bh.id = 'pc02bh' + Math.floor(Math.random() * 100);
+                                var PC02BD01 = PC02BH.getElementsByTagName('BUSINESS_TYPE_CD');
+                                var PC02BS03 = PC02BH.getElementsByTagName('ACCOUNT_NUM');
+                                var PC02BJ02 = PC02BH.getElementsByTagName('BALNC');
+                                newpc02bh.getElementsByTagName('input')[0].value = getValue(PC02BD01);
+                                newpc02bh.getElementsByTagName('input')[1].value = getValue(PC02BS03);
+                                newpc02bh.getElementsByTagName('input')[2].value = getValue(PC02BJ02);
+                                pc02bh.parentNode.appendChild(newpc02bh);
+                            }
+                            if (PC02BHS.length > 0) {
+                                var details = document.getElementById('pc02bh');
+                                details.parentNode.removeChild(details);
+                            }
+                        }
+
+                        var PC02C = PC02.getElementsByTagName('DULLDEBT_TTL');
+                        if (PC02C.length > 0) {
+                            PC02C = PC02C[0];
+                            var PC02CS01 = PC02C.getElementsByTagName('ACCOUNT_NUM');
+                            document.getElementById('PC02CS01').value = getValue(PC02CS01);
+                            var PC02CJ01 = PC02C.getElementsByTagName('BALNC');
+                            document.getElementById('PC02CJ01').value = getValue(PC02CJ01);
+                        }
+
+                        var PC02D = PC02.getElementsByTagName('OVETIME_TTL_MN');
+                        if (PC02D.length > 0) {
+                            PC02D = PC02D[0];
+                            var PC02DS01 = PC02D.getElementsByTagName('ACCOUNT_TYPE_NUM');
+                            document.getElementById('PC02DS01').value = getValue(PC02DS01);
+                            var PC02DHS = xmlDoc.getElementsByTagName('OVETIME_TTL_ATT');
+                            for (let i = 0; i < PC02DHS.length; i++) {
+                                var PC02DH = PC02DHS[i];
+                                var pc02dh = document.getElementById('pc02dh');
+                                var newpc02dh = pc02dh.cloneNode(true);
+                                newpc02dh.id = 'pc02dh' + Math.floor(Math.random() * 100);
+                                var PC02DD01 = PC02DH.getElementsByTagName('ACCOUNT_TYPE_CD');
+                                var PC02DS02 = PC02DH.getElementsByTagName('ACCOUNT_NUM');
+                                var PC02DS03 = PC02DH.getElementsByTagName('MONTH_GROP');
+                                var PC02DJ01 = PC02DH.getElementsByTagName('ODD_MON_HIG_OVE_LIMT');
+                                var PC02DS04 = PC02DH.getElementsByTagName('LONGEST_OVERDUE_MONTH');
+                                newpc02dh.getElementsByTagName('input')[0].value = getValue(PC02DD01);
+                                newpc02dh.getElementsByTagName('input')[1].value = getValue(PC02DS02);
+                                newpc02dh.getElementsByTagName('input')[2].value = getValue(PC02DS03);
+                                newpc02dh.getElementsByTagName('input')[3].value = getValue(PC02DJ01);
+                                newpc02dh.getElementsByTagName('input')[4].value = getValue(PC02DS04);
+                                pc02dh.parentNode.appendChild(newpc02dh);
+                            }
+                            if (PC02DHS.length > 0) {
+                                var details = document.getElementById('pc02dh');
+                                details.parentNode.removeChild(details);
+                            }
+                        }
+
+
+
+                        var PC02E = PC02.getElementsByTagName('UNCYC_ACC_TTL');
+                        if (PC02E.length > 0) {
+                            PC02E = PC02E[0];
+                            var PC02ES01 = PC02E.getElementsByTagName('MANAGEMENT_INSTITUTION_NUM');
+                            document.getElementById('PC02ES01').value = getValue(PC02ES01);
+
+                            var PC02ES02 = PC02E.getElementsByTagName('ACCOUNT_NUM');
+                            document.getElementById('PC02ES02').value = getValue(PC02ES02);
+
+                            var PC02EJ01 = PC02E.getElementsByTagName('CRE_EXT_TOT_AMO_AMONT');
+                            document.getElementById('PC02EJ01').value = getValue(PC02EJ01);
+
+                            var PC02EJ02 = PC02E.getElementsByTagName('BALNC');
+                            document.getElementById('PC02EJ02').value = getValue(PC02EJ02);
+
+                            var PC02EJ03 = PC02E.getElementsByTagName('NEA_HAL_YEA_AVE_SHO_REP_AMONT');
+                            document.getElementById('PC02EJ03').value = getValue(PC02EJ03);
+                        }
+
+                        var PC02F = PC02.getElementsByTagName('CYCLIM_ACC_TTL');
+                        if (PC02F.length > 0) {
+                            PC02F = PC02F[0];
+                            var PC02FS01 = PC02F.getElementsByTagName('MANAGEMENT_INSTITUTION_NUM');
+                            document.getElementById('PC02FS01').value = getValue(PC02FS01);
+
+                            var PC02FS02 = PC02F.getElementsByTagName('ACCOUNT_NUM');
+                            document.getElementById('PC02FS02').value = getValue(PC02FS02);
+
+                            var PC02FJ01 = PC02F.getElementsByTagName('CRE_EXT_TOT_AMO_AMONT');
+                            document.getElementById('PC02FJ01').value = getValue(PC02FJ01);
+
+                            var PC02FJ02 = PC02F.getElementsByTagName('BALNC');
+                            document.getElementById('PC02FJ02').value = getValue(PC02FJ02);
+
+                            var PC02FJ03 = PC02F.getElementsByTagName('NEA_HAL_YEA_AVE_SHO_REP_AMONT');
+                            document.getElementById('PC02FJ03').value = getValue(PC02FJ03);
+
+                        }
+
+                        var PC02G = PC02.getElementsByTagName('CYCPL_ACC_TTL');
+                        if (PC02G.length > 0) {
+                            PC02G = PC02G[0];
+                            var PC02GS01 = PC02G.getElementsByTagName('MANAGEMENT_INSTITUTION_NUM');
+                            document.getElementById('PC02GS01').value = getValue(PC02GS01);
+
+                            var PC02GS02 = PC02G.getElementsByTagName('ACCOUNT_NUM');
+                            document.getElementById('PC02GS02').value = getValue(PC02GS02);
+
+                            var PC02GJ01 = PC02G.getElementsByTagName('CRE_EXT_TOT_AMO_AMONT');
+                            document.getElementById('PC02GJ01').value = getValue(PC02GJ01);
+
+                            var PC02GJ02 = PC02G.getElementsByTagName('BALNC');
+                            document.getElementById('PC02GJ02').value = getValue(PC02GJ02);
+
+                            var PC02GJ03 = PC02G.getElementsByTagName('NEA_HAL_YEA_AVE_SHO_REP_AMONT');
+                            document.getElementById('PC02GJ03').value = getValue(PC02GJ03);
+
+
+                        }
+
+                        var PC02H = PC02.getElementsByTagName('DEBCARD_ACC_TTL');
+                        if (PC02H.length > 0) {
+                            PC02H = PC02H[0];
+                            var PC02HS01 = PC02H.getElementsByTagName('ISSUE_CARD_INSTITUTION_NUM');
+                            document.getElementById('PC02HS01').value = getValue(PC02HS01);
+
+                            var PC02HS02 = PC02H.getElementsByTagName('ACCOUNT_NUM');
+                            document.getElementById('PC02HS02').value = getValue(PC02HS02);
+
+                            var PC02HJ01 = PC02H.getElementsByTagName('CRE_EXT_TOT_AMO_AMONT');
+                            document.getElementById('PC02HJ01').value = getValue(PC02HJ01);
+
+                            var PC02HJ02 = PC02H.getElementsByTagName('SIN_FAM_LIN_HIG_CRE_EXT_AMONT');
+                            document.getElementById('PC02HJ02').value = getValue(PC02HJ02);
+
+                            var PC02HJ03 = PC02H.getElementsByTagName('SIN_FAM_LIN_MIN_CRE_EXT_AMONT');
+                            document.getElementById('PC02HJ03').value = getValue(PC02HJ03);
+
+                            var PC02HJ04 = PC02H.getElementsByTagName('USED_LIMT');
+                            document.getElementById('PC02HJ04').value = getValue(PC02HJ04);
+
+                            var PC02HJ05 = PC02H.getElementsByTagName('NEA_HAL_YEA_AVE_USE_LIMT');
+                            document.getElementById('PC02HJ05').value = getValue(PC02HJ05);
+                        }
+
+                        var PC02I = PC02.getElementsByTagName('SECRECD_ACC_TTL');
+                        if (PC02I.length > 0) {
+                            PC02I = PC02I[0];
+                            var PC02IS01 = PC02I.getElementsByTagName('ISSUE_CARD_INSTITUTION_NUM');
+                            document.getElementById('PC02IS01').value = getValue(PC02IS01);
+
+                            var PC02IS02 = PC02I.getElementsByTagName('ACCOUNT_NUM');
+                            document.getElementById('PC02IS02').value = getValue(PC02IS02);
+
+                            var PC02IJ01 = PC02I.getElementsByTagName('CRE_EXT_TOT_AMO_AMONT');
+                            document.getElementById('PC02IJ01').value = getValue(PC02IJ01);
+
+                            var PC02IJ02 = PC02I.getElementsByTagName('SIN_FAM_LIN_HIG_CRE_EXT_AMONT');
+                            document.getElementById('PC02IJ02').value = getValue(PC02IJ02);
+
+                            var PC02IJ03 = PC02I.getElementsByTagName('SIN_FAM_LIN_MIN_CRE_EXT_AMONT');
+                            document.getElementById('PC02IJ03').value = getValue(PC02IJ03);
+
+                            var PC02IJ04 = PC02I.getElementsByTagName('OVERDRAFT_BALNC');
+                            document.getElementById('PC02IJ04').value = getValue(PC02IJ04);
+
+                            var PC02IJ05 = PC02I.getElementsByTagName('NEA_HAL_YEA_AVE_OVE_BALNC');
+                            document.getElementById('PC02IJ05').value = getValue(PC02IJ05);
+                        }
+
+                        var PC02K = PC02.getElementsByTagName('RELREPAY_DTTLM');
+                        if (PC02K.length > 0) {
+                            PC02K = PC02K[0];
+                            var PC02KS01 = PC02K.getElementsByTagName('REL_REP_RES_NUM');
+                            document.getElementById('PC02KS01').value = getValue(PC02KS01);
+                            var PC02KHS = xmlDoc.getElementsByTagName('RELREPAY_DTTLA');
+                            for (let k = 0; k < PC02KHS.length; k++) {
+                                var PC02KH = PC02KHS[k];
+                                var pc02kh = document.getElementById('pc02kh');
+                                var newpc02kh = pc02dh.cloneNode(true);
+                                newpc02kh.id = 'pc02kh' + Math.floor(Math.random() * 100);
+                                var PC02KD01 = PC02KH.getElementsByTagName('LENDER_IDENTITY_CATEGORY_CD');
+                                var PC02KD02 = PC02KH.getElementsByTagName('REL_REP_RES_TYP_CD');
+                                var PC02KS02 = PC02KH.getElementsByTagName('ACCOUNT_NUM');
+                                var PC02KJ01 = PC02KH.getElementsByTagName('REPAYMENT_RESPONSIBILITY_AMONT');
+                                var PC02KJ02 = PC02KH.getElementsByTagName('BALNC');
+                                newpc02kh.getElementsByTagName('input')[0].value = getValue(PC02KD01);
+                                newpc02kh.getElementsByTagName('input')[1].value = getValue(PC02KD02);
+                                newpc02kh.getElementsByTagName('input')[2].value = getValue(PC02KS02);
+                                newpc02kh.getElementsByTagName('input')[3].value = getValue(PC02KJ01);
+                                newpc02kh.getElementsByTagName('input')[4].value = getValue(PC02KJ02);
+                                pc02kh.parentNode.appendChild(newpc02kh);
+                            }
+                            if (PC02KHS.length > 0) {
+                                var pc02Khdetails = document.getElementById('pc02kh');
+                                pc02Khdetails.parentNode.removeChild(pc02Khdetails);
+                            }
+                        }
+                    }
+                }
+
+                // PNO
+                var PNO = xmlDoc.getElementsByTagName('PNO');
+                if (PNO.length > 0) {
+                    PNO = PNO[0];
+                    var PC03 = PNO.getElementsByTagName('APBA_INF_TTLM');
+                    if (PC03.length > 0) {
+                        PC03 = PC03[0];
+                        var PC030S01 = PC03.getElementsByTagName('AFT_PAY_FEE_BUS_TYP_NUM');
+                        document.getElementById('PC030S01').value = getValue(PC030S01);
+                        var PC030HS = xmlDoc.getElementsByTagName('APBA_INF_TTLA');
+                        for (let i = 0; i < PC030HS.length; i++) {
+                            var PC030H = PC030HS[i];
+                            var pc030h = document.getElementById('pc030h');
+                            var newpc030h = pc030h.cloneNode(true);
+                            newpc030h.id = 'pc030h' + Math.floor(Math.random() * 100);
+                            var PC030D01 = PC030H.getElementsByTagName('AFTER_PAY_FEE_BUSINESS_TYPE_CD');
+                            var PC030S02 = PC030H.getElementsByTagName('DEBT_ACCOUNT_NUM');
+                            var PC030J01 = PC030H.getElementsByTagName('DEBT_AMONT');
+                            newpc030h.getElementsByTagName('input')[0].value = getValue(PC030D01);
+                            newpc030h.getElementsByTagName('input')[1].value = getValue(PC030S02);
+                            newpc030h.getElementsByTagName('input')[2].value = getValue(PC030J01);
+                            pc030h.parentNode.appendChild(newpc030h);
+                        }
+                        if (PC030HS.length > 0) {
+                            var pc030hdetails = document.getElementById('pc030h');
+                            pc030hdetails.parentNode.removeChild(pc030hdetails);
+                        }
+                    }
+                }
+                // PPO
+                var PPO = xmlDoc.getElementsByTagName('PPO');
+                if (PPO.length > 0) {
+                    PPO = PPO[0];
+                    var PC04 = PPO.getElementsByTagName('COMMINFO_MAIN');
+                    if (PC04.length > 0) {
+                        PC04 = PC04[0];
+                        var PC040S01 = PC04.getElementsByTagName('PUBLIC_INFO_TYPE_NUM');
+                        document.getElementById('PC040S01').value = getValue(PC040S01);
+                        var PC040HS = xmlDoc.getElementsByTagName('COMM_INFO_ATT');
+                        for (let i = 0; i < PC040HS.length; i++) {
+                            var PC040H = PC040HS[i];
+                            var pc040h = document.getElementById('pc040h');
+                            var newpc040h = pc040h.cloneNode(true);
+                            newpc040h.id = 'pc040h' + Math.floor(Math.random() * 100);
+                            var PC040D01 = PC040H.getElementsByTagName('PUBLIC_INFO_TYPE_CD');
+                            var PC040S02 = PC040H.getElementsByTagName('NOTES_NUM');
+                            var PC040J01 = PC040H.getElementsByTagName('ESTABLISHMENT_AMONT');
+                            newpc040h.getElementsByTagName('input')[0].value = getValue(PC040D01);
+                            newpc040h.getElementsByTagName('input')[1].value = getValue(PC040S02);
+                            newpc040h.getElementsByTagName('input')[2].value = getValue(PC040J01);
+                            pc040h.parentNode.appendChild(newpc040h);
+                        }
+                        if (PC040HS.length > 0) {
+                            var pc040hdetails = document.getElementById('pc040h');
+                            pc040hdetails.parentNode.removeChild(pc040hdetails);
+                        }
+                    }
+                }
+                // PQO
+                var PQO = xmlDoc.getElementsByTagName('PQO');
+                if (PQO.length > 0) {
+                    PQO = PQO[0];
+                    var PC05 = PQO.getElementsByTagName('PC05');
+                    if (PC05.length > 0) {
+                        PC05 = PC05[0];
+                        var PC05A = PC05.getElementsByTagName('LST_INQ_RCD');
+                        if (PC05A.length > 0) {
+                            PC05A = PC05A[0];
+                            var PC05AR01 = PC05.getElementsByTagName('PER_SEC_INQ_DDA_GROP');
+                            document.getElementById('PC05AR01').value = getValue(PC05AR01);
+
+                            var PC05AD01 = PC05.getElementsByTagName('PER_SEC_INQ_INS_TYP_CD');
+                            document.getElementById('PC05AD01').value = getValue(PC05AD01);
+
+                            var PC05AI01 = PC05.getElementsByTagName('PER_SEC_INQ_INS_CD');
+                            document.getElementById('PC05AI01').value = getValue(PC05AI01);
+
+                            var PC05AQ01 = PC05.getElementsByTagName('PER_SEC_INQ_REA_CD');
+                            document.getElementById('PC05AQ01').value = getValue(PC05AQ01);
+                        }
+
+                        var PC05B = PC05.getElementsByTagName('INQ_RCD_SUMMARY');
+                        if (PC05B.length > 0) {
+                            PC05B = PC05B[0];
+                            var PC05BS01 = PC05.getElementsByTagName('IN_REC_MON_LOA_INQ_INS_NUM');
+                            document.getElementById('PC05BS01').value = getValue(PC05BS01);
+                            var PC05BS02 = PC05.getElementsByTagName('IN_REC_MON_CRE_INQ_INS_NUM');
+                            document.getElementById('PC05BS02').value = getValue(PC05BS02);
+                            var PC05BS03 = PC05.getElementsByTagName('IN_REC_MON_LOA_APP_INQ_NUM');
+                            document.getElementById('PC05BS03').value = getValue(PC05BS03);
+                            var PC05BS04 = PC05.getElementsByTagName('IN_REC_MON_CRE_CAR_INQ_NUM');
+                            document.getElementById('PC05BS04').value = getValue(PC05BS04);
+
+                            var PC05BS05 = PC05.getElementsByTagName('IN_REC_MON_SEL_INQ_TIMS_NUM');
+                            document.getElementById('PC05BS05').value = getValue(PC05BS05);
+
+                            var PC05BS06 = PC05.getElementsByTagName('NEALOA_AFT_MAN_INQ_TIMS_NUM');
+                            document.getElementById('PC05BS06').value = getValue(PC05BS06);
+
+                            var PC05BS07 = PC05.getElementsByTagName('NEA_ENS_QUA_INQ_TIMS_NUM');
+                            document.getElementById('PC05BS07').value = getValue(PC05BS07);
+
+                            var PC05BS08 = PC05.getElementsByTagName('NEA_CON_MER_INQ_TIMS_NUM');
+                            document.getElementById('PC05BS08').value = getValue(PC05BS08);
+                        }
+                    }
+                }
+                // PDA
+                var PDA = xmlDoc.getElementsByTagName('PDA');
+                if (PDA.length > 0) {
+                    PDA = PDA[0];
+                    var PD01S = xmlDoc.getElementsByTagName('P_DEB_CRE_ACC');
+                    for (let i = 0; i < PD01S.length; i++) {
+                        var PD01 = PD01S[i];
+                        var pd01 = document.getElementById('pd01');
+                        var newpd01 = pd01.cloneNode(true);
+                        newpd01.id = 'pd01' + Math.floor(Math.random() * 100);
+
+                        var PD01A = PD01.getElementsByTagName('BASIC_INFO');
+                        if (PD01A.length > 0) {
+                            PD01A = PD01A[0];
+                            var newpd01a = newpd01.querySelector('#pd01a');
+                            var PD01AI01 = PD01A.getElementsByTagName('ACCOUNT_NO');
+                            newpd01a.querySelector('#PD01AI01').value = getValue(PD01AI01);
+                            var PD01AD01 = PD01A.getElementsByTagName('ACCOUNT_TYPE_CD');
+                            newpd01a.querySelector('#PD01AD01').value = getValue(PD01AD01);
+                            var PD01AD02 = PD01A.getElementsByTagName('BUS_MAN_INS_TYP_CD');
+                            newpd01a.querySelector('#PD01AD02').value = getValue(PD01AD02);
+                            var PD01AI02 = PD01A.getElementsByTagName('BUS_MAN_INS_CD');
+                            newpd01a.querySelector('#PD01AI02').value = getValue(PD01AI02);
+                            var PD01AI03 = PD01A.getElementsByTagName('ACCOUNT_LABEL_DESCR');
+                            newpd01a.querySelector('#PD01AI03').value = getValue(PD01AI03);
+                            var PD01AI04 = PD01A.getElementsByTagName('CREDIT_EXTENSION_AGREEMENT_NO');
+                            newpd01a.querySelector('#PD01AI04').value = getValue(PD01AI04);
+                            var PD01AD03 = PD01A.getElementsByTagName('BUSINESS_SPECIES_CD');
+                            newpd01a.querySelector('#PD01AD03').value = getValue(PD01AD03);
+                            var PD01AR01 = PD01A.getElementsByTagName('OPEN_DDATE_GROP');
+                            newpd01a.querySelector('#PD01AR01').value = getValue(PD01AR01);
+
+                            var PD01AD04 = PD01A.getElementsByTagName('CURRENCY_TYPE_ENCD');
+                            newpd01a.querySelector('#PD01AD04').value = getValue(PD01AD04);
+
+                            var PD01AJ01 = PD01A.getElementsByTagName('LOAN_AMONT');
+                            newpd01a.querySelector('#PD01AJ01').value = getValue(PD01AJ01);
+
+                            var PD01AJ02 = PD01A.getElementsByTagName('ACCOUNT_CREDIT_EXTENSION_LIMT');
+                            newpd01a.querySelector('#PD01AJ02').value = getValue(PD01AJ02);
+
+                            var PD01AJ03 = PD01A.getElementsByTagName('SHARE_CREDIT_EXTENSION_LIMT');
+                            newpd01a.querySelector('#PD01AJ03').value = getValue(PD01AJ03);
+
+                            var PD01AR02 = PD01A.getElementsByTagName('DUE_DDATE_GROP');
+                            newpd01a.querySelector('#PD01AR02').value = getValue(PD01AR02);
+
+                            var PD01AD05 = PD01A.getElementsByTagName('REPAYMENT_WAY_CD');
+                            newpd01a.querySelector('#PD01AD05').value = getValue(PD01AD05);
+
+                            var PD01AD06 = PD01A.getElementsByTagName('REPAYMENT_FREQUENCY_CD');
+                            newpd01a.querySelector('#PD01AD06').value = getValue(PD01AD06);
+
+                            var PD01AS01 = PD01A.getElementsByTagName('REPAYMENT_PERIOD_TIME_CD');
+                            newpd01a.querySelector('#PD01AS01').value = getValue(PD01AS01);
+
+                            var PD01AD07 = PD01A.getElementsByTagName('ENSURE_WAY_CD');
+                            newpd01a.querySelector('#PD01AD07').value = getValue(PD01AD07);
+
+                            var PD01AD08 = PD01A.getElementsByTagName('LOAN_ISSUE_FORM_CD');
+                            newpd01a.querySelector('#PD01AD08').value = getValue(PD01AD08);
+
+                            var PD01AD09 = PD01A.getElementsByTagName('COMMON_LOAN_FLAG_CD');
+
+                            newpd01a.querySelector('#PD01AD09').value = getValue(PD01AD09);
+                            var PD01AD10 = PD01A.getElementsByTagName('CRE_RIG_TRA_REP_STA_CD');
+                            newpd01a.querySelector('#PD01AD10').value = getValue(PD01AD10);
+
+                        }
+
+                        var PD01B = PD01.getElementsByTagName('NEW_EXP');
+                        if (PD01B.length > 0) {
+                            PD01B = PD01B[0];
+                            var newpd01b = newpd01.querySelector('#pd01b');
+                            var PD01BD01 = PD01B.getElementsByTagName('ACCOUNT_STATUS_CD');
+                            newpd01b.querySelector('#PD01BD01').value = getValue(PD01BD01);
+                            var PD01BR01 = PD01B.getElementsByTagName('CLOSE_DDATE_GROP');
+                            newpd01b.querySelector('#PD01BR01').value = getValue(PD01BR01);
+                            var PD01BR04 = PD01B.getElementsByTagName('TRANSFER_OUT_MONTH_GROP');
+                            newpd01b.querySelector('#PD01BR04').value = getValue(PD01BR04);
+                            var PD01BJ01 = PD01B.getElementsByTagName('BALNC');
+                            newpd01b.querySelector('#PD01BJ01').value = getValue(PD01BJ01);
+                            var PD01BR02 = PD01B.getElementsByTagName('LAS_ONE_SEC_REP_DDA_GROP');
+                            newpd01b.querySelector('#PD01BR02').value = getValue(PD01BR02);
+                            var PD01BJ02 = PD01B.getElementsByTagName('LAS_ONE_SEC_REP_AMONT');
+                            newpd01b.querySelector('#PD01BJ02').value = getValue(PD01BJ02);
+                            var PD01BD03 = PD01B.getElementsByTagName('FIVE_LEVEL_CLASSIFY_CD');
+                            newpd01b.querySelector('#PD01BD03').value = getValue(PD01BD03);
+                            var PD01BD04 = PD01B.getElementsByTagName('REPAYMENT_STATUS_CD');
+                            newpd01b.querySelector('#PD01BD04').value = getValue(PD01BD04);
+                            var PD01BR03 = PD01B.getElementsByTagName('INFO_REPORT_DDATE_GROP');
+                            newpd01b.querySelector('#PD01BR03').value = getValue(PD01BR03);
+
+                        }
+
+                        var PD01C = PD01.getElementsByTagName('LSTM_EXP');
+                        if (PD01C.length > 0) {
+                            PD01C = PD01C[0];
+                            var newpd01c = newpd01.querySelector('#pd01c');
+                            var PD01CR01 = PD01C.getElementsByTagName('MONTH_GROP');
+                            newpd01c.querySelector('#PD01CR01').value = getValue(PD01CR01);
+                            var PD01CD01 = PD01C.getElementsByTagName('ACCOUNT_STATUS_CD');
+                            newpd01c.querySelector('#PD01CD01').value = getValue(PD01CD01);
+
+                            var PD01CJ01 = PD01C.getElementsByTagName('BALNC');
+                            newpd01c.querySelector('#PD01CJ01').value = getValue(PD01CJ01);
+
+                            var PD01CJ02 = PD01C.getElementsByTagName('USED_LIMT');
+                            newpd01c.querySelector('#PD01CJ02').value = getValue(PD01CJ02);
+
+                            var PD01CJ03 = PD01C.getElementsByTagName('LAR_AMO_SPE_PER_BALNC');
+                            newpd01c.querySelector('#PD01CJ03').value = getValue(PD01CJ03);
+
+                            var PD01CD02 = PD01C.getElementsByTagName('FIVE_LEVEL_CLASSIFY_CD');
+                            newpd01c.querySelector('#PD01CD02').value = getValue(PD01CD02);
+
+                            var PD01CS01 = PD01C.getElementsByTagName('REM_REP_PER_TIM_NUM');
+                            newpd01c.querySelector('#PD01CS01').value = getValue(PD01CS01);
+
+                            var PD01CR02 = PD01C.getElementsByTagName('SHOULD_REPAYMENT_DAY_GROP');
+                            newpd01c.querySelector('#PD01CR02').value = getValue(PD01CR02);
+
+                            var PD01CJ04 = PD01C.getElementsByTagName('PRE_MON_SHO_REP_AMONT');
+                            newpd01c.querySelector('#PD01CJ04').value = getValue(PD01CJ04);
+
+                            var PD01CJ05 = PD01C.getElementsByTagName('PRE_MON_ACT_REP_AMONT');
+                            newpd01c.querySelector('#PD01CJ05').value = getValue(PD01CJ05);
+
+                            var PD01CR03 = PD01C.getElementsByTagName('LAS_ONE_SEC_REP_DDA_GROP');
+                            newpd01c.querySelector('#PD01CR03').value = getValue(PD01CR03);
+
+                            var PD01CS02 = PD01C.getElementsByTagName('CUR_OVE_PER_TIM_NUM');
+                            newpd01c.querySelector('#PD01CS02').value = getValue(PD01CS02);
+
+                            var PD01CJ06 = PD01C.getElementsByTagName('CUR_OVE_TOT_AMO_AMONT');
+                            newpd01c.querySelector('#PD01CJ06').value = getValue(PD01CJ06);
+
+                            var PD01CJ07 = PD01C.getElementsByTagName('OVERDUE_ONE_UN_RETURN_PRINCPL');
+                            newpd01c.querySelector('#PD01CJ07').value = getValue(PD01CJ07);
+
+                            var PD01CJ08 = PD01C.getElementsByTagName('OVERDUE_TWO_UN_RETURN_PRINCPL');
+                            newpd01c.querySelector('#PD01CJ08').value = getValue(PD01CJ08);
+
+                            var PD01CJ09 = PD01C.getElementsByTagName('OVE_THR_UN_RET_PRINCPL');
+                            newpd01c.querySelector('#PD01CJ09').value = getValue(PD01CJ09);
+
+                            var PD01CJ10 = PD01C.getElementsByTagName('OVE_HAL_YEA_UN_RET_PRINCPL');
+                            newpd01c.querySelector('#PD01CJ10').value = getValue(PD01CJ10);
+
+                            var PD01CJ11 = PD01C.getElementsByTagName('OVE_HAL_YEA_UNP_BALNC');
+                            newpd01c.querySelector('#PD01CJ11').value = getValue(PD01CJ11);
+
+                            var PD01CJ12 = PD01C.getElementsByTagName('NEA_HAL_YEA_AVE_USE_LIMT');
+                            newpd01c.querySelector('#PD01CJ12').value = getValue(PD01CJ12);
+
+                            var PD01CJ13 = PD01C.getElementsByTagName('NEA_HAL_YEA_AVE_OVE_BALNC');
+                            newpd01c.querySelector('#PD01CJ13').value = getValue(PD01CJ13);
+
+                            var PD01CJ14 = PD01C.getElementsByTagName('BIGGEST_USE_LIMT');
+                            newpd01c.querySelector('#PD01CJ14').value = getValue(PD01CJ14);
+
+                            var PD01CJ15 = PD01C.getElementsByTagName('BIGGEST_OVERDRAFT_BALNC');
+                            newpd01c.querySelector('#PD01CJ15').value = getValue(PD01CJ15);
+
+                            var PD01CR04 = PD01C.getElementsByTagName('INFO_REPORT_DDATE_GROP');
+                            newpd01c.querySelector('#PD01CR04').value = getValue(PD01CR04);
+                        }
+                        var PD01D = PD01.getElementsByTagName('NTY_REP_STATUSM');
+                        if (PD01D.length > 0) {
+                            PD01D = PD01D[0];
+                            var newpd01d = newpd01.querySelector('#pd01d');
+                            var PD01DR01 = PD01D.getElementsByTagName('STARTING_YEAR_MONTH_GROP');
+                            newpd01d.querySelector('#PD01DR01').value = getValue(PD01DR01);
+                            var PD01DR02 = PD01D.getElementsByTagName('CUT_OFF_YEAR_MONTH_GROP');
+                            newpd01d.querySelector('#PD01DR02').value = getValue(PD01DR02);
+                            var PD01DHS = PD01D.getElementsByTagName('NTY_REP_STATUSA');
+                            for (let d = 0; d < PD01DHS.length; d++) {
+                                var PD01DH = PD01DHS[d];
+                                var pd01dh = newpd01d.querySelector('#pd01dh');
+                                var newpd01dh = pd01dh.cloneNode(true);
+                                newpd01dh.id = 'pd01dh' + Math.floor(Math.random() * 100);
+                                var PD01DR03 = PD01DH.getElementsByTagName('MONTH_GROP');
+                                newpd01dh.querySelector('#PD01DR03').value = getValue(PD01DR03);
+                                var PD01DD01 = PD01DH.getElementsByTagName('REPAYMENT_STATUS_CD');
+                                newpd01dh.querySelector('#PD01DD01').value = getValue(PD01DD01);
+                                pd01dh.parentNode.appendChild(newpd01dh);
+                            }
+                            if (PD01DHS.length > 0) {
+                                var removepd01dh = newpd01d.querySelector('#pd01dh');;
+                                removepd01dh.parentNode.removeChild(removepd01dh);
+                            }
+                        }
+
+                        var PD01E = PD01.getElementsByTagName('NFY_HIS_EXPM');
+                        if (PD01E.length > 0) {
+                            PD01E = PD01E[0];
+                            var newpd01e = newpd01.querySelector('#pd01e');
+                            var PD01ER01 = PD01E.getElementsByTagName('STARTING_YEAR_MONTH_GROP');
+                            newpd01e.querySelector('#PD01ER01').value = getValue(PD01ER01);
+                            var PD01ER02 = PD01E.getElementsByTagName('CUT_OFF_YEAR_MONTH_GROP');
+                            newpd01e.querySelector('#PD01ER02').value = getValue(PD01ER02);
+                            var PD01ES01 = PD01E.getElementsByTagName('MONTH_NUM');
+                            newpd01e.querySelector('#PD01ES01').value = getValue(PD01ES01);
+                            var PD01EHS = PD01E.getElementsByTagName('NFY_HIS_EXPA');
+                            for (let e = 0; e < PD01EHS.length; e++) {
+                                var PD01EH = PD01EHS[e];
+                                var pd01eh = newpd01e.querySelector('#pd01eh');
+                                var newpd01eh = pd01eh.cloneNode(true);
+                                newpd01eh.id = 'pd01eh' + Math.floor(Math.random() * 100);
+                                var PD01ER03 = PD01EH.getElementsByTagName('MONTH_GROP');
+                                newpd01eh.querySelector('#PD01ER03').value = getValue(PD01ER03);
+                                var PD01ED01 = PD01EH.getElementsByTagName('REPAYMENT_STATUS_CD');
+                                newpd01eh.querySelector('#PD01ED01').value = getValue(PD01ED01);
+                                var PD01EJ01 = PD01EH.getElementsByTagName('OVERDUE_TOTAL_AMOUNT_AMONT');
+                                newpd01eh.querySelector('#PD01EJ01').value = getValue(PD01EJ01);
+                                pd01eh.parentNode.appendChild(newpd01eh);
+                            }
+                            if (PD01EHS.length > 0) {
+                                var pd01ehdetails = newpd01e.querySelector('#pd01eh');
+                                pd01ehdetails.parentNode.removeChild(pd01ehdetails);;
+
+                            }
+                        }
+
+
+                        var PD01F = PD01.getElementsByTagName('SPE_BUS_MAIN');
+                        if (PD01F.length > 0) {
+                            PD01F = PD01F[0];
+                            var newpd01f = newpd01.querySelector('#pd01f');
+                            var PD01FS01 = PD01F.getElementsByTagName('SPECIAL_TRADE_NUM');
+                            newpd01f.querySelector('#PD01FS01').value = getValue(PD01FS01);
+                            var PD01FHS = PD01F.getElementsByTagName('SPE_BUS_ATT');
+                            for (let f = 0; f < PD01FHS.length; f++) {
+                                var PD01FH = PD01FHS[f];
+                                var pd01fh = newpd01f.querySelector('#pd01fh');
+                                var newpd01fh = pd01fh.cloneNode(true);
+                                newpd01fh.id = 'pd01fh' + Math.floor(Math.random() * 100);
+                                var PD01FD01 = PD01FH.getElementsByTagName('SPECIAL_TRADE_TYPE_CD');
+                                newpd01fh.querySelector('#PD01FD01').value = getValue(PD01FD01);
+                                var PD01FR01 = PD01FH.getElementsByTagName('SPE_TRA_HAP_DDA_GROP');
+                                newpd01fh.querySelector('#PD01FR01').value = getValue(PD01FR01);
+                                var PD01FS02 = PD01FH.getElementsByTagName('DUE_DDATE_CHANGE_MONTH_NUM');
+                                newpd01fh.querySelector('#PD01FS02').value = getValue(PD01FS02);
+                                var PD01FJ01 = PD01FH.getElementsByTagName('SPECIAL_TRADE_HAPPEN_AMONT');
+                                newpd01fh.querySelector('#PD01FJ01').value = getValue(PD01FJ01);
+                                var PD01FQ01 = PD01FH.getElementsByTagName('SPE_TRA_DET_NOT_INFO');
+                                newpd01fh.querySelector('#PD01FQ01').value = getValue(PD01FQ01);
+                                pd01fh.parentNode.appendChild(newpd01fh);
+                            }
+                            if (PD01FHS.length > 0) {
+                                var pd01fhdetails = newpd01f.querySelector('#pd01fh');
+                                pd01fhdetails.parentNode.removeChild(pd01fhdetails);
+                            }
+                        }
+
+                        var PD01G = PD01.getElementsByTagName('SPE_EVE_EPNM');
+                        if (PD01G.length > 0) {
+                            PD01G = PD01G[0];
+                            var newpd01g = newpd01.querySelector('#pd01g');
+                            var PD01GS01 = PD01G.getElementsByTagName('SPECIAL_EVENT_INSTRUCTNS_NUM');
+                            newpd01g.querySelector('#PD01GS01').value = getValue(PD01GS01);
+                            var PD01GHS = PD01G.getElementsByTagName('SPE_EVE_EPNA');
+                            for (let g = 0; g < PD01GHS.length; g++) {
+                                var PD01GH = PD01GHS[g];
+                                var pd01gh = newpd01g.querySelector('#pd01gh');
+                                var newpd01gh = pd01gh.cloneNode(true);
+                                newpd01gh.id = 'pd01gh' + Math.floor(Math.random() * 100);
+                                var PD01GR01 = PD01GH.getElementsByTagName('SPE_EVE_HAP_MON_GROP');
+                                newpd01gh.querySelector('#PD01GR01').value = getValue(PD01GR01);
+                                var PD01GD01 = PD01GH.getElementsByTagName('SPECIAL_EVENT_TYPE_CD');
+                                newpd01gh.querySelector('#PD01GD01').value = getValue(PD01GD01);
+                                pd01gh.parentNode.appendChild(newpd01gh);
+                            }
+                            if (PD01GHS.length > 0) {
+                                var pd01ghdetails = newpd01g.querySelector('#pd01gh');
+                                pd01ghdetails.parentNode.removeChild(pd01ghdetails);
+                            }
+                        }
+
+                        var PD01H = PD01.getElementsByTagName('BIG_SPE_STGM');
+                        if (PD01H.length > 0) {
+                            PD01H = PD01H[0];
+                            var newpd01h = newpd01.querySelector('#pd01h');
+                            var PD01HS01 = PD01H.getElementsByTagName('LAR_AMO_SPE_PER_NUM');
+                            newpd01h.querySelector('#PD01HS01').value = getValue(PD01HS01);
+                            var PD01HHS = PD01H.getElementsByTagName('BIG_SPE_STGA');
+                            for (let h = 0; h < PD01HHS.length; h++) {
+                                var PD01HH = PD01HHS[h];
+                                var pd01hh = newpd01h.querySelector('#pd01hh');
+                                var newpd01hh = pd01hh.cloneNode(true);
+                                newpd01hh.id = 'pd01hh' + Math.floor(Math.random() * 100);
+                                var PD01HJ01 = PD01HH.getElementsByTagName('LAR_AMO_SPE_PER_LIMT');
+                                newpd01hh.querySelector('#PD01HJ01').value = getValue(PD01HJ01);
+                                var PD01HR01 = PD01HH.getElementsByTagName('PER_LIM_TAK_EFF_DDA_GROP');
+                                newpd01hh.querySelector('#PD01HR01').value = getValue(PD01HR01);
+                                var PD01HR02 = PD01HH.getElementsByTagName('PER_LIM_DUE_DDA_GROP');
+                                newpd01hh.querySelector('#PD01HR02').value = getValue(PD01HR02);
+                                var PD01HJ02 = PD01HH.getElementsByTagName('USED_PERIODIZATION_AMONT');
+                                newpd01hh.querySelector('#PD01HJ02').value = getValue(PD01HJ02);
+
+                                pd01hh.parentNode.appendChild(newpd01hh);
+                            }
+                            if (PD01HHS.length > 0) {
+                                var pd01hhdetails = newpd01h.querySelector('#pd01hh');
+                                pd01hhdetails.parentNode.removeChild(pd01hhdetails);
+                            }
+                        }
+
+                        var PD01Z = PD01.getElementsByTagName('PCIU_SIS_MAIN');
+                        if (PD01Z.length > 0) {
+                            PD01Z = PD01Z[0];
+                            var newpd01z = newpd01.querySelector('#pd01z');
+                            var PD01ZS01 = PD01Z.getElementsByTagName('LABEL_STATE_NUM');
+                            newpd01z.querySelector('#PD01ZS01').value = getValue(PD01ZS01);
+
+                            var PD01ZHS = PD01Z.getElementsByTagName('PCIU_SIS_ATT');
+                            for (let z = 0; z < PD01ZHS.length; z++) {
+                                var PD01ZH = PD01ZHS[z];
+                                var pd01zh = newpd01z.querySelector('#pd01zh');
+                                var newpd01zh = pd01zh.cloneNode(true);
+                                newpd01zh.id = 'pd01zh' + Math.floor(Math.random() * 100);
+                                var PD01ZD01 = PD01ZH.getElementsByTagName('LABEL_STATE_TYPE_CD');
+                                newpd01zh.querySelector('#PD01ZD01').value = getValue(PD01ZD01);
+                                var PD01ZQ01 = PD01ZH.getElementsByTagName('LABEL_OR_STATE_CONTENT');
+                                newpd01zh.querySelector('#PD01ZQ01').value = getValue(PD01ZQ01);
+                                var PD01ZR01 = PD01ZH.getElementsByTagName('INCREASE_DDATE_GROP');
+                                newpd01zh.querySelector('#PD01ZR01').value = getValue(PD01ZR01);
+                                pd01zh.parentNode.appendChild(newpd01zh);
+                            }
+                            if (PD01ZHS.length > 0) {
+                                var pd01zhdetails = newpd01z.querySelector('#pd01zh');
+                                pd01zhdetails.parentNode.removeChild(pd01zhdetails);
+                            }
+                        }
+                        pd01.parentNode.appendChild(newpd01);
+                    }
+                    if (PD01S.length > 0) {
+                        var pd01details = document.getElementById('pd01');
+                        pd01details.parentNode.removeChild(pd01details);
+                    }
+                }
+                // PCA
+                var PCA = xmlDoc.getElementsByTagName('PCA');
+                if (PCA.length > 0) {
+                    PCA = PCA[0];
+                    var PD02S = xmlDoc.getElementsByTagName('P_CRE_EXT_AGR');
+                    for (let i = 0; i < PD02S.length; i++) {
+                        var PD02 = PD02S[i];
+                        var pd02 = document.getElementById('pd02');
+                        var newpd02 = pd02.cloneNode(true);
+                        newpd02.id = 'pd02' + Math.floor(Math.random() * 100);
+                        var PD02A = PD02.getElementsByTagName('CRE_PRO_BAS');
+                        if (PD02A.length > 0) {
+                            PD02A = PD02A[0];
+                            var newpd02a = newpd02.querySelector('#pd02a');
+                            var PD02AI01 = PD02A.getElementsByTagName('CREDIT_EXTENSION_AGREEMENT_NO');
+                            newpd02a.querySelector('#PD02AI01').value = getValue(PD02AI01);
+                            var PD02AD01 = PD02A.getElementsByTagName('BUS_MAN_INS_TYP_CD');
+                            newpd02a.querySelector('#PD02AD01').value = getValue(PD02AD01);
+                            var PD02AI02 = PD02A.getElementsByTagName('BUS_MAN_INS_CD');
+                            newpd02a.querySelector('#PD02AI02').value = getValue(PD02AI02);
+                            var PD02AI03 = PD02A.getElementsByTagName('CRE_EXT_AGR_LAB_DESCR');
+                            newpd02a.querySelector('#PD02AI03').value = getValue(PD02AI03);
+                            var PD02AD02 = PD02A.getElementsByTagName('CREDIT_EXTENSION_LIMT_PURPOSE');
+                            newpd02a.querySelector('#PD02AD02').value = getValue(PD02AD02);
+                            var PD02AJ01 = PD02A.getElementsByTagName('CREDIT_EXTENSION_LIMT');
+                            newpd02a.querySelector('#PD02AJ01').value = getValue(PD02AJ01);
+                            var PD02AD03 = PD02A.getElementsByTagName('CURRENCY_TYPE_CD');
+                            newpd02a.querySelector('#PD02AD03').value = getValue(PD02AD03);
+                            var PD02AR01 = PD02A.getElementsByTagName('TAKE_EFFECT_DDATE_GROP');
+                            newpd02a.querySelector('#PD02AR01').value = getValue(PD02AR01);
+                            var PD02AR02 = PD02A.getElementsByTagName('DUE_DDATE_GROP');
+                            newpd02a.querySelector('#PD02AR02').value = getValue(PD02AR02);
+                            var PD02AD04 = PD02A.getElementsByTagName('CRE_EXT_AGR_STA_CD');
+                            newpd02a.querySelector('#PD02AD04').value = getValue(PD02AD04);
+                            var PD02AJ04 = PD02A.getElementsByTagName('USED_LIMT');
+                            newpd02a.querySelector('#PD02AJ04').value = getValue(PD02AJ04);
+                            var PD02AJ03 = PD02A.getElementsByTagName('CREDIT_EXTENSION_LIMT_AMONT');
+                            newpd02a.querySelector('#PD02AJ03').value = getValue(PD02AJ03);
+                            var PD02AI04 = PD02A.getElementsByTagName('CRE_EXT_LIM_NO_DESCR');
+                            newpd02a.querySelector('#PD02AI04').value = getValue(PD02AI04);
+                        }
+                        var PD02Z = PD02.getElementsByTagName('CPIU_SIS_MAIN');
+                        if (PD02Z.length > 0) {
+                            PD02Z = PD02Z[0];
+                            var newpd02z = newpd02.querySelector('#pd02z');
+                            var PD02ZS01 = PD02Z.getElementsByTagName('LABEL_STATE_NUM');
+                            newpd02z.querySelector('#PD02ZS01').value = getValue(PD02ZS01);
+                            var PD02ZHS = PD02Z.getElementsByTagName('CPIU_SIS_ATT');
+                            for (let z = 0; z < PD02ZHS.length; z++) {
+                                var PD02ZH = PD02ZHS[z];
+                                var pd02zh = newpd02z.querySelector('#pd02zh');
+                                var newpd02zh = pd02zh.cloneNode(true);
+                                newpd02zh.id = 'pd02zh' + Math.floor(Math.random() * 100);
+                                var PD02ZD01 = PD02ZH.getElementsByTagName('LABEL_STATE_TYPE_CD');
+                                newpd02zh.querySelector('#PD02ZD01').value = getValue(PD02ZD01);
+                                var PD02ZQ01 = PD02ZH.getElementsByTagName('LABEL_OR_STATE_CONTENT');
+                                newpd02zh.querySelector('#PD02ZQ01').value = getValue(PD02ZQ01);
+                                var PD02ZR01 = PD02ZH.getElementsByTagName('INCREASE_DDATE_GROP');
+                                newpd02zh.querySelector('#PD02ZR01').value = getValue(PD02ZR01);
+                                pd02zh.parentNode.appendChild(newpd02zh);
+                            }
+                            if (PD02ZHS.length > 0) {
+                                var pd02zhdetails = newpd02z.querySelector('#pd02zh');
+                                pd02zhdetails.parentNode.removeChild(pd02zhdetails);
+                            }
+                        }
+                        pd02.parentNode.appendChild(newpd02);
+                    }
+                    if (PD02S.length > 0) {
+                        var pd02details = document.getElementById('pd02');
+                        pd02details.parentNode.removeChild(pd02details);
+                    }
+                }
+                // PCR
+                var PCR = xmlDoc.getElementsByTagName('PCR');
+                if (PCR.length > 0) {
+                    PCR = PCR[0];
+                    var PD03S = xmlDoc.getElementsByTagName('P_REL_REP_RES');
+                    for (let i = 0; i < PD03S.length; i++) {
+                        var PD03 = PD03S[i];
+                        var pd03 = document.getElementById('pd03');
+                        var newpd03 = pd03.cloneNode(true);
+                        newpd03.id = 'pd03' + Math.floor(Math.random() * 100);
+                        var PD03A = PD03.getElementsByTagName('RELREPAY_DUTY');
+                        if (PD03A.length > 0) {
+                            PD03A = PD03A[0];
+                            var newpd03a = newpd03.querySelector('#pd03a');
+                            var PD03AD08 = PD03A.getElementsByTagName('MAI_LEN_IDE_CAT_CD');
+                            newpd03a.querySelector('#PD03AD08').value = getValue(PD03AD08);
+                            var PD03AD01 = PD03A.getElementsByTagName('BUS_MAN_INS_TYP_CD');
+                            newpd03a.querySelector('#PD03AD01').value = getValue(PD03AD01);
+                            var PD03AQ01 = PD03A.getElementsByTagName('BUS_MAN_INS_CD');
+                            newpd03a.querySelector('#PD03AQ01').value = getValue(PD03AQ01);
+                            var PD03AD02 = PD03A.getElementsByTagName('BUSINESS_SPECIES_CD');
+                            newpd03a.querySelector('#PD03AD02').value = getValue(PD03AD02);
+                            var PD03AR01 = PD03A.getElementsByTagName('OPEN_DDATE_GROP');
+                            newpd03a.querySelector('#PD03AR01').value = getValue(PD03AR01);
+                            var PD03AR02 = PD03A.getElementsByTagName('DUE_DDATE_GROP');
+                            newpd03a.querySelector('#PD03AR02').value = getValue(PD03AR02);
+                            var PD03AD03 = PD03A.getElementsByTagName('REL_REP_RES_PER_TYP_CD');
+                            newpd03a.querySelector('#PD03AD03').value = getValue(PD03AD03);
+                            var PD03AQ02 = PD03A.getElementsByTagName('GUARANT_CONTRACT_NO_INFO');
+                            newpd03a.querySelector('#PD03AQ02').value = getValue(PD03AQ02);
+                            var PD03AJ01 = PD03A.getElementsByTagName('REL_REP_RES_AMONT');
+                            newpd03a.querySelector('#PD03AJ01').value = getValue(PD03AJ01);
+                            var PD03AD04 = PD03A.getElementsByTagName('CURRENCY_TYPE_CD');
+                            newpd03a.querySelector('#PD03AD04').value = getValue(PD03AD04);
+                            var PD03AJ02 = PD03A.getElementsByTagName('BALNC');
+                            newpd03a.querySelector('#PD03AJ02').value = getValue(PD03AJ02);
+                            var PD03AD05 = PD03A.getElementsByTagName('FIVE_LEVEL_CLASSIFY_CD');
+                            newpd03a.querySelector('#PD03AD05').value = getValue(PD03AD05);
+                            var PD03AD06 = PD03A.getElementsByTagName('ACCOUNT_TYPE_CD');
+                            newpd03a.querySelector('#PD03AD06').value = getValue(PD03AD06);
+                            var PD03AD07 = PD03A.getElementsByTagName('REPAYMENT_STATUS_CD');
+                            newpd03a.querySelector('#PD03AD07').value = getValue(PD03AD07);
+                            var PD03AS01 = PD03A.getElementsByTagName('OVERDUE_MONTH_GROP');
+                            newpd03a.querySelector('#PD03AS01').value = getValue(PD03AS01);
+                            var PD03AR03 = PD03A.getElementsByTagName('INFO_REPORT_DDATE_GROP');
+                            newpd03a.querySelector('#PD03AR03').value = getValue(PD03AR03);
+                        }
+                        var PD03Z = PD03.getElementsByTagName('RDIU_SIS_MAIN');
+                        if (PD03Z.length > 0) {
+                            PD03Z = PD03Z[0];
+                            var newpd03z = newpd03.querySelector('#pd03z');
+                            var PD03ZS01 = PD03Z.getElementsByTagName('LABEL_STATE_NUM');
+                            newpd03z.querySelector('#PD03ZS01').value = getValue(PD03ZS01);
+                            var PD03ZH = PD03Z.getElementsByTagName('RDIU_SIS_ATT');
+                            for (let z = 0; z < PD03ZH.length; z++) {
+                                var PD03ZHS = PD03ZH[z];
+                                var pd03zh = newpd03z.querySelector('#pd03zh');
+                                var newpd03zh = pd03zh.cloneNode(true);
+                                newpd03zh.id = 'pd03zh' + Math.floor(Math.random() * 100);
+                                var PD03ZD01 = PD03ZHS.getElementsByTagName('LABEL_STATE_TYPE_CD');
+                                newpd03zh.querySelector('#PD03ZD01').value = getValue(PD03ZD01);
+                                var PD03ZQ01 = PD03ZHS.getElementsByTagName('LABEL_OR_STATE_CONTENT');
+                                newpd03zh.querySelector('#PD03ZQ01').value = getValue(PD03ZQ01);
+                                var PD03ZR01 = PD03ZHS.getElementsByTagName('INCREASE_DDATE_GROP');
+                                newpd03zh.querySelector('#PD03ZR01').value = getValue(PD03ZR01);
+                                pd03zh.parentNode.appendChild(newpd03zh);
+                            }
+                            if (PD03ZH.length > 0) {
+                                var pd03zhdetails = newpd03z.querySelector('#pd03zh');
+                                pd03zhdetails.parentNode.removeChild(pd03zhdetails);
+                            }
+                        }
+                        pd03.parentNode.appendChild(newpd03);
+                    }
+                    if (PD03S.length > 0) {
+                        var pd03details = document.getElementById('pd03');
+                        pd03details.parentNode.removeChild(pd03details);
+                    }
+                }
+                // PND
+                var PND = xmlDoc.getElementsByTagName('PND');
+                if (PND.length > 0) {
+                    PND = PND[0];
+                    var PE01S = xmlDoc.getElementsByTagName('P_PAY_FEE_BUSI');
+                    for (let i = 0; i < PE01S.length; i++) {
+                        var PE01 = PE01S[i];
+                        var pe01 = document.getElementById('pe01');
+                        var newpe01 = pe01.cloneNode(true);
+                        newpe01.id = 'pe01' + Math.floor(Math.random() * 100);
+                        var PE01A = PE01.getElementsByTagName('AFTPAY_BUS');
+                        if (PE01A.length > 0) {
+                            PE01A = PE01A[0];
+                            var newpe01a = newpe01.querySelector('#pe01a');
+                            var PE01AD01 = PE01A.getElementsByTagName('AFTER_PAY_FEE_ACCOUNT_TYPE_CD');
+                            newpe01a.querySelector('#PE01AD01').value = getValue(PE01AD01);
+                            var PE01AQ01 = PE01A.getElementsByTagName('ORG_NM');
+                            newpe01a.querySelector('#PE01AQ01').value = getValue(PE01AQ01);
+                            var PE01AD02 = PE01A.getElementsByTagName('BUSINESS_TYPE_CD');
+                            newpe01a.querySelector('#PE01AD02').value = getValue(PE01AD02);
+                            var PE01AR01 = PE01A.getElementsByTagName('BUSINESS_OPEN_DDATE_GROP');
+                            newpe01a.querySelector('#PE01AR01').value = getValue(PE01AR01);
+                            var PE01AD03 = PE01A.getElementsByTagName('CURRENT_PAYMENT_STATUS_CD');
+                            newpe01a.querySelector('#PE01AD03').value = getValue(PE01AD03);
+                            var PE01AJ01 = PE01A.getElementsByTagName('CURRENT_DEBT_AMONT');
+                            newpe01a.querySelector('#PE01AJ01').value = getValue(PE01AJ01);
+                            var PE01AR02 = PE01A.getElementsByTagName('KEEP_ACCOUNTS_YEAR_MONTH_GROP');
+                            newpe01a.querySelector('#PE01AR02').value = getValue(PE01AR02);
+                            var PE01AQ02 = PE01A.getElementsByTagName('NEA_PAY_NOT_CD');
+                            newpe01a.querySelector('#PE01AQ02').value = getValue(PE01AQ02);
+                        }
+                        var PE01Z = PE01.getElementsByTagName('AFIU_SIS_MAIN');
+                        if (PE01Z.length > 0) {
+                            PE01Z = PE01Z[0];
+                            var newpe01z = newpe01.querySelector('#pe01z');
+                            var PE01ZS01 = PE01Z.getElementsByTagName('LABEL_STATE_NUM');
+                            newpe01z.querySelector('#PE01ZS01').value = getValue(PE01ZS01);
+                            var PE01ZHS = PE01Z.getElementsByTagName('LABEL_STATE_TYPE_CD');
+                            for (let z = 0; z < PE01ZHS.length; z++) {
+                                var PE01ZH = PE01ZHS[z];
+                                var pe01zh = newpe01z.querySelector('#pe01zh');
+                                var newpe01zh = pe01zh.cloneNode(true);
+                                newpe01zh.id = 'pe01zh' + Math.floor(Math.random() * 100);
+                                var PE01ZQ01 = PE01ZH.getElementsByTagName('LABEL_OR_STATE_CONTENT');
+                                newpe01zh.querySelector('#PE01ZQ01').value = getValue(PE01ZQ01);
+                                var PE01ZR01 = PE01ZH.getElementsByTagName('INCREASE_DDATE_GROP');
+                                newpe01zh.querySelector('#PE01ZR01').value = getValue(PE01ZR01);
+                                pe01zh.parentNode.appendChild(newpe01zh);
+                            }
+                            if (PE01ZHS.length > 0) {
+                                var pe01zhdetails = newpe01z.querySelector('#pe01zh');
+                                pe01zhdetails.parentNode.removeChild(pe01zhdetails);
+                            }
+                        }
+                        pe01.parentNode.appendChild(newpe01);
+                    }
+                    if (PE01S.length > 0) {
+                        var pe01details = document.getElementById('pe01');
+                        pe01details.parentNode.removeChild(pe01details);
+                    }
+                }
+                // POT
+                var POT = xmlDoc.getElementsByTagName('POT');
+                if (POT.length > 0) {
+                    POT = POT[0];
+                    var PF01S = xmlDoc.getElementsByTagName('P_TAXES_NOTES');
+                    for (let i = 0; i < PF01S.length; i++) {
+                        var PF01 = PF01S[i];
+                        var pf01 = document.getElementById('pf01');
+                        var newpf01 = pf01.cloneNode(true);
+                        newpf01.id = 'pf01' + Math.floor(Math.random() * 100);
+                        var PF01A = PF01.getElementsByTagName('MISSTAX_RED');
+                        if (PF01A.length > 0) {
+                            PF01A = PF01A[0];
+                            var newpf01a = newpf01.querySelector('#pf01a');
+                            var PF01AQ01 = PF01A.getElementsByTagName('ADM_TAX_ORG_INFO');
+                            newpf01a.querySelector('#PF01AQ01').value = getValue(PF01AQ01);
+                            var PF01AJ01 = PF01A.getElementsByTagName('OWING_TAXES_TOTAL_AMOUNT_AMONT');
+                            newpf01a.querySelector('#PF01AJ01').value = getValue(PF01AJ01);
+                            var PF01AR01 = PF01A.getElementsByTagName('OWI_TAX_STA_DDA_GROP');
+                            newpf01a.querySelector('#PF01AR01').value = getValue(PF01AR01);
+                        }
+                        var PF01Z = PF01.getElementsByTagName('MTIU_SIS_MAIN');
+                        if (PF01Z.length > 0) {
+                            PF01Z = PF01Z[0];
+                            var newpf01z = newpf01.querySelector('#pf01z');
+                            var PF01ZS01 = PF01Z.getElementsByTagName('LABEL_STATE_NUM');
+                            newpf01z.querySelector('#PF01ZS01').value = getValue(PF01ZS01);
+                            var PF01ZH = PF01Z.getElementsByTagName('MTIU_SIS_ATT');
+                            for (let z = 0; z < PF01ZH.length; z++) {
+                                var PF01ZHS = PF01ZH[z];
+                                var pf01zh = newpf01z.querySelector('#pf01zh');
+                                var newpf01zh = pf01zh.cloneNode(true);
+                                newpf01zh.id = 'pf01zh' + Math.floor(Math.random() * 100);
+                                var PF01ZD01 = PF01ZHS.getElementsByTagName('LABEL_STATE_TYPE_CD');
+                                newpf01zh.querySelector('#PF01ZD01').value = getValue(PF01ZD01);
+                                var PF01ZQ01 = PF01ZHS.getElementsByTagName('LABEL_OR_STATE_CONTENT');
+                                newpf01zh.querySelector('#PF01ZQ01').value = getValue(PF01ZQ01);
+                                var PF01ZR01 = PF01ZHS.getElementsByTagName('INCREASE_DDATE_GROP');
+                                newpf01zh.querySelector('#PF01ZR01').value = getValue(PF01ZR01);
+                                pf01zh.parentNode.appendChild(newpf01zh);
+                            }
+                            if (PF01ZH.length > 0) {
+                                var pf01zhdetails = newpf01z.querySelector('#pf01zh');
+                                pf01zhdetails.parentNode.removeChild(pf01zhdetails);
+                            }
+                        }
+                        pf01.parentNode.appendChild(newpf01);
+                    }
+                    if (PF01S.length > 0) {
+                        var pf01details = document.getElementById('pf01');
+                        pf01details.parentNode.removeChild(pf01details);
+                    }
+                }
+                // PCJ
+                var PCJ = xmlDoc.getElementsByTagName('PCJ');
+                if (PCJ.length > 0) {
+                    PCJ = PCJ[0];
+                    var PF02S = xmlDoc.getElementsByTagName('P_CIVIL_JUDGMENT');
+                    for (let i = 0; i < PF02S.length; i++) {
+                        var PF02 = PF02S[i];
+                        var pf02 = document.getElementById('pf02');
+                        var newpf02 = pf02.cloneNode(true);
+                        newpf02.id = 'pf02' + Math.floor(Math.random() * 100);
+                        var PF02A = PF02.getElementsByTagName('CIVIL_JUDGE');
+                        if (PF02A.length > 0) {
+                            PF02A = PF02A[0];
+                            var newpf02a = newpf02.querySelector('#pf02a');
+                            var PF02AQ01 = PF02A.getElementsByTagName('REGISTER_COURT_OF_JUSTICE_NM');
+                            newpf02a.querySelector('#PF02AQ01').value = getValue(PF02AQ01);
+                            var PF02AQ02 = PF02A.getElementsByTagName('CAUSE_OF_ACTION_DESCR');
+                            newpf02a.querySelector('#PF02AQ02').value = getValue(PF02AQ02);
+                            var PF02AR01 = PF02A.getElementsByTagName('REGISTER_DDATE_GROP');
+                            newpf02a.querySelector('#PF02AR01').value = getValue(PF02AR01);
+                            var PF02AD01 = PF02A.getElementsByTagName('CLOSED_WAY_CD');
+                            newpf02a.querySelector('#PF02AD01').value = getValue(PF02AD01);
+                            var PF02AQ03 = PF02A.getElementsByTagName('JUDGMENT_RESULTS_INFO');
+                            newpf02a.querySelector('#PF02AQ03').value = getValue(PF02AQ03);
+                            var PF02AR02 = PF02A.getElementsByTagName('JUD_TAK_EFF_DDA_GROP');
+                            newpf02a.querySelector('#PF02AR02').value = getValue(PF02AR02);
+                            var PF02AQ04 = PF02A.getElementsByTagName('LAWSUIT_OBJECT_INFO');
+                            newpf02a.querySelector('#PF02AQ04').value = getValue(PF02AQ04);
+                            var PF02AJ01 = PF02A.getElementsByTagName('LAWSUIT_OBJECT_AMONT');
+                            newpf02a.querySelector('#PF02AJ01').value = getValue(PF02AJ01);
+                        }
+                        var PF02Z = PF02.getElementsByTagName('CJIU_SIS_MAIN');
+                        if (PF02Z.length > 0) {
+                            PF02Z = PF02Z[0];
+                            var newpf02z = newpf02.querySelector('#pf02z');
+                            var PF02ZS01 = PF02Z.getElementsByTagName('LABEL_STATE_NUM');
+                            newpf02z.querySelector('#PF02ZS01').value = getValue(PF02ZS01);
+                            var PF02ZH = PF02Z.getElementsByTagName('CJIU_SIS_ATT');
+                            for (let z = 0; z < PF02ZH.length; z++) {
+                                var PF02ZHS = PF02ZH[z];
+                                var pf02zh = newpf02z.querySelector('#pf02zh');
+                                var newpf02zh = pf02zh.cloneNode(true);
+                                newpf02zh.id = 'pf02zh' + Math.floor(Math.random() * 100);
+                                var PF02ZD01 = PF02ZHS.getElementsByTagName('LABEL_STATE_TYPE_CD');
+                                newpf02zh.querySelector('#PF02ZD01').value = getValue(PF02ZD01);
+                                var PF02ZQ01 = PF02ZHS.getElementsByTagName('LABEL_OR_STATE_CONTENT');
+                                newpf02zh.querySelector('#PF02ZQ01').value = getValue(PF02ZQ01);
+                                var PF02ZR01 = PF02ZHS.getElementsByTagName('INCREASE_DDATE_GROP');
+                                newpf02zh.querySelector('#PF02ZR01').value = getValue(PF02ZR01);
+                                pf02zh.parentNode.appendChild(newpf02zh);
+                            }
+                            if (PF02ZH.length > 0) {
+                                var pf02zhdetails = newpf02z.querySelector('#pf02zh');
+                                pf02zhdetails.parentNode.removeChild(pf02zhdetails);
+                            }
+                        }
+                        pf02.parentNode.appendChild(newpf02);
+                    }
+                    if (PF02S.length > 0) {
+                        var pf02details = document.getElementById('pf02');
+                        pf02details.parentNode.removeChild(pf02details);
+                    }
+                }
+                // PCE
+                var PCE = xmlDoc.getElementsByTagName('PCE');
+                if (PCE.length > 0) {
+                    PCE = PCE[0];
+                    var PF03S = xmlDoc.getElementsByTagName('P_MANDATORY_EXECUTE');
+                    for (let i = 0; i < PF03S.length; i++) {
+                        var PF03 = PF03S[i];
+                        var pf03 = document.getElementById('pf03');
+                        var newpf03 = pf03.cloneNode(true);
+                        newpf03.id = 'pf03' + Math.floor(Math.random() * 100);
+                        var PF03A = PF03.getElementsByTagName('FOREXE_RED');
+                        if (PF03A.length > 0) {
+                            PF03A = PF03A[0];
+                            var newpf03a = newpf03.querySelector('#pf03a');
+                            var PF03AQ01 = PF03A.getElementsByTagName('EXECUTE_COURT_OF_JUSTICE_NM');
+                            newpf03a.querySelector('#PF03AQ01').value = getValue(PF03AQ01);
+                            var PF03AQ02 = PF03A.getElementsByTagName('EXECUTE_CAUSE_OF_ACTION_DESCR');
+                            newpf03a.querySelector('#PF03AQ02').value = getValue(PF03AQ02);
+                            var PF03AR01 = PF03A.getElementsByTagName('REGISTER_DDATE_GROP');
+                            newpf03a.querySelector('#PF03AR01').value = getValue(PF03AR01);
+                            var PF03AD01 = PF03A.getElementsByTagName('CLOSED_WAY_CD');
+                            newpf03a.querySelector('#PF03AD01').value = getValue(PF03AD01);
+                            var PF03AQ03 = PF03A.getElementsByTagName('CASES_STATUS_CD');
+                            newpf03a.querySelector('#PF03AQ03').value = getValue(PF03AQ03);
+                            var PF03AR02 = PF03A.getElementsByTagName('CLOSED_DDATE_GROP');
+                            newpf03a.querySelector('#PF03AR02').value = getValue(PF03AR02);
+                            var PF03AQ04 = PF03A.getElementsByTagName('APPLYFOR_EXECUTE_OBJECT_INFO');
+                            newpf03a.querySelector('#PF03AQ04').value = getValue(PF03AQ04);
+                            var PF03AJ01 = PF03A.getElementsByTagName('APPLYFOR_EXECUTE_OBJECT_AMONT');
+                            newpf03a.querySelector('#PF03AJ01').value = getValue(PF03AJ01);
+                            var PF03AQ05 = PF03A.getElementsByTagName('ALREADY_EXECUTE_OBJECT_INFO');
+                            newpf03a.querySelector('#PF03AQ05').value = getValue(PF03AQ05);
+                            var PF03AJ02 = PF03A.getElementsByTagName('ALREADY_EXECUTE_OBJECT_AMONT');
+                            newpf03a.querySelector('#PF03AJ02').value = getValue(PF03AJ02);
+                        }
+                        var PF03Z = PF03.getElementsByTagName('FRIU_SIS_MAIN');
+                        if (PF03Z.length > 0) {
+                            PF03Z = PF03Z[0];
+                            var newpf03z = newpf03.querySelector('#pf03z');
+                            var PF03ZS01 = PF03Z.getElementsByTagName('LABEL_STATE_NUM');
+                            newpf03z.querySelector('#PF03ZS01').value = getValue(PF03ZS01);
+                            var PF03ZH = PF03Z.getElementsByTagName('FRIU_SIS_ATT');
+                            for (let z = 0; z < PF03ZH.length; z++) {
+                                var PF03ZHS = PF03ZH[z];
+                                var pf03zh = newpf03z.querySelector('#pf03zh');
+                                var newpf03zh = pf03zh.cloneNode(true);
+                                newpf03zh.id = 'pf03zh' + Math.floor(Math.random() * 100);
+                                var PF03ZD01 = PF03ZHS.getElementsByTagName('LABEL_STATE_TYPE_CD');
+                                newpf03zh.querySelector('#PF03ZD01').value = getValue(PF03ZD01);
+                                var PF03ZQ01 = PF03ZHS.getElementsByTagName('LABEL_OR_STATE_CONTENT');
+                                newpf03zh.querySelector('#PF03ZQ01').value = getValue(PF03ZQ01);
+                                var PF03ZR01 = PF03ZHS.getElementsByTagName('INCREASE_DDATE_GROP');
+                                newpf03zh.querySelector('#PF03ZR01').value = getValue(PF03ZR01);
+                                pf03zh.parentNode.appendChild(newpf03zh);
+                            }
+                            if (PF03ZH.length > 0) {
+                                var pf03zhdetails = newpf03z.querySelector('#pf03zh');
+                                pf03zhdetails.parentNode.removeChild(pf03zhdetails);
+                            }
+                        }
+                        pf03.parentNode.appendChild(newpf03);
+                    }
+                    if (PF03S.length > 0) {
+                        var pf03details = document.getElementById('pf03');
+                        pf03details.parentNode.removeChild(pf03details);
+                    }
+                }
+                // PAP
+                var PAP = xmlDoc.getElementsByTagName('PAP');
+                if (PAP.length > 0) {
+                    PAP = PAP[0];
+                    var PF04S = xmlDoc.getElementsByTagName('P_ADMINISTRATION_PUNISH');
+                    for (let i = 0; i < PF04S.length; i++) {
+                        var PF04 = PF04S[i];
+                        var pf04 = document.getElementById('pf04');
+                        var newpf04 = pf04.cloneNode(true);
+                        newpf04.id = 'pf04' + Math.floor(Math.random() * 100);
+                        var PF04A = PF04.getElementsByTagName('ADMPUN_RED');
+                        if (PF04A.length > 0) {
+                            PF04A = PF04A[0];
+                            var newpf04a = newpf04.querySelector('#pf04a');
+                            var PF04AQ01 = PF04A.getElementsByTagName('PUNISH_ORG_NM');
+                            newpf04a.querySelector('#PF04AQ01').value = getValue(PF04AQ01);
+                            var PF04AQ02 = PF04A.getElementsByTagName('PUNISH_CONTENT');
+                            newpf04a.querySelector('#PF04AQ02').value = getValue(PF04AQ02);
+                            var PF04AJ01 = PF04A.getElementsByTagName('PUNISH_AMONT');
+                            newpf04a.querySelector('#PF04AJ01').value = getValue(PF04AJ01);
+                            var PF04AR01 = PF04A.getElementsByTagName('PUNISH_TAKE_EFFECT_DDATE_GROP');
+                            newpf04a.querySelector('#PF04AR01').value = getValue(PF04AR01);
+                            var PF04AR02 = PF04A.getElementsByTagName('PUNISH_CUT_OFF_DDATE_GROP');
+                            newpf04a.querySelector('#PF04AR02').value = getValue(PF04AR02);
+                            var PF04AQ03 = PF04A.getElementsByTagName('ADM_REC_RES_DESCR');
+                            newpf04a.querySelector('#PF04AQ03').value = getValue(PF04AQ03);
+                        }
+                        var PF04Z = PF04.getElementsByTagName('ADIU_SIS_MAIN');
+                        if (PF04Z.length > 0) {
+                            PF04Z = PF04Z[0];
+                            var newpf04z = newpf04.querySelector('#pf04z');
+                            var PF04ZS01 = PF04Z.getElementsByTagName('LABEL_STATE_NUM');
+                            newpf04z.querySelector('#PF04ZS01').value = getValue(PF04ZS01);
+                            var PF04ZH = PF04Z.getElementsByTagName('ADIU_SIS_ATT');
+                            for (let z = 0; z < PF04ZH.length; z++) {
+                                var PF04ZHS = PF04ZH[z];
+                                var pf04zh = newpf04z.querySelector('#pf04zh');
+                                var newpf04zh = pf04zh.cloneNode(true);
+                                newpf04zh.id = 'pf04zh' + Math.floor(Math.random() * 100);
+                                var PF04ZD01 = PF04ZHS.getElementsByTagName('LABEL_STATE_TYPE_CD');
+                                newpf04zh.querySelector('#PF04ZD01').value = getValue(PF04ZD01);
+                                var PF04ZQ01 = PF04ZHS.getElementsByTagName('LABEL_OR_STATE_CONTENT');
+                                newpf04zh.querySelector('#PF04ZQ01').value = getValue(PF04ZQ01);
+                                var PF04ZR01 = PF04ZHS.getElementsByTagName('INCREASE_DDATE_GROP');
+                                newpf04zh.querySelector('#PF04ZR01').value = getValue(PF04ZR01);
+                                pf04zh.parentNode.appendChild(newpf04zh);
+                            }
+                            if (PF04ZH.length > 0) {
+                                var pf04zhdetails = newpf04z.querySelector('#pf04zh');
+                                pf04zhdetails.parentNode.removeChild(pf04zhdetails);
+                            }
+                        }
+                        pf04.parentNode.appendChild(newpf04);
+                    }
+                    if (PF04S.length > 0) {
+                        var pf04details = document.getElementById('pf04');
+                        pf04details.parentNode.removeChild(pf04details);
+                    }
+                }
+                // PHF
+                var PHF = xmlDoc.getElementsByTagName('PHF');
+                if (PHF.length > 0) {
+                    PHF = PHF[0];
+                    var PF05S = xmlDoc.getElementsByTagName('P_HOUSE_SURPLUSES');
+                    for (let i = 0; i < PF05S.length; i++) {
+                        var PF05 = PF05S[i];
+                        var pf05 = document.getElementById('pf05');
+                        var newpf05 = pf05.cloneNode(true);
+                        newpf05.id = 'pf05' + Math.floor(Math.random() * 100);
+                        var PF05A = PF05.getElementsByTagName('HOUPAF_PAYRED');
+                        if (PF05A.length > 0) {
+                            PF05A = PF05A[0];
+                            var newpf05a = newpf05.querySelector('#pf05a');
+                            var PF05AQ01 = PF05A.getElementsByTagName('PAY_ADDR');
+                            newpf05a.querySelector('#PF05AQ01').value = getValue(PF05AQ01);
+                            var PF05AR01 = PF05A.getElementsByTagName('PAY_DDATE_GROP');
+                            newpf05a.querySelector('#PF05AR01').value = getValue(PF05AR01);
+                            var PF05AD01 = PF05A.getElementsByTagName('PAYMENT_STATUS_CD');
+                            newpf05a.querySelector('#PF05AD01').value = getValue(PF05AD01);
+                            var PF05AR02 = PF05A.getElementsByTagName('FIRST_TIME_PAY_MONTH_GROP');
+                            newpf05a.querySelector('#PF05AR02').value = getValue(PF05AR02);
+                            var PF05AR03 = PF05A.getElementsByTagName('CUT_OFF_PAY_MONTH_GROP');
+                            newpf05a.querySelector('#PF05AR03').value = getValue(PF05AR03);
+                            var PF05AQ02 = PF05A.getElementsByTagName('UNIT_INDEPOSIT_PROPRTN');
+                            newpf05a.querySelector('#PF05AQ02').value = getValue(PF05AQ02);
+                            var PF05AQ03 = PF05A.getElementsByTagName('PERSONAL_INDEPOSIT_PROPRTN');
+                            newpf05a.querySelector('#PF05AQ03').value = getValue(PF05AQ03);
+                            var PF05AJ01 = PF05A.getElementsByTagName('MONTH_PAY_AMONT');
+                            newpf05a.querySelector('#PF05AJ01').value = getValue(PF05AJ01);
+                            var PF05AQ04 = PF05A.getElementsByTagName('PAYMENT_UNIT_NM');
+                            newpf05a.querySelector('#PF05AQ04').value = getValue(PF05AQ04);
+                            var PF05AR04 = PF05A.getElementsByTagName('INFO_UPDATE_DDATE_GROP');
+                            newpf05a.querySelector('#PF05AR04').value = getValue(PF05AR04);
+                        }
+                        var PF05Z = PF05.getElementsByTagName('HPIU_SIS_MAIN');
+                        if (PF05Z.length > 0) {
+                            PF05Z = PF05Z[0];
+                            var newpf05z = newpf05.querySelector('#pf05z');
+                            var PF05ZS01 = PF05Z.getElementsByTagName('LABEL_STATE_NUM');
+                            newpf05z.querySelector('#PF05ZS01').value = getValue(PF05ZS01);
+                            var PF05ZH = PF05Z.getElementsByTagName('HPIU_SIS_ATT');
+                            for (let z = 0; z < PF05ZH.length; z++) {
+                                var PF05ZHS = PF05ZH[z];
+                                var pf05zh = newpf05z.querySelector('#pf05zh');
+                                var newpf05zh = pf05zh.cloneNode(true);
+                                newpf05zh.id = 'pf05zh' + Math.floor(Math.random() * 100);
+                                var PF05ZD01 = PF05ZHS.getElementsByTagName('LABEL_STATE_TYPE_CD');
+                                newpf05zh.querySelector('#PF05ZD01').value = getValue(PF05ZD01);
+                                var PF05ZQ01 = PF05ZHS.getElementsByTagName('LABEL_OR_STATE_CONTENT');
+                                newpf05zh.querySelector('#PF05ZQ01').value = getValue(PF05ZQ01);
+                                var PF05ZR01 = PF05ZHS.getElementsByTagName('INCREASE_DDATE_GROP');
+                                newpf05zh.querySelector('#PF05ZR01').value = getValue(PF05ZR01);
+                                pf05zh.parentNode.appendChild(newpf05zh);
+                            }
+                            if (PF05ZH.length > 0) {
+                                var pf05zhdetails = newpf05z.querySelector('#pf05zh');
+                                pf05zhdetails.parentNode.removeChild(pf05zhdetails);
+                            }
+                        }
+                        pf05.parentNode.appendChild(newpf05);
+                    }
+                    if (PF02S.length > 0) {
+                        var pf05details = document.getElementById('pf05');
+                        pf05details.parentNode.removeChild(pf05details);
+                    }
+                }
+                // PBS
+                var PBS = xmlDoc.getElementsByTagName('PBS');
+                if (PBS.length > 0) {
+                    var PF06S = xmlDoc.getElementsByTagName('P_BAS_LIV');
+                    for (let i = 0; i < PF06S.length; i++) {
+                        var PF06 = PF06S[i];
+                        var pf06 = document.getElementById('pf06');
+                        var newpf06 = pf06.cloneNode(true);
+                        newpf06.id = 'pf06' + Math.floor(Math.random() * 100);
+                        var PF06A = PF06.getElementsByTagName('BLA_INFO_RED');
+                        if (PF06A.length > 0) {
+                            PF06A = PF06A[0];
+                            var newpf06a = newpf06.querySelector('#pf06a');
+                            var PF06AD01 = PF06A.getElementsByTagName('STAFF_CATEGORY_CD');
+                            newpf06a.querySelector('#PF06AD01').value = getValue(PF06AD01);
+                            var PF06AQ01 = PF06A.getElementsByTagName('ADDR');
+                            newpf06a.querySelector('#PF06AQ01').value = getValue(PF06AQ01);
+                            var PF06AQ02 = PF06A.getElementsByTagName('WORK_UNIT_NI');
+                            newpf06a.querySelector('#PF06AQ02').value = getValue(PF06AQ02);
+                            var PF06AQ03 = PF06A.getElementsByTagName('FAMILY_MONTH_INCOME_AMONT');
+                            newpf06a.querySelector('#PF06AQ03').value = getValue(PF06AQ03);
+                            var PF06AR01 = PF06A.getElementsByTagName('APPLYFOR_DDATE_GROP');
+                            newpf06a.querySelector('#PF06AR01').value = getValue(PF06AR01);
+                            var PF06AR02 = PF06A.getElementsByTagName('APPROVAL_DDATE_GROP');
+                            newpf06a.querySelector('#PF06AR02').value = getValue(PF06AR02);
+                            var PF06AR03 = PF06A.getElementsByTagName('INFO_UPDATE_DDATE_GROP');
+                            newpf06a.querySelector('#PF06AR03').value = getValue(PF06AR03);
+                        }
+                        var PF06Z = PF06.getElementsByTagName('BLIU_SIS_MAIN');
+                        if (PF06Z.length > 0) {
+                            PF06Z = PF06Z[0];
+                            var newpf06z = newpf06.querySelector('#pf06z');
+                            var PF06ZS01 = PF06Z.getElementsByTagName('LABEL_STATE_NUM');
+                            newpf06z.querySelector('#PF06ZS01').value = getValue(PF06ZS01);
+                            var PF06ZH = PF06Z.getElementsByTagName('BLIU_SIS_ATT');
+                            for (let z = 0; z < PF06ZH.length; z++) {
+                                var PF06ZHS = PF06ZH[z];
+                                var pf06zh = newpf06z.querySelector('#pf06zh');
+                                var newpf06zh = pf06zh.cloneNode(true);
+                                newpf06zh.id = 'pf06zh' + Math.floor(Math.random() * 100);
+                                var PF06ZD01 = PF06ZHS.getElementsByTagName('LABEL_STATE_TYPE_CD');
+                                newpf06zh.querySelector('#PF06ZD01').value = getValue(PF06ZD01);
+                                var PF06ZQ01 = PF06ZHS.getElementsByTagName('LABEL_OR_STATE_CONTENT');
+                                newpf06zh.querySelector('#PF06ZQ01').value = getValue(PF06ZQ01);
+                                var PF06ZR01 = PF06ZHS.getElementsByTagName('INCREASE_DDATE_GROP');
+                                newpf06zh.querySelector('#PF06ZR01').value = getValue(PF06ZR01);
+                                pf06zh.parentNode.appendChild(newpf06zh);
+                            }
+                            if (PF06ZH.length > 0) {
+                                var pf06zhdetails = newpf06z.querySelector('#pf06zh');
+                                pf06zhdetails.parentNode.removeChild(pf06zhdetails);
+                            }
+                        }
+                        pf06.parentNode.appendChild(newpf06);
+                    }
+                    if (PF06S.length > 0) {
+                        var pf06details = document.getElementById('pf06');
+                        pf06details.parentNode.removeChild(pf06details);
+                    }
+
+                }
+                // PPQ
+                var PPQ = xmlDoc.getElementsByTagName('PPQ');
+                if (PPQ.length > 0) {
+                    PPQ = PPQ[0];
+                    var PF07S = xmlDoc.getElementsByTagName('P_PRAC_QUALIFICATION');
+                    for (let i = 0; i < PF07S.length; i++) {
+                        var PF07 = PF07S[i];
+                        var pf07 = document.getElementById('pf07');
+                        var newpf07 = pf07.cloneNode(true);
+                        newpf07.id = 'pf07' + Math.floor(Math.random() * 100);
+                        var PF07A = PF07.getElementsByTagName('PRAC_REQ_RED');
+                        if (PF07A.length > 0) {
+                            PF07A = PF07A[0];
+                            var newpf07a = newpf07.querySelector('#pf07a');
+                            var PF07AQ01 = PF07A.getElementsByTagName('PRACTICE_QUALIFICATION_NM');
+                            newpf07a.querySelector('#PF07AQ01').value = getValue(PF07AQ01);
+                            var PF07AQ02 = PF07A.getElementsByTagName('AWARD_INSTITUTION_DESCR');
+                            newpf07a.querySelector('#PF07AQ02').value = getValue(PF07AQ02);
+                            var PF07AD01 = PF07A.getElementsByTagName('LEVEL_CD');
+                            newpf07a.querySelector('#PF07AD01').value = getValue(PF07AD01);
+                            var PF07AD02 = PF07A.getElementsByTagName('INSTITUTION_ADDR');
+                            newpf07a.querySelector('#PF07AD02').value = getValue(PF07AD02);
+                            var PF07AR01 = PF07A.getElementsByTagName('GAIN_YEAR_MONTH_GROP');
+                            newpf07a.querySelector('#PF07AR01').value = getValue(PF07AR01);
+                            var PF07AR02 = PF07A.getElementsByTagName('DU_YEAR_MONTH_GROP');
+                            newpf07a.querySelector('#PF07AR02').value = getValue(PF07AR02);
+                            var PF07AR03 = PF07A.getElementsByTagName('REVOKE_YEAR_MONTH_GROP');
+                            newpf07a.querySelector('#PF07AR03').value = getValue(PF07AR03);
+                        }
+                        var PF07Z = PF07.getElementsByTagName('PRIU_SIS_MAIN');
+                        if (PF07Z.length > 0) {
+                            PF07Z = PF07Z[0];
+                            var newpf07z = newpf07.querySelector('#pf07z');
+                            var PF07ZS01 = PF07Z.getElementsByTagName('LABEL_STATE_NUM');
+                            newpf07z.querySelector('#PF07ZS01').value = getValue(PF07ZS01);
+                            var PF07ZH = PF07Z.getElementsByTagName('PRIU_SIS_ATT');
+                            for (let z = 0; z < PF07ZH.length; z++) {
+                                var PF07ZHS = PF07ZH[z];
+                                var pf07zh = newpf07z.querySelector('#pf07zh');
+                                var newpf07zh = pf07zh.cloneNode(true);
+                                newpf07zh.id = 'pf07zh' + Math.floor(Math.random() * 100);
+                                var PF07ZD01 = PF07ZHS.getElementsByTagName('LABEL_STATE_TYPE_CD');
+                                newpf07zh.querySelector('#PF07ZD01').value = getValue(PF07ZD01);
+                                var PF07ZQ01 = PF07ZHS.getElementsByTagName('LABEL_OR_STATE_CONTENT');
+                                newpf07zh.querySelector('#PF07ZQ01').value = getValue(PF07ZQ01);
+                                var PF07ZR01 = PF07ZHS.getElementsByTagName('INCREASE_DDATE_GROP');
+                                newpf07zh.querySelector('#PF07ZR01').value = getValue(PF07ZR01);
+                                pf07zh.parentNode.appendChild(newpf07zh);
+                            }
+                            if (PF07ZH.length > 0) {
+                                var pf07zhdetails = newpf07z.querySelector('#pf07zh');
+                                pf07zhdetails.parentNode.removeChild(pf07zhdetails);
+                            }
+                        }
+                        pf07.parentNode.appendChild(newpf07);
+                    }
+                    if (PF07S.length > 0) {
+                        var pf07details = document.getElementById('pf07');
+                        pf07details.parentNode.removeChild(pf07details);
+                    }
+                }
+                // PAH
+                var PAH = xmlDoc.getElementsByTagName('PAH');
+                if (PAH.length > 0) {
+                    PAH = PAH[0];
+                    var PF08S = xmlDoc.getElementsByTagName('P_ADMINISTRATION_REWARD');
+                    for (let i = 0; i < PF08S.length; i++) {
+                        var PF08 = PF08S[i];
+                        var pf08 = document.getElementById('pf08');
+                        var newpf08 = pf08.cloneNode(true);
+                        newpf08.id = 'pf08' + Math.floor(Math.random() * 100);
+                        var PF08A = PF08.getElementsByTagName('ADM_REW_RED');
+                        if (PF08A.length > 0) {
+                            PF08A = PF08A[0];
+                            var newpf08a = newpf08.querySelector('#pf08a');
+                            var PF08AQ01 = PF08A.getElementsByTagName('REWARD_INSTITUTION_DESCR');
+                            newpf08a.querySelector('#PF08AQ01').value = getValue(PF08AQ01);
+                            var PF08AQ02 = PF08A.getElementsByTagName('REWARD_CONTENT');
+                            newpf08a.querySelector('#PF08AQ02').value = getValue(PF08AQ02);
+                            var PF08AR01 = PF08A.getElementsByTagName('TAKE_EFFECT_YEAR_MONTH_GROP');
+                            newpf08a.querySelector('#PF08AR01').value = getValue(PF08AR01);
+                            var PF08AR02 = PF08A.getElementsByTagName('CUT_OFF_YEAR_MONTH_GROP');
+                            newpf08a.querySelector('#PF08AR02').value = getValue(PF08AR02);
+                        }
+                        var PF08Z = PF08.getElementsByTagName('ADMIU_SIS_MAIN');
+                        if (PF08Z.length > 0) {
+                            PF08Z = PF08Z[0];
+                            var newpf08z = newpf08.querySelector('#pf08z');
+                            var PF08ZS01 = PF08Z.getElementsByTagName('LABEL_STATE_NUM');
+                            newpf08z.querySelector('#PF08ZS01').value = getValue(PF08ZS01);
+                            var PF08ZH = PF08Z.getElementsByTagName('ADMIU_SIS_ATT');
+                            for (let z = 0; z < PF08ZH.length; z++) {
+                                var PF08ZHS = PF08ZH[z];
+                                var pf08zh = newpf08z.querySelector('#pf08zh');
+                                var newpf08zh = pf08zh.cloneNode(true);
+                                newpf08zh.id = 'pf08zh' + Math.floor(Math.random() * 100);
+                                var PF08ZD01 = PF08ZHS.getElementsByTagName('LABEL_STATE_TYPE_CD');
+                                newpf08zh.querySelector('#PF08ZD01').value = getValue(PF08ZD01);
+                                var PF08ZQ01 = PF08ZHS.getElementsByTagName('LABEL_OR_STATE_CONTENT');
+                                newpf08zh.querySelector('#PF08ZQ01').value = getValue(PF08ZQ01);
+                                var PF08ZR01 = PF08ZHS.getElementsByTagName('INCREASE_DDATE_GROP');
+                                newpf08zh.querySelector('#PF08ZR01').value = getValue(PF08ZR01);
+                                pf08zh.parentNode.appendChild(newpf08zh);
+                            }
+                            if (PF08ZH.length > 0) {
+                                var pf08zhdetails = newpf08z.querySelector('#pf08zh');
+                                pf08zhdetails.parentNode.removeChild(pf08zhdetails);
+                            }
+                        }
+                        pf08.parentNode.appendChild(newpf08);
+                    }
+                    if (PF08S.length > 0) {
+                        var pf08details = document.getElementById('pf08');
+                        pf08details.parentNode.removeChild(pf08details);
+                    }
+                }
+                // POS
+                var POS = xmlDoc.getElementsByTagName('POS');
+                if (POS.length > 0) {
+                    POS = POS[0];
+                    var PG01 = xmlDoc.getElementsByTagName('STATE_INFO_UNITM');
+                    if (PG01.length > 0) {
+                        PG01 = PG01[0];
+                        var PG010D01 = PG01.getElementsByTagName('OBJECT_TYPE_CD');
+                        document.getElementById('PG010D01').value = getValue(PG010D01);
+                        var PG010D02 = PG01.getElementsByTagName('OBJECT_LABEL_CD');
+                        document.getElementById('PG010D02').value = getValue(PG010D02);
+                        var PG010S01 = PG01.getElementsByTagName('LABEL_STATE_TYPE_NUM');
+                        document.getElementById('PG010S01').value = getValue(PG010S01);
+                        var PG010HS = xmlDoc.getElementsByTagName('STATE_INFO_UNITA');
+                        for (let i = 0; i < PG010HS.length; i++) {
+                            var PG010H = PG010HS[i];
+                            var pg010h = document.getElementById('pg010h');
+                            var newpg010h = pg010h.cloneNode(true);
+                            newpg010h.id = 'pg010h' + Math.floor(Math.random() * 100);
+                            var PG010D03 = PG010H.getElementsByTagName('LABEL_STATE_TYPE_CD');
+                            var PG010Q01 = PG010H.getElementsByTagName('LABEL_OR_STATE_CONTENT');
+                            var PG010R01 = PG010H.getElementsByTagName('INCREASE_DDATE_GROP');
+                            newpg010h.getElementsByTagName('input')[0].value = getValue(PG010D03);
+                            newpg010h.getElementsByTagName('input')[1].value = getValue(PG010Q01);
+                            newpg010h.getElementsByTagName('input')[2].value = getValue(PG010R01);
+                            pg010h.parentNode.appendChild(newpg010h);
+                        }
+                        if (PG010HS.length > 0) {
+                            var pg010hdetails = document.getElementById('pg010h');
+                            pg010hdetails.parentNode.removeChild(pg010hdetails);
+                        }
+                    }
+                }
+                // POQ
+                var POQ = xmlDoc.getElementsByTagName('POQ');
+                if (POQ.length > 0) {
+                    POQ = POQ[0];
+                    var PH01S = xmlDoc.getElementsByTagName('INQ_RED');
+                    for (let i = 0; i < PH01S.length; i++) {
+                        var PH01 = PH01S[i];
+                        var ph01 = document.getElementById('ph01');
+                        var newph01 = ph01.cloneNode(true);
+                        newph01.id = 'ph01' + Math.floor(Math.random() * 100);
+                        var PH010R01 = PH01.getElementsByTagName('INQUIRE_DDATE_GROP');
+                        newph01.querySelector('#PH010R01').value = getValue(PH010R01);
+                        var PH010D01 = PH01.getElementsByTagName('INQUIRE_INSTITUTION_TYPE_CD');
+                        newph01.querySelector('#PH010D01').value = getValue(PH010D01);
+                        var PH010Q02 = PH01.getElementsByTagName('INQUIRE_INSTITUTION_CD');
+                        newph01.querySelector('#PH010Q02').value = getValue(PH010Q02);
+                        var PH010Q03 = PH01.getElementsByTagName('INQUIRE_REASON_CD');
+                        newph01.querySelector('#PH010Q03').value = getValue(PH010Q03);
+                        ph01.parentNode.appendChild(newph01);
+                    }
+                    if (PH01S.length > 0) {
+                        var ph01hdetails = document.getElementById('ph01');
+                        ph01hdetails.parentNode.removeChild(ph01hdetails);
+                    }
+
+                }
+
+            };
+            reader.readAsText(file);
+            alert('文件导入成功');
+            document.getElementById('fileInput').value = '';
+        } else {
+            alert('请先选择文件');
+        }
+    }
+
+    function getValue(pent) {
+        if (pent.length > 0) {
+            return pent[0].textContent;
+        }
+        return null;
     }
 
 
